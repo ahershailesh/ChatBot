@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8A40B033211E6BB2005EC648 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A40B032211E6BB2005EC648 /* ImageCacher.swift */; };
+		8A40B035211E7599005EC648 /* AllExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A40B034211E7598005EC648 /* AllExtension.swift */; };
+		8A40B037211E79F4005EC648 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A40B036211E79F4005EC648 /* ColorConstants.swift */; };
+		8A62D0D5211BEEC1001FAF99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D0D4211BEEC1001FAF99 /* AppDelegate.swift */; };
+		8A62D0DC211BEEC5001FAF99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A62D0DB211BEEC5001FAF99 /* Assets.xcassets */; };
+		8A62D0DF211BEEC5001FAF99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A62D0DD211BEEC5001FAF99 /* LaunchScreen.storyboard */; };
+		8A62D0EA211BEEC5001FAF99 /* MerPayAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D0E9211BEEC5001FAF99 /* MerPayAssignmentTests.swift */; };
+		8A774051211F2E95008D48EC /* LocalStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A77404F211F2E95008D48EC /* LocalStorage.xcdatamodeld */; };
+		8A77405A211F31D3008D48EC /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A774059211F31D3008D48EC /* CoreDataStack.swift */; };
+		8AC31D87211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D85211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift */; };
+		8AC31D88211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D86211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift */; };
+		8AF2101A211CC2E400CF1458 /* UserDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21018211CC2E400CF1458 /* UserDetailInfoCell.swift */; };
+		8AF2101B211CC2E400CF1458 /* UserDetailInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF21019211CC2E400CF1458 /* UserDetailInfoCell.xib */; };
+		8AF2101E211CD6A600CF1458 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2101C211CD6A600CF1458 /* LoadingCell.swift */; };
+		8AF2101F211CD6A600CF1458 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF2101D211CD6A600CF1458 /* LoadingCell.xib */; };
+		8AF21022211CDCC500CF1458 /* NoResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21020211CDCC500CF1458 /* NoResultCell.swift */; };
+		8AF21023211CDCC500CF1458 /* NoResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF21021211CDCC500CF1458 /* NoResultCell.xib */; };
+		8AF2102C211CE4BE00CF1458 /* UserListingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21025211CE4BE00CF1458 /* UserListingInteractor.swift */; };
+		8AF2102D211CE4BE00CF1458 /* UserListingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21026211CE4BE00CF1458 /* UserListingRouter.swift */; };
+		8AF2102E211CE4BE00CF1458 /* UserListingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21027211CE4BE00CF1458 /* UserListingController.swift */; };
+		8AF2102F211CE4BE00CF1458 /* UserListingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF21028211CE4BE00CF1458 /* UserListingController.xib */; };
+		8AF21030211CE4BE00CF1458 /* UserListingPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21029211CE4BE00CF1458 /* UserListingPresentor.swift */; };
+		8AF21031211CE4BE00CF1458 /* UserListingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2102A211CE4BE00CF1458 /* UserListingProtocols.swift */; };
+		8AF21032211CE4BE00CF1458 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2102B211CE4BE00CF1458 /* User.swift */; };
+		8AF21034211CE7A100CF1458 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21033211CE7A100CF1458 /* NetworkManager.swift */; };
+		8AF21036211E082900CF1458 /* NetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21035211E082900CF1458 /* NetworkTest.swift */; };
+		8AF21039211E1C6800CF1458 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21038211E1C6800CF1458 /* Constants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8A62D0E6211BEEC5001FAF99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A62D0C9211BEEC1001FAF99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A62D0D0211BEEC1001FAF99;
+			remoteInfo = MerPayAssignment;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8A40B032211E6BB2005EC648 /* ImageCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
+		8A40B034211E7598005EC648 /* AllExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExtension.swift; sourceTree = "<group>"; };
+		8A40B036211E79F4005EC648 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
+		8A62D0D1211BEEC1001FAF99 /* MerPayAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MerPayAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A62D0D4211BEEC1001FAF99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8A62D0DB211BEEC5001FAF99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8A62D0DE211BEEC5001FAF99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8A62D0E0211BEEC5001FAF99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A62D0E5211BEEC5001FAF99 /* MerPayAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MerPayAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A62D0E9211BEEC5001FAF99 /* MerPayAssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerPayAssignmentTests.swift; sourceTree = "<group>"; };
+		8A62D0EB211BEEC5001FAF99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A774050211F2E95008D48EC /* LocalStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalStorage.xcdatamodel; sourceTree = "<group>"; };
+		8A774059211F31D3008D48EC /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		8AC31D85211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8AC31D86211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8AF21018211CC2E400CF1458 /* UserDetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailInfoCell.swift; sourceTree = "<group>"; };
+		8AF21019211CC2E400CF1458 /* UserDetailInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailInfoCell.xib; sourceTree = "<group>"; };
+		8AF2101C211CD6A600CF1458 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		8AF2101D211CD6A600CF1458 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		8AF21020211CDCC500CF1458 /* NoResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultCell.swift; sourceTree = "<group>"; };
+		8AF21021211CDCC500CF1458 /* NoResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoResultCell.xib; sourceTree = "<group>"; };
+		8AF21025211CE4BE00CF1458 /* UserListingInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListingInteractor.swift; sourceTree = "<group>"; };
+		8AF21026211CE4BE00CF1458 /* UserListingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListingRouter.swift; sourceTree = "<group>"; };
+		8AF21027211CE4BE00CF1458 /* UserListingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListingController.swift; sourceTree = "<group>"; };
+		8AF21028211CE4BE00CF1458 /* UserListingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListingController.xib; sourceTree = "<group>"; };
+		8AF21029211CE4BE00CF1458 /* UserListingPresentor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListingPresentor.swift; sourceTree = "<group>"; };
+		8AF2102A211CE4BE00CF1458 /* UserListingProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListingProtocols.swift; sourceTree = "<group>"; };
+		8AF2102B211CE4BE00CF1458 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8AF21033211CE7A100CF1458 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8AF21035211E082900CF1458 /* NetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTest.swift; sourceTree = "<group>"; };
+		8AF21038211E1C6800CF1458 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = MerPayAssignment/Helper/Constants.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8A62D0CE211BEEC1001FAF99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A62D0E2211BEEC5001FAF99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8A62D0C8211BEEC1001FAF99 = {
+			isa = PBXGroup;
+			children = (
+				8A62D0D3211BEEC1001FAF99 /* MerPayAssignment */,
+				8A62D0E8211BEEC5001FAF99 /* MerPayAssignmentTests */,
+				8A62D0D2211BEEC1001FAF99 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8A62D0D2211BEEC1001FAF99 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A62D0D1211BEEC1001FAF99 /* MerPayAssignment.app */,
+				8A62D0E5211BEEC5001FAF99 /* MerPayAssignmentTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8A62D0D3211BEEC1001FAF99 /* MerPayAssignment */ = {
+			isa = PBXGroup;
+			children = (
+				8A774054211F2EDC008D48EC /* Generic */,
+				8A774053211F2EC2008D48EC /* Resources */,
+				8A774052211F2EA1008D48EC /* Helper */,
+				8AF21024211CE4BE00CF1458 /* UserListing */,
+				8A77404F211F2E95008D48EC /* LocalStorage.xcdatamodeld */,
+				8A62D0E0211BEEC5001FAF99 /* Info.plist */,
+				8AC31D85211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift */,
+				8AC31D86211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift */,
+				8A774059211F31D3008D48EC /* CoreDataStack.swift */,
+			);
+			path = MerPayAssignment;
+			sourceTree = "<group>";
+		};
+		8A62D0E8211BEEC5001FAF99 /* MerPayAssignmentTests */ = {
+			isa = PBXGroup;
+			children = (
+				8A62D0E9211BEEC5001FAF99 /* MerPayAssignmentTests.swift */,
+				8AF21035211E082900CF1458 /* NetworkTest.swift */,
+				8A62D0EB211BEEC5001FAF99 /* Info.plist */,
+			);
+			path = MerPayAssignmentTests;
+			sourceTree = "<group>";
+		};
+		8A774052211F2EA1008D48EC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8AF21038211E1C6800CF1458 /* Constants.swift */,
+				8A62D0D4211BEEC1001FAF99 /* AppDelegate.swift */,
+				8A40B036211E79F4005EC648 /* ColorConstants.swift */,
+				8AF21033211CE7A100CF1458 /* NetworkManager.swift */,
+				8A40B032211E6BB2005EC648 /* ImageCacher.swift */,
+				8A40B034211E7598005EC648 /* AllExtension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		8A774053211F2EC2008D48EC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8A62D0DB211BEEC5001FAF99 /* Assets.xcassets */,
+				8A62D0DD211BEEC5001FAF99 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8A774054211F2EDC008D48EC /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				8AF2101C211CD6A600CF1458 /* LoadingCell.swift */,
+				8AF2101D211CD6A600CF1458 /* LoadingCell.xib */,
+				8AF21020211CDCC500CF1458 /* NoResultCell.swift */,
+				8AF21021211CDCC500CF1458 /* NoResultCell.xib */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		8AF21024211CE4BE00CF1458 /* UserListing */ = {
+			isa = PBXGroup;
+			children = (
+				8AF21025211CE4BE00CF1458 /* UserListingInteractor.swift */,
+				8AF21026211CE4BE00CF1458 /* UserListingRouter.swift */,
+				8AF21027211CE4BE00CF1458 /* UserListingController.swift */,
+				8AF21028211CE4BE00CF1458 /* UserListingController.xib */,
+				8AF21029211CE4BE00CF1458 /* UserListingPresentor.swift */,
+				8AF21018211CC2E400CF1458 /* UserDetailInfoCell.swift */,
+				8AF21019211CC2E400CF1458 /* UserDetailInfoCell.xib */,
+				8AF2102A211CE4BE00CF1458 /* UserListingProtocols.swift */,
+				8AF2102B211CE4BE00CF1458 /* User.swift */,
+			);
+			path = UserListing;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8A62D0D0211BEEC1001FAF99 /* MerPayAssignment */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A62D0EE211BEEC5001FAF99 /* Build configuration list for PBXNativeTarget "MerPayAssignment" */;
+			buildPhases = (
+				8A62D0CD211BEEC1001FAF99 /* Sources */,
+				8A62D0CE211BEEC1001FAF99 /* Frameworks */,
+				8A62D0CF211BEEC1001FAF99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MerPayAssignment;
+			productName = MerPayAssignment;
+			productReference = 8A62D0D1211BEEC1001FAF99 /* MerPayAssignment.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8A62D0E4211BEEC5001FAF99 /* MerPayAssignmentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A62D0F1211BEEC5001FAF99 /* Build configuration list for PBXNativeTarget "MerPayAssignmentTests" */;
+			buildPhases = (
+				8A62D0E1211BEEC5001FAF99 /* Sources */,
+				8A62D0E2211BEEC5001FAF99 /* Frameworks */,
+				8A62D0E3211BEEC5001FAF99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A62D0E7211BEEC5001FAF99 /* PBXTargetDependency */,
+			);
+			name = MerPayAssignmentTests;
+			productName = MerPayAssignmentTests;
+			productReference = 8A62D0E5211BEEC5001FAF99 /* MerPayAssignmentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8A62D0C9211BEEC1001FAF99 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Shailesh Aher";
+				TargetAttributes = {
+					8A62D0D0211BEEC1001FAF99 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					8A62D0E4211BEEC5001FAF99 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 8A62D0D0211BEEC1001FAF99;
+					};
+				};
+			};
+			buildConfigurationList = 8A62D0CC211BEEC1001FAF99 /* Build configuration list for PBXProject "MerPayAssignment" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8A62D0C8211BEEC1001FAF99;
+			productRefGroup = 8A62D0D2211BEEC1001FAF99 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8A62D0D0211BEEC1001FAF99 /* MerPayAssignment */,
+				8A62D0E4211BEEC5001FAF99 /* MerPayAssignmentTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8A62D0CF211BEEC1001FAF99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A62D0DF211BEEC5001FAF99 /* LaunchScreen.storyboard in Resources */,
+				8AF2101B211CC2E400CF1458 /* UserDetailInfoCell.xib in Resources */,
+				8AF21023211CDCC500CF1458 /* NoResultCell.xib in Resources */,
+				8AF2102F211CE4BE00CF1458 /* UserListingController.xib in Resources */,
+				8AF2101F211CD6A600CF1458 /* LoadingCell.xib in Resources */,
+				8A62D0DC211BEEC5001FAF99 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A62D0E3211BEEC5001FAF99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8A62D0CD211BEEC1001FAF99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AF21030211CE4BE00CF1458 /* UserListingPresentor.swift in Sources */,
+				8A774051211F2E95008D48EC /* LocalStorage.xcdatamodeld in Sources */,
+				8A40B035211E7599005EC648 /* AllExtension.swift in Sources */,
+				8AF21039211E1C6800CF1458 /* Constants.swift in Sources */,
+				8A40B037211E79F4005EC648 /* ColorConstants.swift in Sources */,
+				8AF2101A211CC2E400CF1458 /* UserDetailInfoCell.swift in Sources */,
+				8AC31D88211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift in Sources */,
+				8AF2101E211CD6A600CF1458 /* LoadingCell.swift in Sources */,
+				8A77405A211F31D3008D48EC /* CoreDataStack.swift in Sources */,
+				8A40B033211E6BB2005EC648 /* ImageCacher.swift in Sources */,
+				8AF2102D211CE4BE00CF1458 /* UserListingRouter.swift in Sources */,
+				8AF21034211CE7A100CF1458 /* NetworkManager.swift in Sources */,
+				8AC31D87211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift in Sources */,
+				8AF2102C211CE4BE00CF1458 /* UserListingInteractor.swift in Sources */,
+				8AF2102E211CE4BE00CF1458 /* UserListingController.swift in Sources */,
+				8AF21022211CDCC500CF1458 /* NoResultCell.swift in Sources */,
+				8AF21031211CE4BE00CF1458 /* UserListingProtocols.swift in Sources */,
+				8AF21032211CE4BE00CF1458 /* User.swift in Sources */,
+				8A62D0D5211BEEC1001FAF99 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A62D0E1211BEEC5001FAF99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AF21036211E082900CF1458 /* NetworkTest.swift in Sources */,
+				8A62D0EA211BEEC5001FAF99 /* MerPayAssignmentTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8A62D0E7211BEEC5001FAF99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A62D0D0211BEEC1001FAF99 /* MerPayAssignment */;
+			targetProxy = 8A62D0E6211BEEC5001FAF99 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8A62D0DD211BEEC5001FAF99 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A62D0DE211BEEC5001FAF99 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8A62D0EC211BEEC5001FAF99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8A62D0ED211BEEC5001FAF99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8A62D0EF211BEEC5001FAF99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YK7R979YZ9;
+				INFOPLIST_FILE = MerPayAssignment/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.merpay.com.MerPayAssignment;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8A62D0F0211BEEC5001FAF99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YK7R979YZ9;
+				INFOPLIST_FILE = MerPayAssignment/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.merpay.com.MerPayAssignment;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8A62D0F2211BEEC5001FAF99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MerPayAssignmentTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.merpay.com.MerPayAssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MerPayAssignment.app/MerPayAssignment";
+			};
+			name = Debug;
+		};
+		8A62D0F3211BEEC5001FAF99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MerPayAssignmentTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.merpay.com.MerPayAssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MerPayAssignment.app/MerPayAssignment";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8A62D0CC211BEEC1001FAF99 /* Build configuration list for PBXProject "MerPayAssignment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A62D0EC211BEEC5001FAF99 /* Debug */,
+				8A62D0ED211BEEC5001FAF99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A62D0EE211BEEC5001FAF99 /* Build configuration list for PBXNativeTarget "MerPayAssignment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A62D0EF211BEEC5001FAF99 /* Debug */,
+				8A62D0F0211BEEC5001FAF99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A62D0F1211BEEC5001FAF99 /* Build configuration list for PBXNativeTarget "MerPayAssignmentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A62D0F2211BEEC5001FAF99 /* Debug */,
+				8A62D0F3211BEEC5001FAF99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8A77404F211F2E95008D48EC /* LocalStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8A774050211F2E95008D48EC /* LocalStorage.xcdatamodel */,
+			);
+			currentVersion = 8A774050211F2E95008D48EC /* LocalStorage.xcdatamodel */;
+			path = LocalStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8A62D0C9211BEEC1001FAF99 /* Project object */;
+}
