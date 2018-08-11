@@ -16,8 +16,8 @@
 		8A62D0EA211BEEC5001FAF99 /* MerPayAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D0E9211BEEC5001FAF99 /* MerPayAssignmentTests.swift */; };
 		8A774051211F2E95008D48EC /* LocalStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A77404F211F2E95008D48EC /* LocalStorage.xcdatamodeld */; };
 		8A77405A211F31D3008D48EC /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A774059211F31D3008D48EC /* CoreDataStack.swift */; };
-		8A774061211F41CF008D48EC /* ProfileData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77405F211F41CF008D48EC /* ProfileData+CoreDataClass.swift */; };
-		8A774062211F41CF008D48EC /* ProfileData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A774060211F41CF008D48EC /* ProfileData+CoreDataProperties.swift */; };
+		8AC31D87211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D85211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift */; };
+		8AC31D88211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D86211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift */; };
 		8AF2101A211CC2E400CF1458 /* UserDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21018211CC2E400CF1458 /* UserDetailInfoCell.swift */; };
 		8AF2101B211CC2E400CF1458 /* UserDetailInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF21019211CC2E400CF1458 /* UserDetailInfoCell.xib */; };
 		8AF2101E211CD6A600CF1458 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2101C211CD6A600CF1458 /* LoadingCell.swift */; };
@@ -60,8 +60,8 @@
 		8A62D0EB211BEEC5001FAF99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A774050211F2E95008D48EC /* LocalStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalStorage.xcdatamodel; sourceTree = "<group>"; };
 		8A774059211F31D3008D48EC /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		8A77405F211F41CF008D48EC /* ProfileData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		8A774060211F41CF008D48EC /* ProfileData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8AC31D85211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8AC31D86211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8AF21018211CC2E400CF1458 /* UserDetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailInfoCell.swift; sourceTree = "<group>"; };
 		8AF21019211CC2E400CF1458 /* UserDetailInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailInfoCell.xib; sourceTree = "<group>"; };
 		8AF2101C211CD6A600CF1458 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
@@ -125,8 +125,8 @@
 				8AF21024211CE4BE00CF1458 /* UserListing */,
 				8A77404F211F2E95008D48EC /* LocalStorage.xcdatamodeld */,
 				8A62D0E0211BEEC5001FAF99 /* Info.plist */,
-				8A77405F211F41CF008D48EC /* ProfileData+CoreDataClass.swift */,
-				8A774060211F41CF008D48EC /* ProfileData+CoreDataProperties.swift */,
+				8AC31D85211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift */,
+				8AC31D86211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift */,
 				8A774059211F31D3008D48EC /* CoreDataStack.swift */,
 			);
 			path = MerPayAssignment;
@@ -301,13 +301,13 @@
 				8AF21039211E1C6800CF1458 /* Constants.swift in Sources */,
 				8A40B037211E79F4005EC648 /* ColorConstants.swift in Sources */,
 				8AF2101A211CC2E400CF1458 /* UserDetailInfoCell.swift in Sources */,
-				8A774062211F41CF008D48EC /* ProfileData+CoreDataProperties.swift in Sources */,
+				8AC31D88211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift in Sources */,
 				8AF2101E211CD6A600CF1458 /* LoadingCell.swift in Sources */,
 				8A77405A211F31D3008D48EC /* CoreDataStack.swift in Sources */,
 				8A40B033211E6BB2005EC648 /* ImageCacher.swift in Sources */,
 				8AF2102D211CE4BE00CF1458 /* UserListingRouter.swift in Sources */,
 				8AF21034211CE7A100CF1458 /* NetworkManager.swift in Sources */,
-				8A774061211F41CF008D48EC /* ProfileData+CoreDataClass.swift in Sources */,
+				8AC31D87211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift in Sources */,
 				8AF2102C211CE4BE00CF1458 /* UserListingInteractor.swift in Sources */,
 				8AF2102E211CE4BE00CF1458 /* UserListingController.swift in Sources */,
 				8AF21022211CDCC500CF1458 /* NoResultCell.swift in Sources */,

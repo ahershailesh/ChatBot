@@ -73,14 +73,16 @@ class ImageCacher : NetworkManager {
     }
     
     private func checkValidity(of profileData: ProfileData, callBack: ResponseCallBack?) {
-        self.getHeaders(from: profileData.url!) { _, response, _ in
-            var success = false
-            if let headers = response as? HTTPURLResponse,
-                let lastModified = headers.allHeaderFields["Last-Modified"] as? String,
-                profileData.lastModified == lastModified {
-                success = true
+        if let url = URL(string: profileData.url!) {
+            getHeaders(from: url) { _, response, _ in
+                var success = false
+                if let headers = response as? HTTPURLResponse,
+                    let lastModified = headers.allHeaderFields["Last-Modified"] as? String,
+                    profileData.lastModified == lastModified {
+                    success = true
+                }
+                callBack?(success, profileData)
             }
-            callBack?(success, profileData)
         }
     }
     
@@ -89,7 +91,7 @@ class ImageCacher : NetworkManager {
         let profile = ProfileData(context: context)
         profile.data = data as NSData?
         profile.lastModified = response?.allHeaderFields["Last-Modified"] as? String
-        profile.url = response?.url
+        profile.url = response?.url?.absoluteString
         CoreDataStack.shared.save()
     }
     

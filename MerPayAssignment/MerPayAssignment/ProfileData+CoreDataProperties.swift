@@ -19,6 +19,6 @@ extension ProfileData {
 
     @NSManaged public var data: NSData?
     @NSManaged public var lastModified: String?
-    @NSManaged public var url: URL?
+    @NSManaged public var url: String?
 
 }
