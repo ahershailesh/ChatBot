@@ -18,6 +18,16 @@ class MessageTableViewCell: UITableViewCell {
     var messageLabel : UILabel?
     var messageView : UIView?
     
+    private var leftContraint : NSLayoutConstraint?
+    private var rightContraint : NSLayoutConstraint?
+    
+    private let CHAT_BUBBLE_WIDTH = UIScreen.main.bounds.width * 0.8
+    var alignment : MessageAlignment = .right {
+        didSet {
+            comstomizeView(for: alignment)
+        }
+    }
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -27,13 +37,11 @@ class MessageTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
-    var alignment : MessageAlignment = .right {
-        didSet {
-            removeConstraints(constraints)
-            addConstraints()
-            comstomizeView(for: alignment)
-        }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        messageLabel?.text = nil
     }
+    
     
     private func setupView() {
         messageLabel = UILabel(frame: .zero)
@@ -42,11 +50,17 @@ class MessageTableViewCell: UITableViewCell {
         messageView?.addSubview(messageLabel!)
         contentView.addSubview(messageView!)
         
-        messageLabel?.text = "You use this method to add cap insets to an image or to change the existing cap insets of an image. In both cases, you get back a new image and the original image remains untouched. For example, you can use this method to create a background image for a button with borders and corners: when the button is resized"
+        messageView?.clipsToBounds = true
+        messageView?.layer.cornerRadius = 8
+        
         messageLabel?.numberOfLines = 0
         messageLabel?.backgroundColor = .clear
+        
+        selectionStyle = .none
+        
         addConstraints()
     }
+    
     
     private func addConstraints() {
         guard let messageView = messageView, let label = messageLabel else {
@@ -56,40 +70,34 @@ class MessageTableViewCell: UITableViewCell {
         messageView.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        var vfl : String
+        //MessageView constraints
+        var contraint = NSLayoutConstraint(item: messageView, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 8)
+        contentView.addConstraint(contraint)
         
-        switch alignment {
-            case .left  :   vfl = "H:|-[view(200)]"
-            case .right :   vfl = "H:[view(200)]-|"
-        }
+        leftContraint = NSLayoutConstraint(item: messageView, attribute: .leading, relatedBy: .equal, toItem: contentView, attribute: .leading, multiplier: 1, constant: 8)
+        contentView.addConstraint(leftContraint!)
+        
+        rightContraint = NSLayoutConstraint(item: messageView, attribute: .trailing, relatedBy: .equal, toItem: contentView, attribute: .trailing, multiplier: 1, constant: -8)
+        
+        contraint = NSLayoutConstraint(item: messageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: CHAT_BUBBLE_WIDTH)
+        contentView.addConstraint(contraint)
+        
+        contraint = NSLayoutConstraint(item: contentView, attribute: .bottom, relatedBy: .equal, toItem: messageView, attribute: .bottom, multiplier: 1, constant: 8)
+        contentView.addConstraint(contraint)
+        
         
         //label contraints
-        var contraint = NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: messageView, attribute: .top, multiplier: 1, constant: 8)
+        contraint = NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: messageView, attribute: .top, multiplier: 1, constant: 8)
         messageView.addConstraint(contraint)
         
         contraint = NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: messageView, attribute: .leading, multiplier: 1, constant: 8)
         messageView.addConstraint(contraint)
         
-        contraint = NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: messageView, attribute: .trailing, multiplier: 1, constant: 8)
+        contraint = NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: messageView, attribute: .trailing, multiplier: 1, constant: -8)
         messageView.addConstraint(contraint)
         
         contraint = NSLayoutConstraint(item: messageView, attribute: .bottom, relatedBy: .equal, toItem: label, attribute: .bottom, multiplier: 1, constant: 8)
         messageView.addConstraint(contraint)
-        
-        //MessageView constraints
-        contraint = NSLayoutConstraint(item: messageView, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 8)
-        contentView.addConstraint(contraint)
-        
-        let attribute : NSLayoutAttribute = alignment == .left ? .leading : .trailing
-        
-        contraint = NSLayoutConstraint(item: messageView, attribute: attribute, relatedBy: .equal, toItem: contentView, attribute: attribute, multiplier: 1, constant: 8)
-        contentView.addConstraint(contraint)
-        
-        contraint = NSLayoutConstraint(item: messageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200)
-        contentView.addConstraint(contraint)
-        
-        contraint = NSLayoutConstraint(item: contentView, attribute: .bottom, relatedBy: .equal, toItem: messageView, attribute: .bottom, multiplier: 1, constant: 8)
-        contentView.addConstraint(contraint)
     }
     
     private func comstomizeView(for alignment: MessageAlignment) {
@@ -100,12 +108,16 @@ class MessageTableViewCell: UITableViewCell {
     }
     
     private func cumstomizeViewForLeftAlignment() {
-        messageView?.backgroundColor = ColorHex.snuff.getColor()
-        messageLabel?.backgroundColor = ColorHex.black.getColor()
+        rightContraint?.isActive = false
+        leftContraint?.isActive = true
+        messageView?.backgroundColor = ColorHex.aliceBlue.getColor()
+        messageLabel?.textColor = ColorHex.black.getColor()
     }
     
     private func cumstomizeViewForRightAlignment() {
-        messageView?.backgroundColor = ColorHex.jaksonsPurple.getColor()
-        messageLabel?.backgroundColor = ColorHex.white.getColor()
+        leftContraint?.isActive = false
+        rightContraint?.isActive = true
+        messageView?.backgroundColor = ColorHex.ebonyBlue.getColor()
+        messageLabel?.textColor = ColorHex.white.getColor()
     }
 }

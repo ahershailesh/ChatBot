@@ -11,4 +11,5 @@ import UIKit
 class MessagesModel: NSObject {
     var date : Date?
     var messages : [Message] = []
+    var user: String?
 }

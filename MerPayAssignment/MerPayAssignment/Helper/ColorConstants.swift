@@ -21,8 +21,8 @@ enum ColorType {
 }
 
 enum ColorHex : String {
-    case white          = "000000"
-    case black          = "FFFFFF"
+    case white          = "FFFFFF"
+    case black          = "000000"
     //RED
     case softRed        = "EC644B"
     case cinnabar       = "F03434"
@@ -44,6 +44,7 @@ enum ColorHex : String {
     case aliceBlue      = "E4F1FE"
     case shakespeare    = "52B3D9"
     case jaksonsPurple  = "1F3A93"
+    case ebonyBlue      = "22313F"
     
     //Green
     case summerGreen    = "91B496"
@@ -89,6 +90,7 @@ enum ColorHex : String {
         case .sherpaBlue     : return .dark
         case .aliceBlue      : return .light
         case .shakespeare    : return .light
+        case .ebonyBlue      : return .light
             
         //Green
         case .summerGreen    : return .dark
