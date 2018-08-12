@@ -16,8 +16,9 @@ enum MessageAlignment {
 class MessageTableViewCell: UITableViewCell {
 
     //MARK:- Private Variables
-    private var messageLabel : UILabel?
-    private var messageView : UIView?
+    private var messageLabel    : UILabel?
+    private var messageView     : UIView?
+    private var timeLabel       : UILabel?
     
     private var leftContraint : NSLayoutConstraint?
     private var rightContraint : NSLayoutConstraint?
@@ -36,6 +37,7 @@ class MessageTableViewCell: UITableViewCell {
             guard let model = messageViewModel else {  return  }
             messageLabel?.text = model.text
             messageType = model.type
+            timeLabel?.text = model.time
         }
     }
     
@@ -59,8 +61,10 @@ class MessageTableViewCell: UITableViewCell {
     private func setupView() {
         messageLabel = UILabel(frame: .zero)
         messageView = UIView(frame: .zero)
+        timeLabel = UILabel(frame: .zero)
         
         messageView?.addSubview(messageLabel!)
+        messageView?.addSubview(timeLabel!)
         contentView.addSubview(messageView!)
         
         messageView?.clipsToBounds = true
@@ -68,7 +72,9 @@ class MessageTableViewCell: UITableViewCell {
         
         messageLabel?.numberOfLines = 0
         messageLabel?.backgroundColor = .clear
+        timeLabel?.textAlignment = .right
         
+        timeLabel?.font = UIFont.italicSystemFont(ofSize: 12)
         selectionStyle = .none
         
         addConstraints()
@@ -76,12 +82,13 @@ class MessageTableViewCell: UITableViewCell {
     
     
     private func addConstraints() {
-        guard let messageView = messageView, let label = messageLabel else {
+        guard let messageView = messageView, let label = messageLabel, let timeLabel = timeLabel else {
             return
         }
         
         messageView.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
+        timeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         //MessageView constraints
         var contraint = NSLayoutConstraint(item: messageView, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 8)
@@ -98,17 +105,35 @@ class MessageTableViewCell: UITableViewCell {
         contraint = NSLayoutConstraint(item: contentView, attribute: .bottom, relatedBy: .equal, toItem: messageView, attribute: .bottom, multiplier: 1, constant: 8)
         contentView.addConstraint(contraint)
         
-        //label contraints
+        //Text label contraints
+            //Top
         contraint = NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: messageView, attribute: .top, multiplier: 1, constant: 8)
         messageView.addConstraint(contraint)
         
+            //leading
         contraint = NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: messageView, attribute: .leading, multiplier: 1, constant: 8)
         messageView.addConstraint(contraint)
         
-        contraint = NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: messageView, attribute: .trailing, multiplier: 1, constant: -8)
+            //trailing
+        contraint = NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: timeLabel, attribute: .leading, multiplier: 1, constant: 4)
         messageView.addConstraint(contraint)
         
-        contraint = NSLayoutConstraint(item: messageView, attribute: .bottom, relatedBy: .equal, toItem: label, attribute: .bottom, multiplier: 1, constant: 8)
+            //bottom
+        contraint = NSLayoutConstraint(item: timeLabel, attribute: .top, relatedBy: .equal, toItem: label, attribute: .bottom, multiplier: 1, constant: 4)
+        messageView.addConstraint(contraint)
+        
+        //Time Label contraints
+        
+        //leading
+        contraint = NSLayoutConstraint(item: timeLabel, attribute: .leading, relatedBy: .equal, toItem: label, attribute: .trailing, multiplier: 1, constant: -4)
+        messageView.addConstraint(contraint)
+        
+        //trailing
+        contraint = NSLayoutConstraint(item: timeLabel, attribute: .trailing, relatedBy: .equal, toItem: messageView, attribute: .trailing, multiplier: 1, constant: -8)
+        messageView.addConstraint(contraint)
+        
+        //bottom
+        contraint = NSLayoutConstraint(item: messageView, attribute: .bottom, relatedBy: .equal, toItem: timeLabel, attribute: .bottom, multiplier: 1, constant: 8)
         messageView.addConstraint(contraint)
     }
     
@@ -124,6 +149,7 @@ class MessageTableViewCell: UITableViewCell {
         leftContraint?.isActive = true
         messageView?.backgroundColor = ColorHex.aliceBlue.getColor()
         messageLabel?.textColor = ColorHex.black.getColor()
+        timeLabel?.textColor = ColorHex.black.getColor()
     }
     
     private func cumstomizeViewForRightAlignment() {
@@ -131,5 +157,6 @@ class MessageTableViewCell: UITableViewCell {
         rightContraint?.isActive = true
         messageView?.backgroundColor = ColorHex.ebonyBlue.getColor()
         messageLabel?.textColor = ColorHex.white.getColor()
+        timeLabel?.textColor = ColorHex.white.getColor()
     }
 }

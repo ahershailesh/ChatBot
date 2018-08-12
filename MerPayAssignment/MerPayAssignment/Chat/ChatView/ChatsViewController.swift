@@ -14,6 +14,9 @@ class ChatsViewController: UIViewController {
     @IBOutlet weak var messageTextView: UITextView?
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint?
     
+    @IBOutlet weak var textViewBackgroundView: UIView?
+    
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint?
     @IBAction func sendButtonTapped(_ sender: Any) {
         messageTextView?.resignFirstResponder()
         if let text = messageTextView?.text, !text.isEmpty {
@@ -22,6 +25,7 @@ class ChatsViewController: UIViewController {
             message.date = Date()
             presentor?.sendMessage(message)
         }
+        self.textViewHeightConstraint?.constant = DEFAULT_TEXTVIEW_HEIGHT
         messageTextView?.text = nil
     }
     
@@ -29,6 +33,8 @@ class ChatsViewController: UIViewController {
     var archieves = [MessageArchieveViewModel]()
     var presentor: ChatsPresentor?
     private let MESSGAE_CELL_ID = "MessageTableViewCell"
+    private let DEFAULT_TEXTVIEW_HEIGHT : CGFloat = 56.0
+    private let MAX_TEXTVIEW_HEIGHT : CGFloat = 100.0
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
@@ -44,6 +50,7 @@ class ChatsViewController: UIViewController {
         setupNavigationView()
         registerCell()
         tableView?.dataSource = self
+        messageTextView?.delegate = self
         setupView()
         registerForKeyboardNotification()
         presentor?.viewLoaded()
@@ -95,6 +102,12 @@ class ChatsViewController: UIViewController {
     private func setupView() {
         messageTextView?.clipsToBounds = true
         messageTextView?.layer.cornerRadius = 8
+        
+        messageTextView?.layer.borderWidth = 1
+        messageTextView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
+        
+        textViewBackgroundView?.layer.borderWidth = 1
+        textViewBackgroundView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
     }
     
     //MARK:- Navigation bar handling
@@ -163,5 +176,20 @@ extension ChatsViewController : ChatsViewProtocol {
             lastRow = archieves[lastSection].messages.count - 1
         }
         return IndexPath(row: lastRow, section: lastSection)
+    }
+}
+
+extension ChatsViewController : UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.1) {
+            if textView.textInputView.frame.height < self.MAX_TEXTVIEW_HEIGHT {
+                self.textViewHeightConstraint?.constant = textView.textInputView.frame.height + 25
+            }
+            self.view.layoutIfNeeded()
+        }
+        
     }
 }

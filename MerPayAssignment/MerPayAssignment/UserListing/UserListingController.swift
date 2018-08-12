@@ -20,6 +20,7 @@ class UserListingController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var searchBar: UITextField?
     @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var headerView: UIView?
     
     //Constants
     private let USER_INFO_CELL_IDENTIFIER = "UserDetailInfoCell"
@@ -55,6 +56,9 @@ class UserListingController: UIViewController {
         tableView?.dataSource = self
         tableView?.delegate = self
         tableView?.separatorStyle = .singleLine
+        
+        headerView?.layer.borderWidth = 1
+        headerView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
         
         loadUsers()
     }

@@ -15,5 +15,5 @@ let URL_STRING = "https://api.github.com"
 let LOGGED_IN_USER = "johndoe"
 
 let DATE_DISPLAY_FORMAT = "yyyy-MM-dd"
-let TIME_DISPLAY_FORMAT = "HH:MM"
+let TIME_DISPLAY_FORMAT = "hh:mm a"
 

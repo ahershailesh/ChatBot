@@ -20,7 +20,6 @@
 		8AC31D88211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D86211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift */; };
 		8AC31D8C211F639D00D76B17 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D8A211F639D00D76B17 /* ChatsViewController.swift */; };
 		8AC31D8D211F639D00D76B17 /* ChatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC31D8B211F639D00D76B17 /* ChatsViewController.xib */; };
-		8AC31D8F211F645100D76B17 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC31D8E211F645100D76B17 /* NavigationView.xib */; };
 		8AC31D91211F659100D76B17 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D90211F659100D76B17 /* NavigationView.swift */; };
 		8AC31D94211F82F100D76B17 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D92211F82F100D76B17 /* MessageTableViewCell.swift */; };
 		8AC31D97211F998A00D76B17 /* MessagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D96211F998A00D76B17 /* MessagesModel.swift */; };
@@ -84,7 +83,6 @@
 		8AC31D86211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8AC31D8A211F639D00D76B17 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		8AC31D8B211F639D00D76B17 /* ChatsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatsViewController.xib; sourceTree = "<group>"; };
-		8AC31D8E211F645100D76B17 /* NavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
 		8AC31D90211F659100D76B17 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		8AC31D92211F82F100D76B17 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		8AC31D96211F998A00D76B17 /* MessagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModel.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 				8AC31D9A21201D8F00D76B17 /* ChatsPresentor.swift */,
 				8AC31D9D21201D9000D76B17 /* ChatsProtocol.swift */,
 				8AC31D9E21201D9000D76B17 /* ChatsRouter.swift */,
-				8AC31D8E211F645100D76B17 /* NavigationView.xib */,
 				8AC31D90211F659100D76B17 /* NavigationView.swift */,
 				8AC31D92211F82F100D76B17 /* MessageTableViewCell.swift */,
 				8AC31D96211F998A00D76B17 /* MessagesModel.swift */,
@@ -360,7 +357,6 @@
 				8AF2101B211CC2E400CF1458 /* UserDetailInfoCell.xib in Resources */,
 				8AF21023211CDCC500CF1458 /* NoResultCell.xib in Resources */,
 				8AF2102F211CE4BE00CF1458 /* UserListingController.xib in Resources */,
-				8AC31D8F211F645100D76B17 /* NavigationView.xib in Resources */,
 				8AF2101F211CD6A600CF1458 /* LoadingCell.xib in Resources */,
 				8AC31D8D211F639D00D76B17 /* ChatsViewController.xib in Resources */,
 				8A62D0DC211BEEC5001FAF99 /* Assets.xcassets in Resources */,

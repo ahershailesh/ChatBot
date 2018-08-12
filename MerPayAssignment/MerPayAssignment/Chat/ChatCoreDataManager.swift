@@ -37,7 +37,7 @@ class ChatCoreDataManager {
         guard let date = message.date, Calendar.current.isDate(currentDate, inSameDayAs: date as Date) else { return nil }
         let messageEntity = MessageEntity(context: CoreDataStack.shared.context)
         messageEntity.text = message.text
-        messageEntity.date = message.date as! NSDate
+        messageEntity.date = message.date! as NSDate
         
         var fromUserName = conversation.fromUser
         var toUserName = conversation.toUser

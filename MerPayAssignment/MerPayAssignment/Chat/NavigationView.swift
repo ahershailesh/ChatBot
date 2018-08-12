@@ -13,7 +13,7 @@ class NavigationView: UIView {
     var titleLabel: UILabel?
     var subTitleLabel: UILabel?
     
-    let widthHeight = 48
+    let widthHeight = 34
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,6 +38,15 @@ class NavigationView: UIView {
         
         profilePicView?.layer.masksToBounds = true
         profilePicView?.layer.cornerRadius = CGFloat(widthHeight / 2)
+        
+        setupLabels()
+    }
+    
+    private func setupLabels() {
+        titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        subTitleLabel?.font = UIFont.systemFont(ofSize: 12)
+        subTitleLabel?.textColor = UIColor.gray
+        subTitleLabel?.text = "Loading..."
     }
     
     var user: User? {
@@ -62,19 +71,19 @@ class NavigationView: UIView {
                                             "title" : titleLabel!,
                                             "subTitle" : subTitleLabel!]
         var constraints : [NSLayoutConstraint]
-        var vfl = "H:|-[pic(\(widthHeight))]-[title]-|"
+        var vfl = "H:|-0-[pic(\(widthHeight))]-[title]-0-|"
         constraints = NSLayoutConstraint.constraints(withVisualFormat: vfl, options: .alignAllTop, metrics:  nil, views: viewDict)
         self.addConstraints(constraints)
         
-        vfl = "H:|-[pic]-[subTitle]-|"
+        vfl = "H:|-0-[pic]-[subTitle]-0-|"
         constraints = NSLayoutConstraint.constraints(withVisualFormat: vfl, options: .alignAllBottom, metrics:  nil, views: viewDict)
         self.addConstraints(constraints)
         
-        vfl = "V:|-[pic(\(widthHeight))]-|"
+        vfl = "V:|-0-[pic(\(widthHeight))]-0-|"
         constraints = NSLayoutConstraint.constraints(withVisualFormat: vfl, options: .alignAllLeading, metrics:  nil, views: viewDict)
         self.addConstraints(constraints)
         
-        vfl = "V:|-[title]-[subTitle]-|"
+        vfl = "V:|-0-[title]-4-[subTitle]-0-|"
         constraints = NSLayoutConstraint.constraints(withVisualFormat: vfl, options: .alignAllLeading, metrics:  nil, views: viewDict)
         self.addConstraints(constraints)
     }

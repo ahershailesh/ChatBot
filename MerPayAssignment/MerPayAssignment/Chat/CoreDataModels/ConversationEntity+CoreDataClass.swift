@@ -23,7 +23,7 @@ public class ConversationEntity: NSManagedObject {
                 _currentArchieve?.messages = NSSet()
                 _currentArchieve?.date = NSDate()
                 _currentArchieve?.user = fromUser
-                messageArchieves = messageArchieves?.adding(_currentArchieve!) as! NSSet
+                messageArchieves = messageArchieves?.adding(_currentArchieve!) as NSSet?
             }
         }
         return _currentArchieve!

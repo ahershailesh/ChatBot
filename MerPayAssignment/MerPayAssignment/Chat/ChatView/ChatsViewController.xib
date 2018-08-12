@@ -14,6 +14,8 @@
                 <outlet property="bottomConstraint" destination="xsY-zT-a7c" id="3RC-pm-Rwv"/>
                 <outlet property="messageTextView" destination="SwD-LN-0bk" id="iaO-J1-VwZ"/>
                 <outlet property="tableView" destination="kFT-m7-REj" id="hK3-Sf-w1K"/>
+                <outlet property="textViewBackgroundView" destination="63L-Ab-osB" id="JmS-aY-GGd"/>
+                <outlet property="textViewHeightConstraint" destination="OOc-ho-aUL" id="hMH-3z-Elz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="aE0-sp-vHc"/>
             </connections>
         </placeholder>
@@ -54,7 +56,7 @@
                             </constraints>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="OOc-ho-aUL"/>
                         <constraint firstItem="jWN-Uk-oFO" firstAttribute="leading" secondItem="63L-Ab-osB" secondAttribute="leading" constant="16" id="v9M-VB-RBF"/>
