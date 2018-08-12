@@ -8,18 +8,26 @@
 
 import UIKit
 
-class ChatControllerViewController: UIViewController {
+class ChatsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var messageTextView: UITextView?
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint?
     
     @IBAction func sendButtonTapped(_ sender: Any) {
         messageTextView?.resignFirstResponder()
+        if let text = messageTextView?.text, !text.isEmpty {
+            let message = Message()
+            message.text = text
+            message.date = Date()
+            presentor?.sendMessage(message)
+        }
+        messageTextView?.text = nil
     }
     
     var user : User?
-    var messages = [MessagesModel]()
+    var archieves = [MessageArchieveViewModel]()
+    var presentor: ChatsPresentor?
     private let MESSGAE_CELL_ID = "MessageTableViewCell"
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -38,6 +46,7 @@ class ChatControllerViewController: UIViewController {
         tableView?.dataSource = self
         setupView()
         registerForKeyboardNotification()
+        presentor?.viewLoaded()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +77,7 @@ class ChatControllerViewController: UIViewController {
         
         let time = info[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
         UIView.animate(withDuration: time) {
-            self.bottomConstraint.constant = keyboardFrame.height
+            self.bottomConstraint?.constant = keyboardFrame.height
             self.view.layoutIfNeeded()
         }
     }
@@ -78,7 +87,7 @@ class ChatControllerViewController: UIViewController {
         let info  = notification.userInfo!
         let time = info[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
         UIView.animate(withDuration: time) {
-            self.bottomConstraint.constant = 0
+            self.bottomConstraint?.constant = 0
             self.view.layoutIfNeeded()
         }
     }
@@ -102,29 +111,38 @@ class ChatControllerViewController: UIViewController {
     }
 }
 
-extension ChatControllerViewController : UITableViewDataSource {
+extension ChatsViewController : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3//messages.count
+        return archieves.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10//messages[section].messages.count
+        return archieves[section].messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MESSGAE_CELL_ID, for: indexPath) as! MessageTableViewCell
-        if indexPath.row % 3 == 0 {
-            cell.alignment = .left
-        } else {
-            cell.alignment = .right
-        }
-         cell.messageLabel?.text = "You use this method to add cap insets to an image or to change the existing cap insets of an image. In both cases, you get back a new image and the original image remains untouched. For example, you can use this method to create a background image for a button with borders and corners: when the button is resized"
+        cell.messageViewModel = archieves[indexPath.section].messages[indexPath.row]
         return cell
     }
 }
 
-extension ChatControllerViewController : UITableViewDelegate {
+extension ChatsViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+}
+
+extension ChatsViewController : ChatsViewProtocol {
+    func show(message: MessageViewModel) {
+        if var archieve = archieves.last {
+            archieve.messages.append(message)
+            tableView?.reloadData()
+        }
+    }
+    
+    func showArchieves(with archieves: [MessageArchieveViewModel]) {
+        self.archieves = archieves
+        tableView?.reloadData()
     }
 }

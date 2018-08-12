@@ -23,11 +23,11 @@ extension UIView {
     }
     
     private func addImageView(for image: UIImage) {
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {
             self.removeAllSubviews()
             let imageView = UIImageView(image: image)
-            imageView.center = center
-            imageView.frame = bounds
+            imageView.center = self.center
+            imageView.frame = self.bounds
             self.addSubview(imageView)
         }
     }
@@ -81,6 +81,20 @@ extension UIColor {
     
     convenience init(colorHex: ColorHex) {
         self.init(hex: colorHex.rawValue)
+    }
+}
+
+extension NSDate {
+    func getDateString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = DATE_DISPLAY_FORMAT
+        return formatter.string(from: self as Date)
+    }
+    
+    func getTimeString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = TIME_DISPLAY_FORMAT
+        return formatter.string(from: self as Date)
     }
 }
 

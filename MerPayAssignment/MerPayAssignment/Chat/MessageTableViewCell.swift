@@ -15,19 +15,31 @@ enum MessageAlignment {
 
 class MessageTableViewCell: UITableViewCell {
 
-    var messageLabel : UILabel?
-    var messageView : UIView?
+    //MARK:- Private Variables
+    private var messageLabel : UILabel?
+    private var messageView : UIView?
     
     private var leftContraint : NSLayoutConstraint?
     private var rightContraint : NSLayoutConstraint?
     
     private let CHAT_BUBBLE_WIDTH = UIScreen.main.bounds.width * 0.8
-    var alignment : MessageAlignment = .right {
+    
+    private var messageType : MessageType = .sent {
         didSet {
-            comstomizeView(for: alignment)
+            comstomizeView(for: messageType)
         }
     }
     
+    //MARK:- Public Variables
+    var messageViewModel : MessageViewModel? {
+        didSet {
+            guard let model = messageViewModel else {  return  }
+            messageLabel?.text = model.text
+            messageType = model.type
+        }
+    }
+    
+    //MARK:- Initialization
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -43,6 +55,7 @@ class MessageTableViewCell: UITableViewCell {
     }
     
     
+    //MARK:- Private methods - setup
     private func setupView() {
         messageLabel = UILabel(frame: .zero)
         messageView = UIView(frame: .zero)
@@ -100,10 +113,10 @@ class MessageTableViewCell: UITableViewCell {
         messageView.addConstraint(contraint)
     }
     
-    private func comstomizeView(for alignment: MessageAlignment) {
-        switch alignment {
-        case .left: cumstomizeViewForLeftAlignment()
-        case .right: cumstomizeViewForRightAlignment()
+    private func comstomizeView(for type: MessageType) {
+        switch type {
+        case .recieved: cumstomizeViewForLeftAlignment()
+        case .sent: cumstomizeViewForRightAlignment()
         }
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserListingRouter : UserListingRouterProtocol {
+class ChatsRouter : UserListingRouterProtocol {
 
     class func getUserListingController() -> UserListingController {
         let controller = UserListingController(nibName: nil, bundle: nil)
@@ -26,18 +26,6 @@ class UserListingRouter : UserListingRouterProtocol {
     func pushChatController(over controller: UINavigationController, for user: User) {
         let chatController = ChatsViewController(nibName: nil, bundle: nil)
         chatController.user = user
-        let chatBot = ChatBot(user: user)
-        let interactor = ChatsInteractor(networkHandler: chatBot, user: user)
-        let presentor = ChatsPresentor()
-        let router = ChatsRouter()
-        
-        chatController.presentor = presentor
-        presentor.interactor = interactor
-        presentor.view = chatController
-        presentor.router = router
-        interactor.presentor = presentor
-        
-        chatController.presentor = presentor
         controller.pushViewController(chatController, animated: true)
     }
 }

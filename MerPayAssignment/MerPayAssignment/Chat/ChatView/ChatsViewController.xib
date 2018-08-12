@@ -9,12 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatControllerViewController" customModule="MerPayAssignment" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatsViewController" customModule="MerPayAssignment" customModuleProvider="target">
             <connections>
-                <outlet property="bottomConstraint" destination="xsY-zT-a7c" id="eBv-Uf-Zm1"/>
-                <outlet property="messageTextView" destination="SwD-LN-0bk" id="HiD-iK-mbf"/>
-                <outlet property="tableView" destination="kFT-m7-REj" id="lUS-5c-X9G"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="L0J-kT-9rC"/>
+                <outlet property="bottomConstraint" destination="xsY-zT-a7c" id="3RC-pm-Rwv"/>
+                <outlet property="messageTextView" destination="SwD-LN-0bk" id="iaO-J1-VwZ"/>
+                <outlet property="tableView" destination="kFT-m7-REj" id="hK3-Sf-w1K"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="aE0-sp-vHc"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

@@ -46,7 +46,7 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
     }
 }
 
-extension UserListingInteractor : NetworkProtocol {
+extension UserListingInteractor : NetworkInputProtocol {
     @objc func getUrl() -> String {
         return URL_STRING
     }

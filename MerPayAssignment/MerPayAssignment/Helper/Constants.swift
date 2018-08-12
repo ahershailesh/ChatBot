@@ -12,4 +12,8 @@ typealias CompletionBlock = ((_ success: Bool, _ response: [AnyObject], _ error:
 typealias ResponseCallBack = ((_ success: Bool, _ response: Any?) -> Void)
 
 let URL_STRING = "https://api.github.com"
+let LOGGED_IN_USER = "johndoe"
+
+let DATE_DISPLAY_FORMAT = "yyyy-MM-dd"
+let TIME_DISPLAY_FORMAT = "HH:MM"
 

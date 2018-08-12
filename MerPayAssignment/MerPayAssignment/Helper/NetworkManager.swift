@@ -8,12 +8,20 @@
 
 import UIKit
 
-@objc protocol NetworkProtocol {
+@objc protocol NetworkInputProtocol {
     @objc optional func getUrl() -> String
     @objc optional func compulsoryPathParam() -> [String]
     @objc optional func compulsoryQueryParam() -> [String : String]
     @objc optional func compulsoryHeaders() -> [String : String]
 }
+
+protocol NetworkProtocol {
+    func get(url: String?, pathParam: [String]?, queryParam: [String: String]?, headers: [String: String]?, callBack: NetworkCallBack?)
+    func getData(from url: URL, callBack: @escaping ((Data?, URLResponse?, Error?) -> Void))
+    func getHeaders(from url: URL, callBack: @escaping ((Data?, URLResponse?, Error?) -> Void))
+    func post(url: String?, pathParam: [String]?, queryParam: [String: String]?, headers: [String: String]?, bodyString : String?, callBack: NetworkCallBack?)
+}
+
 
 typealias NetworkCallBack = ((_ success: Bool, _ response: Any?, _ error: Error?) -> Void)
 
@@ -27,9 +35,9 @@ extension URLSession : NetworkSessionProtocol {
     
 }
 
-class NetworkManager {
+class NetworkManager : NetworkProtocol {
     
-    var delegate : NetworkProtocol?
+    var delegate : NetworkInputProtocol?
     private let session : NetworkSessionProtocol
     
     init(session: NetworkSessionProtocol =  URLSession.shared) {

@@ -49,7 +49,7 @@ class ImageCacher : NetworkManager {
         let context = CoreDataStack.shared.context
         let request = NSFetchRequest<ProfileData>(entityName: "ProfileData")
         //get object with the same url.
-        request.predicate = NSPredicate(format: "url MATCHES '%@'", argumentArray: [url])
+        request.predicate = NSPredicate(format: "url = %@", argumentArray: [url])
         var profileData : ProfileData?
         var success = false
         do {
@@ -61,7 +61,7 @@ class ImageCacher : NetworkManager {
         } catch {
             print(error.localizedDescription)
         }
-        callBack?(success, profileData)
+        callBack?(success, profileData?.data)
     }
     
     private func getImageFromAPI(for url: URL, callBack: ResponseCallBack?) {
