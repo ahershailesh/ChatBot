@@ -30,8 +30,8 @@ class UserListingPresentor : UserListingPresentorProtocol {
         interactor?.getUserList()
     }
     
-    func userSelected(_ selectedUser: User) {
-        
+    func userSelected(from controller: UINavigationController, selected selectedUser: User) {
+        router?.pushChatController(over: controller, for: selectedUser)
     }
     
     func getUserList() {

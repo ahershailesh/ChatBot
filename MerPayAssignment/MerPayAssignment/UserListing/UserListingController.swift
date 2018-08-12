@@ -132,7 +132,7 @@ extension UserListingController : UITableViewDataSource {
 extension UserListingController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = userList[indexPath.row]
-        presentor?.userSelected(user)
+        presentor?.userSelected(from: navigationController!, selected: user)
     }
 }
 

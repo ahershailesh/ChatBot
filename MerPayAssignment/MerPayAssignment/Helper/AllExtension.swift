@@ -45,18 +45,6 @@ extension UIView {
         backgroundColor = colorHex.getColor()
     }
     
-    private func addContraints(to label: UILabel) {
-        let viewDict : [String : UIView] = ["self" : self, "label" : label]
-        var constraints : [NSLayoutConstraint]
-        var vfl = "H:|-0-[label]-0-|"
-        constraints = NSLayoutConstraint.constraints(withVisualFormat: vfl, options: .alignAllCenterY, metrics:  nil, views: viewDict)
-        self.addConstraints(constraints)
-        
-        vfl = "V:|-0-[label]-0-|"
-        constraints = NSLayoutConstraint.constraints(withVisualFormat: vfl, options: .alignAllCenterX, metrics:  nil, views: viewDict)
-        self.addConstraints(constraints)
-    }
-    
     private func setActivityInView() {
         let activityView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
         activityView.center = center
@@ -94,6 +82,5 @@ extension UIColor {
     convenience init(colorHex: ColorHex) {
         self.init(hex: colorHex.rawValue)
     }
-
 }
 

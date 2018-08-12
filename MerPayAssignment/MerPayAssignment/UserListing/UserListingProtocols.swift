@@ -16,7 +16,7 @@ protocol UserListingViewProtocol {
 }
 
 protocol UserListingRouterProtocol {
-    func presentChatController(over controller: UIViewController, for user: User)
+    func pushChatController(over controller: UINavigationController, for user: User)
 }
 
 protocol UserListingPresentorProtocol {
@@ -32,7 +32,7 @@ protocol UserListingPresentorProtocol {
     var router : UserListingRouter? { get set }
     
     func viewLoaded()
-    func userSelected(_ selectedUser: User)
+    func userSelected(from controller: UINavigationController, selected selectedUser: User)
     func getUserList()
     func getNextUserList()
     func getSearchedUserList(for searchText: String)
