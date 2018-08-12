@@ -37,7 +37,7 @@ public class ConversationEntity: NSManagedObject {
     }
     
     private func sort(entites : NSSet) -> [MessageArchieveEntity] {
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
         return (entites.sortedArray(using: [sortDescriptor]) as? [MessageArchieveEntity]) ?? []
     }
     

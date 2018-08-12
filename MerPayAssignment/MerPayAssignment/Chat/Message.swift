@@ -11,4 +11,5 @@ import Foundation
 class Message: NSObject {
     var text    :   String?
     var date    :   Date?
+    var type    :   MessageType = .sent
 }

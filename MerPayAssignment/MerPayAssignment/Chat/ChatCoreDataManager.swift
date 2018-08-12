@@ -38,8 +38,16 @@ class ChatCoreDataManager {
         let messageEntity = MessageEntity(context: CoreDataStack.shared.context)
         messageEntity.text = message.text
         messageEntity.date = message.date as! NSDate
-        messageEntity.fromUserName = conversation.fromUser
-        messageEntity.toUserName = conversation.toUser
+        
+        var fromUserName = conversation.fromUser
+        var toUserName = conversation.toUser
+        if message.type == .recieved {
+            fromUserName = conversation.toUser
+            toUserName = conversation.fromUser
+        }
+        messageEntity.fromUserName = fromUserName
+        messageEntity.toUserName = toUserName
+        
         conversation.send(message: messageEntity)
         return messageEntity
     }

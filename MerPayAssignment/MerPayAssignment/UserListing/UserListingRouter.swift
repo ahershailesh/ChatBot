@@ -36,6 +36,7 @@ class UserListingRouter : UserListingRouterProtocol {
         presentor.view = chatController
         presentor.router = router
         interactor.presentor = presentor
+        chatBot.interactor = interactor
         
         chatController.presentor = presentor
         controller.pushViewController(chatController, animated: true)

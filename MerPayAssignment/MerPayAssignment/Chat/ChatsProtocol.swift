@@ -43,6 +43,7 @@ protocol ChatsInteractorProtocol {
     
     func loadMessages()
     func send(message: Message)
+    func saveMessageToLocal(_ message: Message)
 }
 
 protocol ChatsInteractorOutputProtocol {

@@ -23,7 +23,7 @@ public class MessageArchieveEntity: NSManagedObject {
     }
     
     private func sort(entites : NSSet) -> [MessageEntity] {
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
         return (entites.sortedArray(using: [sortDescriptor]) as? [MessageEntity]) ?? []
     }
     

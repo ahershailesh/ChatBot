@@ -15,6 +15,7 @@ protocol ChatBotHandlerProtocol {
 
 class ChatBot: NetworkProtocol {
     private var user: User?
+    var interactor : ChatsInteractorProtocol?
     
     init(user: User) {
         self.user = user
@@ -34,8 +35,20 @@ class ChatBot: NetworkProtocol {
     }
     
     func post(url: String?, pathParam: [String]?, queryParam: [String : String]?, headers: [String : String]?, bodyString: String?, callBack: NetworkCallBack?) {
-        //savedMessage(for: "saher")
         callBack?(true, nil, nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if let string = bodyString {
+                self.sendReply(with:  string + " " + string)
+            }
+        }
+    }
+    
+    private func sendReply(with text: String) {
+        let message = Message()
+        message.text = text
+        message.type = .recieved
+        message.date = Date()
+        interactor?.saveMessageToLocal(message)
     }
 }
 

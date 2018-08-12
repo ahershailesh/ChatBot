@@ -135,14 +135,33 @@ extension ChatsViewController : UITableViewDelegate {
 
 extension ChatsViewController : ChatsViewProtocol {
     func show(message: MessageViewModel) {
-        if var archieve = archieves.last {
+        if let archieve = archieves.last {
             archieve.messages.append(message)
-            tableView?.reloadData()
+            if let indexPath = getLastIndexPath() {
+                tableView?.insertRows(at: [indexPath], with: .bottom)
+                tableView?.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+            }
         }
     }
     
     func showArchieves(with archieves: [MessageArchieveViewModel]) {
         self.archieves = archieves
-        tableView?.reloadData()
+        DispatchQueue.main.async {
+            self.tableView?.reloadData()
+            self.tableView?.selectRow(at: self.getLastIndexPath(), animated: false, scrollPosition: .bottom)
+        }
+    }
+    
+    private func getLastIndexPath() -> IndexPath? {
+        var lastSection = archieves.count - 1
+        var lastRow = archieves[lastSection].messages.count - 1
+        if lastRow < 0 {
+            if lastSection == 0 {
+                return nil
+            }
+            lastSection = lastSection - 1
+            lastRow = archieves[lastSection].messages.count - 1
+        }
+        return IndexPath(row: lastRow, section: lastSection)
     }
 }
