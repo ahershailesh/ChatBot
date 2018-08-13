@@ -9,18 +9,32 @@
 import Foundation
 
 class ChatsInteractor : ChatsInteractorProtocol {
+    
+    //MARK:- Vars
+    //MARK: Public
     var user: User?
     var networkManager : NetworkProtocol?
     var presentor : ChatsPresentor?
+    
+    //MARK: Private
     private var conversation : ConversationEntity?
     private var chatManager = ChatCoreDataManager()
     
-    
+    //MARK:- Init
     init(networkHandler: NetworkProtocol, user: User) {
         self.networkManager = networkHandler
         self.user = user
     }
-     
+    
+    //MARK:- Private functions
+    private func checkIfMessageValid(message: Message) -> Bool {
+        if !(message.text?.isEmpty ?? true) {
+            return true
+        }
+        return false
+    }
+    
+    //MARK:- Public functions
     func send(message: Message) {
         guard checkIfMessageValid(message: message) else { print("Message is not valid"); return }
         //First post the message
@@ -31,8 +45,15 @@ class ChatsInteractor : ChatsInteractorProtocol {
         })
     }
     
+    func getUserDetails(of userName: String) {
+        
+    }
+    
+    /// Save chat to local core data
+    ///
+    /// - Parameter message: Message model data
     func saveMessageToLocal(_ message: Message) {
-        //If post successful, save message to the coredata
+        //If post successful, save message to the core-data
         if let thisConversation = conversation  {
             //If coredata save is successful, load the message in chat View
             if let entity = chatManager.save(message: message, to: thisConversation) {
@@ -41,11 +62,6 @@ class ChatsInteractor : ChatsInteractorProtocol {
         } else {
             presentor?.showError()
         }
-    }
-    
-    private func checkIfMessageValid(message: Message) -> Bool {
-        //TODO: Check Validity of message
-        return true
     }
     
     func showReceived(message: MessageEntity) {

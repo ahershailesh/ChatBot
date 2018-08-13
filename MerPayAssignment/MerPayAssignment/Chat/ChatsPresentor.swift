@@ -15,10 +15,6 @@ class ChatsPresentor : ChatsPresentorProtocol {
     
     var router: ChatsRouter?
     
-    func showMessages(messages: [MessagesModel]) {
-        
-    }
-    
     //from View
     func viewLoaded() {
         interactor?.loadMessages()

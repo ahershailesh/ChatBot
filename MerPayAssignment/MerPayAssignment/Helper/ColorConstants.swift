@@ -44,7 +44,7 @@ enum ColorHex : String {
     case aliceBlue      = "E4F1FE"
     case shakespeare    = "52B3D9"
     case jaksonsPurple  = "1F3A93"
-    case ebonyBlue      = "22313F"
+    case ebonyBlue      = "1971C2"
     
     //Green
     case summerGreen    = "91B496"

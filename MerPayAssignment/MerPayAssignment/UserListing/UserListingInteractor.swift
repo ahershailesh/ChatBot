@@ -9,14 +9,19 @@
 import Foundation
 
 class UserListingInteractor : UserListingInteractorProtocol, UserListingInteractorOutputProtocol {
+    
+    //MARK:- Vars
+    //MARK: Public
     var networkManager : NetworkManager?
     var presentor : UserListingPresentor?
     
+    //MARK:- Init
     init() {
         networkManager = NetworkManager()
         networkManager?.delegate = self
     }
     
+    //MARK:- Public functions
     func getUserList() {
         networkManager?.get(callBack: { [weak self] success, response, error in
             var users = [User]()
@@ -35,6 +40,7 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
         
     }
     
+    //MARK:- Private functions
     private func getUsers(from responseData: Data) -> [User] {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -46,6 +52,7 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
     }
 }
 
+//MARK:- NetworkInputProtocol
 extension UserListingInteractor : NetworkInputProtocol {
     @objc func getUrl() -> String {
         return URL_STRING
