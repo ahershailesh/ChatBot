@@ -120,6 +120,7 @@ extension UserListingController : UITableViewDataSource {
     
     private func getNoDataCell(for tableView: UITableView, and indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NO_DATA_CELL_IDENTIFIER, for: indexPath)
+        tableView.separatorStyle = .none
         return cell
     }
     
@@ -135,8 +136,10 @@ extension UserListingController : UITableViewDataSource {
 //MARK:- UITableViewDelegate
 extension UserListingController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = userList[indexPath.row]
-        presentor?.userSelected(from: navigationController!, selected: user)
+        if !userList.isEmpty {
+            let user = userList[indexPath.row]
+            presentor?.userSelected(from: navigationController!, selected: user)
+        }
     }
 }
 

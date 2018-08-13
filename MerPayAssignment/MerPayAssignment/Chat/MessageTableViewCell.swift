@@ -22,9 +22,6 @@ class MessageTableViewCell: UITableViewCell {
     
     private var leftContraint : NSLayoutConstraint?
     private var rightContraint : NSLayoutConstraint?
-    
-    private let CHAT_BUBBLE_WIDTH = UIScreen.main.bounds.width * 0.8
-    
     private var messageType : MessageType = .sent {
         didSet {
             comstomizeView(for: messageType)
@@ -99,7 +96,7 @@ class MessageTableViewCell: UITableViewCell {
         
         rightContraint = NSLayoutConstraint(item: messageView, attribute: .trailing, relatedBy: .equal, toItem: contentView, attribute: .trailing, multiplier: 1, constant: -8)
         
-        contraint = NSLayoutConstraint(item: messageView, attribute: .width, relatedBy: .lessThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: CHAT_BUBBLE_WIDTH)
+        contraint = NSLayoutConstraint(item: messageView, attribute: .width, relatedBy: .lessThanOrEqual, toItem: contentView, attribute: .width, multiplier: 0.8, constant: 0)
         contentView.addConstraint(contraint)
         
         contraint = NSLayoutConstraint(item: contentView, attribute: .bottom, relatedBy: .equal, toItem: messageView, attribute: .bottom, multiplier: 1, constant: 8)
@@ -123,16 +120,15 @@ class MessageTableViewCell: UITableViewCell {
         messageView.addConstraint(contraint)
         
         //Time Label contraints
-        
-        //leading
+            //leading
         contraint = NSLayoutConstraint(item: timeLabel, attribute: .leading, relatedBy: .equal, toItem: label, attribute: .trailing, multiplier: 1, constant: -4)
         messageView.addConstraint(contraint)
         
-        //trailing
+            //trailing
         contraint = NSLayoutConstraint(item: timeLabel, attribute: .trailing, relatedBy: .equal, toItem: messageView, attribute: .trailing, multiplier: 1, constant: -8)
         messageView.addConstraint(contraint)
         
-        //bottom
+            //bottom
         contraint = NSLayoutConstraint(item: messageView, attribute: .bottom, relatedBy: .equal, toItem: timeLabel, attribute: .bottom, multiplier: 1, constant: 8)
         messageView.addConstraint(contraint)
     }

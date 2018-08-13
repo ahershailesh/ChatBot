@@ -21,13 +21,13 @@ protocol ChatsRouterProtocol {
 }
 
 protocol ChatsPresentorProtocol {
-    //View will talk to presentor with below methods
+    //View will talk to presentor with following commands
     var view : ChatsViewController? { get set }
 
     func viewLoaded()
     func sendMessage(_ message: MessageViewModel)
     
-    //interactor will talk to presentor with below methods
+    //interactor will talk to presentor with following commands
     var interactor: ChatsInteractor? { get set }
     
     func show(conversation: ConversationEntity)

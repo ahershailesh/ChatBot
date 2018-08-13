@@ -177,7 +177,7 @@ class NetworkManager : NetworkProtocol {
     }
     
     private func showError(error : Error?) {
-//        appDelegate.window?.rootViewController?.show(error: error)
+        //appDelegate.window?.rootViewController?.show(error: error)
     }
     
 }

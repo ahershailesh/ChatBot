@@ -10,32 +10,25 @@ import UIKit
 
 class ChatsViewController: UIViewController {
     
+    //MARK:- Vars
+    //IBOutlet
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var messageTextView: UITextView?
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint?
-    
     @IBOutlet weak var textViewBackgroundView: UIView?
-    
     @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint?
-    @IBAction func sendButtonTapped(_ sender: Any) {
-        messageTextView?.resignFirstResponder()
-        if let text = messageTextView?.text, !text.isEmpty {
-            let message = Message()
-            message.text = text
-            message.date = Date()
-            presentor?.sendMessage(message)
-        }
-        self.textViewHeightConstraint?.constant = DEFAULT_TEXTVIEW_HEIGHT
-        messageTextView?.text = nil
-    }
     
+    //Public vars
     var user : User?
     var archieves = [MessageArchieveViewModel]()
     var presentor: ChatsPresentor?
+    
+    //Public COnstants
     private let MESSGAE_CELL_ID = "MessageTableViewCell"
     private let DEFAULT_TEXTVIEW_HEIGHT : CGFloat = 56.0
     private let MAX_TEXTVIEW_HEIGHT : CGFloat = 100.0
     
+    //MARK:- Init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
     }
@@ -44,12 +37,14 @@ class ChatsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    //MARK:- View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         setupNavigationView()
         registerCell()
         tableView?.dataSource = self
+        tableView?.delegate = self
         messageTextView?.delegate = self
         setupView()
         registerForKeyboardNotification()
@@ -66,37 +61,22 @@ class ChatsViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
+    //MARK:- IBAction
+    @IBAction func sendButtonTapped(_ sender: Any) {
+        if let text = messageTextView?.text, !text.isEmpty {
+            let message = Message()
+            message.text = text
+            message.date = Date()
+            presentor?.sendMessage(message)
+        }
+        self.textViewHeightConstraint?.constant = DEFAULT_TEXTVIEW_HEIGHT
+        messageTextView?.text = nil
+    }
+    
+    
+    //MARK:- Private methods
     private func registerCell() {
         tableView?.register(MessageTableViewCell.self, forCellReuseIdentifier: MESSGAE_CELL_ID)
-    }
-    
-    private func registerForKeyboardNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    @objc private func keyboardWillShow(_ notification: Notification) {
-        view.layoutIfNeeded()
-        let info  = notification.userInfo!
-        let frame: AnyObject = info[UIKeyboardFrameEndUserInfoKey]! as AnyObject
-        let rawFrame = frame.cgRectValue ?? .zero
-        let keyboardFrame = view.convert(rawFrame, from: nil)
-        
-        let time = info[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
-        UIView.animate(withDuration: time) {
-            self.bottomConstraint?.constant = keyboardFrame.height
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    @objc private func keyboardWillHide(_ notification: Notification) {
-        view.layoutIfNeeded()
-        let info  = notification.userInfo!
-        let time = info[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
-        UIView.animate(withDuration: time) {
-            self.bottomConstraint?.constant = 0
-            self.view.layoutIfNeeded()
-        }
     }
     
     private func setupView() {
@@ -110,7 +90,38 @@ class ChatsViewController: UIViewController {
         textViewBackgroundView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
     }
     
-    //MARK:- Navigation bar handling
+    private func registerForKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    //MARK: Keyboard handling
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        view.layoutIfNeeded()
+        let info  = notification.userInfo!
+        let frame: AnyObject = info[UIKeyboardFrameEndUserInfoKey]! as AnyObject
+        let rawFrame = frame.cgRectValue ?? .zero
+        let keyboardFrame = view.convert(rawFrame, from: nil)
+        
+        let time = info[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
+        UIView.animate(withDuration: time) {
+            self.bottomConstraint?.constant = keyboardFrame.height
+            self.view.layoutIfNeeded()
+        }
+        tableView?.scrollToNearestSelectedRow(at: .bottom, animated: false)
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        view.layoutIfNeeded()
+        let info  = notification.userInfo!
+        let time = info[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
+        UIView.animate(withDuration: time) {
+            self.bottomConstraint?.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    //MARK: Navigation bar handling
     private func setupNavigationView() {
         if let navigationView = getNavigationView() {
             navigationView.user = user
@@ -124,6 +135,7 @@ class ChatsViewController: UIViewController {
     }
 }
 
+//MARK:- UITableViewDataSource
 extension ChatsViewController : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return archieves.count
@@ -140,12 +152,33 @@ extension ChatsViewController : UITableViewDataSource {
     }
 }
 
+//MARK:- UITableViewDelegate
 extension ChatsViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        messageTextView?.resignFirstResponder()
+    }
 }
 
+//MARK:- UITextViewDelegate
+extension ChatsViewController : UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.1) {
+            if textView.textInputView.frame.height < self.MAX_TEXTVIEW_HEIGHT {
+                self.textViewHeightConstraint?.constant = textView.textInputView.frame.height + 25
+            }
+            self.view.layoutIfNeeded()
+        }
+    }
+}
+
+//MARK:- ChatsViewProtocol
 extension ChatsViewController : ChatsViewProtocol {
     func show(message: MessageViewModel) {
         if let archieve = archieves.last {
@@ -176,20 +209,5 @@ extension ChatsViewController : ChatsViewProtocol {
             lastRow = archieves[lastSection].messages.count - 1
         }
         return IndexPath(row: lastRow, section: lastSection)
-    }
-}
-
-extension ChatsViewController : UITextViewDelegate {
-    
-    func textViewDidChange(_ textView: UITextView) {
-        view.layoutIfNeeded()
-        
-        UIView.animate(withDuration: 0.1) {
-            if textView.textInputView.frame.height < self.MAX_TEXTVIEW_HEIGHT {
-                self.textViewHeightConstraint?.constant = textView.textInputView.frame.height + 25
-            }
-            self.view.layoutIfNeeded()
-        }
-        
     }
 }
