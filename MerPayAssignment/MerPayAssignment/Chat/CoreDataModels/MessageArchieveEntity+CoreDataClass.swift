@@ -16,9 +16,7 @@ public class MessageArchieveEntity: NSManagedObject {
     private var _messagesArray : [MessageEntity]? = nil
     
     var messagesArray : [MessageEntity] {
-        if _messagesArray == nil {
-            _messagesArray = sort(entites: messages!)
-        }
+        _messagesArray = sort(entites: messages!)
         return _messagesArray!
     }
     

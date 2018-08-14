@@ -19,9 +19,11 @@ class UserDetailInfoCell: UITableViewCell {
     var model : UserInfoCellViewModel? = nil {
         didSet {
             userNameLabel?.text = "@" + (model?.userName ?? "")
-            if let link = model?.userProfilePicLink, let url = URL(string: link), let initials = model?.userName?.prefix(2) {
-                profilePicView?.setImage(with: url, or: String(initials))
+            var url : URL?
+            if let link = model?.userProfilePicLink {
+                url = URL(string: link)
             }
+            profilePicView?.setImage(with: url, and: model?.userName ?? "")
             setDetails(text: model?.lastChat ?? "")
         }
     }

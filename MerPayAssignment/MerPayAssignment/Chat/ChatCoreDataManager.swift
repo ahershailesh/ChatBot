@@ -20,6 +20,8 @@ class ChatCoreDataManager {
         let context = CoreDataStack.shared.context
         let conversationRequest = NSFetchRequest<ConversationEntity>(entityName: "ConversationEntity")
         conversationRequest.predicate = NSPredicate(format: "fromUser = %@", argumentArray: [userName])
+        let sortDescriptor = NSSortDescriptor(key: "lastUpdate", ascending: false)
+        conversationRequest.sortDescriptors = [sortDescriptor]
         let objects = try? context.fetch(conversationRequest)
         return objects ?? []
     }

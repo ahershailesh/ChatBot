@@ -57,6 +57,7 @@ public class ConversationEntity: NSManagedObject {
     
     func send(message: MessageEntity) {
         currentArchieve.addToMessages(message)
+        self.lastUpdate = NSDate()
         CoreDataStack.shared.save()
     }
 }

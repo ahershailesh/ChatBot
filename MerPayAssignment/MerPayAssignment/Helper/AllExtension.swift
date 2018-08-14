@@ -10,10 +10,11 @@ import UIKit
 
 extension UIView {
     
-    func setImage(with url: URL, or initials: String) {
+    func setImage(with url: URL?, and userName: String) {
+        let initials = userName.prefix(2)
         set(initials: initials.uppercased())
         let chacher = ImageCacher.shared
-        chacher.get(from: url) { [weak self] success, data in
+        chacher.get(from: url, userName: userName) { [weak self] success, data in
             if success, let thisData = data as? Data {
                 if let image = UIImage(data: thisData) {
                     self?.addImageView(for: image)
@@ -21,7 +22,7 @@ extension UIView {
             }
         }
     }
-    
+
     private func addImageView(for image: UIImage) {
         DispatchQueue.main.async {
             self.removeAllSubviews()
@@ -110,6 +111,16 @@ extension NSDate {
         
         let components = Calendar.current.dateComponents([.weekday], from: self as Date)
         return weekdays[components.weekday! - 1]
+    }
+    
+    func getDateDisplay() -> String {
+        if Calendar.current.isDateInToday(self as Date) {
+            return (self as NSDate).getTimeString()
+        }
+        if Calendar.current.isDateInWeekend(self as Date) {
+            return (self as NSDate).dayOfTheWeek()
+        }
+        return getDateString()
     }
 }
 

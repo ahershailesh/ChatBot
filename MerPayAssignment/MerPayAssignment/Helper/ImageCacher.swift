@@ -19,19 +19,24 @@ class ImageCacher : NetworkManager {
     }
     
     
-    func get(from url: URL, callBack: ResponseCallBack?) {
+    func get(from url: URL?, userName: String, callBack: ResponseCallBack?) {
         queue.sync {
+            guard let url = url else {
+                getImage(for: userName, callBack: callBack)
+                return
+            }
+            
             //First fetch cache
             self.getImageFromCache(for: url) { [weak self] success, response in
                 if !success {
                     //If not found in cache, fetch from server
-                    self?.getImageFromAPI(for: url, callBack: callBack)
+                    self?.getImageFromAPI(for: url, userName: userName, callBack: callBack)
                 } else if let profileData = response as? ProfileData {
                     //If found in cache, check for validity.
                     self?.checkValidity(of: profileData) { success, response in
                         if !success {
                             //if not valid, fetch image from server.
-                            self?.getImageFromAPI(for: url, callBack: callBack)
+                            self?.getImageFromAPI(for: url, userName: userName, callBack: callBack)
                         } else {
                             //if valid return fetched image.
                             callBack?(success, response)
@@ -43,6 +48,25 @@ class ImageCacher : NetworkManager {
                 }
             }
         }
+    }
+    
+    private func getImage(for userName: String, callBack: ResponseCallBack?) {
+        let context = CoreDataStack.shared.context
+        let request = NSFetchRequest<ProfileData>(entityName: "ProfileData")
+        //get object with the same url.
+        request.predicate = NSPredicate(format: "userName = %@", argumentArray: [userName])
+        var profileData : ProfileData?
+        var success = false
+        do {
+            let objects = try context.fetch(request)
+            if !objects.isEmpty {
+                profileData = objects.first
+                success = true
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        callBack?(success, profileData?.data)
     }
     
     private func getImageFromCache(for url: URL, callBack: ResponseCallBack?) {
@@ -64,11 +88,11 @@ class ImageCacher : NetworkManager {
         callBack?(success, profileData?.data)
     }
     
-    private func getImageFromAPI(for url: URL, callBack: ResponseCallBack?) {
+    private func getImageFromAPI(for url: URL, userName: String, callBack: ResponseCallBack?) {
         getData(from: url) { [weak self] data, response, error in
             let success = error == nil
             callBack?(success, data)
-            self?.saveProfile(data: data, response: response as? HTTPURLResponse)
+            self?.saveProfile(data: data, userName: userName, response: response as? HTTPURLResponse)
         }
     }
     
@@ -86,12 +110,13 @@ class ImageCacher : NetworkManager {
         }
     }
     
-    private func saveProfile(data: Data?, response: HTTPURLResponse?) {
+    private func saveProfile(data: Data?, userName: String, response: HTTPURLResponse?) {
         let context = CoreDataStack.shared.context
         let profile = ProfileData(context: context)
         profile.data = data as NSData?
         profile.lastModified = response?.allHeaderFields["Last-Modified"] as? String
         profile.url = response?.url?.absoluteString
+        profile.userName = userName
         CoreDataStack.shared.save()
     }
     

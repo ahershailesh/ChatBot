@@ -21,9 +21,11 @@ class NavigationView: UIView {
     var model : HeaderViewModel? {
         didSet {
             titleLabel?.text = "@" + (model?.titleText ?? "")
-            if let string = model?.profilePicLink, let url = URL(string: string), let initials = model?.titleText?.prefix(2) {
-                profilePicView?.setImage(with: url, or: String(initials))
+            var url : URL?
+            if let string = model?.profilePicLink {
+                url = URL(string: string)
             }
+            profilePicView?.setImage(with: url, and: model?.titleText ?? "")
             subTitleLabel?.text = model?.subTitleText
         }
     }

@@ -59,8 +59,6 @@ class UserListingController: UIViewController {
         
         headerView?.layer.borderWidth = 1
         headerView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
-        
-        loadUsers()
     }
     
     func loadUsers() {
@@ -78,6 +76,10 @@ class UserListingController: UIViewController {
         loadUsers()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadUsers()
+    }
 }
 
 //MARK:- UITableViewDataSource

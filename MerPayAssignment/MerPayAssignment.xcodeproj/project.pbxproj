@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8A073D3F2123574900BD4E0B /* UserInfoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A073D3E2123574900BD4E0B /* UserInfoCellViewModel.swift */; };
 		8A073D412123657A00BD4E0B /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A073D402123657A00BD4E0B /* HeaderViewModel.swift */; };
+		8A073D462123769200BD4E0B /* ProfileData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A073D442123769200BD4E0B /* ProfileData+CoreDataClass.swift */; };
+		8A073D472123769200BD4E0B /* ProfileData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A073D452123769200BD4E0B /* ProfileData+CoreDataProperties.swift */; };
 		8A40B033211E6BB2005EC648 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A40B032211E6BB2005EC648 /* ImageCacher.swift */; };
 		8A40B035211E7599005EC648 /* AllExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A40B034211E7598005EC648 /* AllExtension.swift */; };
 		8A40B037211E79F4005EC648 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A40B036211E79F4005EC648 /* ColorConstants.swift */; };
@@ -16,10 +18,10 @@
 		8A62D0DC211BEEC5001FAF99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A62D0DB211BEEC5001FAF99 /* Assets.xcassets */; };
 		8A62D0DF211BEEC5001FAF99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A62D0DD211BEEC5001FAF99 /* LaunchScreen.storyboard */; };
 		8A62D0EA211BEEC5001FAF99 /* MerPayAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D0E9211BEEC5001FAF99 /* MerPayAssignmentTests.swift */; };
+		8A650E5121238A3A00FCD8E9 /* ConversationEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A650E4F21238A3A00FCD8E9 /* ConversationEntity+CoreDataClass.swift */; };
+		8A650E5221238A3A00FCD8E9 /* ConversationEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A650E5021238A3A00FCD8E9 /* ConversationEntity+CoreDataProperties.swift */; };
 		8A774051211F2E95008D48EC /* LocalStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A77404F211F2E95008D48EC /* LocalStorage.xcdatamodeld */; };
 		8A77405A211F31D3008D48EC /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A774059211F31D3008D48EC /* CoreDataStack.swift */; };
-		8AC31D87211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D85211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift */; };
-		8AC31D88211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D86211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift */; };
 		8AC31D8C211F639D00D76B17 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D8A211F639D00D76B17 /* ChatsViewController.swift */; };
 		8AC31D8D211F639D00D76B17 /* ChatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC31D8B211F639D00D76B17 /* ChatsViewController.xib */; };
 		8AC31D91211F659100D76B17 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D90211F659100D76B17 /* NavigationView.swift */; };
@@ -35,8 +37,6 @@
 		8ACAD92621206D7400713AA9 /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACAD92521206D7400713AA9 /* ConversationViewModel.swift */; };
 		8ACAD92D21207DAC00713AA9 /* MessageArchieveEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACAD92721207DAC00713AA9 /* MessageArchieveEntity+CoreDataClass.swift */; };
 		8ACAD92E21207DAC00713AA9 /* MessageArchieveEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACAD92821207DAC00713AA9 /* MessageArchieveEntity+CoreDataProperties.swift */; };
-		8ACAD92F21207DAC00713AA9 /* ConversationEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACAD92921207DAC00713AA9 /* ConversationEntity+CoreDataClass.swift */; };
-		8ACAD93021207DAC00713AA9 /* ConversationEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACAD92A21207DAC00713AA9 /* ConversationEntity+CoreDataProperties.swift */; };
 		8ACAD93121207DAC00713AA9 /* MessageEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACAD92B21207DAC00713AA9 /* MessageEntity+CoreDataClass.swift */; };
 		8ACAD93221207DAC00713AA9 /* MessageEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACAD92C21207DAC00713AA9 /* MessageEntity+CoreDataProperties.swift */; };
 		8AF2101A211CC2E400CF1458 /* UserDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21018211CC2E400CF1458 /* UserDetailInfoCell.swift */; };
@@ -70,6 +70,8 @@
 /* Begin PBXFileReference section */
 		8A073D3E2123574900BD4E0B /* UserInfoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCellViewModel.swift; sourceTree = "<group>"; };
 		8A073D402123657A00BD4E0B /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
+		8A073D442123769200BD4E0B /* ProfileData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8A073D452123769200BD4E0B /* ProfileData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8A40B032211E6BB2005EC648 /* ImageCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		8A40B034211E7598005EC648 /* AllExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExtension.swift; sourceTree = "<group>"; };
 		8A40B036211E79F4005EC648 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
@@ -81,10 +83,10 @@
 		8A62D0E5211BEEC5001FAF99 /* MerPayAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MerPayAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A62D0E9211BEEC5001FAF99 /* MerPayAssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerPayAssignmentTests.swift; sourceTree = "<group>"; };
 		8A62D0EB211BEEC5001FAF99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A650E4F21238A3A00FCD8E9 /* ConversationEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConversationEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8A650E5021238A3A00FCD8E9 /* ConversationEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConversationEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8A774050211F2E95008D48EC /* LocalStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalStorage.xcdatamodel; sourceTree = "<group>"; };
 		8A774059211F31D3008D48EC /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		8AC31D85211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		8AC31D86211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8AC31D8A211F639D00D76B17 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		8AC31D8B211F639D00D76B17 /* ChatsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatsViewController.xib; sourceTree = "<group>"; };
 		8AC31D90211F659100D76B17 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
@@ -100,8 +102,6 @@
 		8ACAD92521206D7400713AA9 /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
 		8ACAD92721207DAC00713AA9 /* MessageArchieveEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageArchieveEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8ACAD92821207DAC00713AA9 /* MessageArchieveEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageArchieveEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		8ACAD92921207DAC00713AA9 /* ConversationEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConversationEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		8ACAD92A21207DAC00713AA9 /* ConversationEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConversationEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8ACAD92B21207DAC00713AA9 /* MessageEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8ACAD92C21207DAC00713AA9 /* MessageEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8AF21018211CC2E400CF1458 /* UserDetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailInfoCell.swift; sourceTree = "<group>"; };
@@ -162,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				8A62D0D4211BEEC1001FAF99 /* AppDelegate.swift */,
+				8A073D442123769200BD4E0B /* ProfileData+CoreDataClass.swift */,
+				8A073D452123769200BD4E0B /* ProfileData+CoreDataProperties.swift */,
 				8AC31D89211F633A00D76B17 /* Chat */,
 				8A774054211F2EDC008D48EC /* Generic */,
 				8A774053211F2EC2008D48EC /* Resources */,
@@ -169,8 +171,6 @@
 				8AF21024211CE4BE00CF1458 /* UserListing */,
 				8A77404F211F2E95008D48EC /* LocalStorage.xcdatamodeld */,
 				8A62D0E0211BEEC5001FAF99 /* Info.plist */,
-				8AC31D85211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift */,
-				8AC31D86211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift */,
 				8A774059211F31D3008D48EC /* CoreDataStack.swift */,
 			);
 			path = MerPayAssignment;
@@ -241,10 +241,10 @@
 		8AC31DBE2120430100D76B17 /* CoreDataModels */ = {
 			isa = PBXGroup;
 			children = (
+				8A650E4F21238A3A00FCD8E9 /* ConversationEntity+CoreDataClass.swift */,
+				8A650E5021238A3A00FCD8E9 /* ConversationEntity+CoreDataProperties.swift */,
 				8ACAD92721207DAC00713AA9 /* MessageArchieveEntity+CoreDataClass.swift */,
 				8ACAD92821207DAC00713AA9 /* MessageArchieveEntity+CoreDataProperties.swift */,
-				8ACAD92921207DAC00713AA9 /* ConversationEntity+CoreDataClass.swift */,
-				8ACAD92A21207DAC00713AA9 /* ConversationEntity+CoreDataProperties.swift */,
 				8ACAD92B21207DAC00713AA9 /* MessageEntity+CoreDataClass.swift */,
 				8ACAD92C21207DAC00713AA9 /* MessageEntity+CoreDataProperties.swift */,
 			);
@@ -383,15 +383,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ACAD93021207DAC00713AA9 /* ConversationEntity+CoreDataProperties.swift in Sources */,
 				8AF21030211CE4BE00CF1458 /* UserListingPresentor.swift in Sources */,
-				8ACAD92F21207DAC00713AA9 /* ConversationEntity+CoreDataClass.swift in Sources */,
 				8A774051211F2E95008D48EC /* LocalStorage.xcdatamodeld in Sources */,
 				8A40B035211E7599005EC648 /* AllExtension.swift in Sources */,
+				8A650E5121238A3A00FCD8E9 /* ConversationEntity+CoreDataClass.swift in Sources */,
 				8AC31D9F21201D9000D76B17 /* ChatsPresentor.swift in Sources */,
+				8A650E5221238A3A00FCD8E9 /* ConversationEntity+CoreDataProperties.swift in Sources */,
 				8AC31D94211F82F100D76B17 /* MessageTableViewCell.swift in Sources */,
 				8AF21039211E1C6800CF1458 /* Constants.swift in Sources */,
 				8AC31D8C211F639D00D76B17 /* ChatsViewController.swift in Sources */,
+				8A073D462123769200BD4E0B /* ProfileData+CoreDataClass.swift in Sources */,
 				8A40B037211E79F4005EC648 /* ColorConstants.swift in Sources */,
 				8AC31DCF21204D9900D76B17 /* ChatCoreDataManager.swift in Sources */,
 				8AC31DA021201D9000D76B17 /* ChatsInteractor.swift in Sources */,
@@ -399,7 +400,6 @@
 				8AC31D91211F659100D76B17 /* NavigationView.swift in Sources */,
 				8ACAD93121207DAC00713AA9 /* MessageEntity+CoreDataClass.swift in Sources */,
 				8ACAD93221207DAC00713AA9 /* MessageEntity+CoreDataProperties.swift in Sources */,
-				8AC31D88211F5F4A00D76B17 /* ProfileData+CoreDataProperties.swift in Sources */,
 				8AF2101E211CD6A600CF1458 /* LoadingCell.swift in Sources */,
 				8A77405A211F31D3008D48EC /* CoreDataStack.swift in Sources */,
 				8A40B033211E6BB2005EC648 /* ImageCacher.swift in Sources */,
@@ -408,7 +408,6 @@
 				8AF2102D211CE4BE00CF1458 /* UserListingRouter.swift in Sources */,
 				8A073D412123657A00BD4E0B /* HeaderViewModel.swift in Sources */,
 				8AF21034211CE7A100CF1458 /* NetworkManager.swift in Sources */,
-				8AC31D87211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift in Sources */,
 				8AF2102C211CE4BE00CF1458 /* UserListingInteractor.swift in Sources */,
 				8AF2102E211CE4BE00CF1458 /* UserListingController.swift in Sources */,
 				8A073D3F2123574900BD4E0B /* UserInfoCellViewModel.swift in Sources */,
@@ -416,6 +415,7 @@
 				8AF21022211CDCC500CF1458 /* NoResultCell.swift in Sources */,
 				8AF21031211CE4BE00CF1458 /* UserListingProtocols.swift in Sources */,
 				8AC31DA221201D9000D76B17 /* ChatsProtocol.swift in Sources */,
+				8A073D472123769200BD4E0B /* ProfileData+CoreDataProperties.swift in Sources */,
 				8AF21032211CE4BE00CF1458 /* User.swift in Sources */,
 				8AC31D99211F999800D76B17 /* Message.swift in Sources */,
 				8AC31D97211F998A00D76B17 /* MessagesModel.swift in Sources */,

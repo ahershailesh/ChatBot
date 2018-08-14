@@ -19,6 +19,7 @@ extension ConversationEntity {
 
     @NSManaged public var fromUser: String?
     @NSManaged public var toUser: String?
+    @NSManaged public var lastUpdate: NSDate?
     @NSManaged public var messageArchieves: NSSet?
 
 }

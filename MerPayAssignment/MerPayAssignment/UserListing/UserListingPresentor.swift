@@ -36,7 +36,8 @@ class UserListingPresentor : UserListingPresentorProtocol {
     
     
     func viewLoaded() {
-        interactor?.getUserList()
+        loadConversations()
+//        interactor?.getUserList()
     }
     
     private func loadConversations() {
@@ -60,8 +61,9 @@ class UserListingPresentor : UserListingPresentorProtocol {
         let viewModel = UserInfoCellViewModel()
         let message = conversation.messageArchieveArray.last?.messagesArray.last
         viewModel.lastChat = message?.text
-        if let date = message?.date as Date?, let thisMessage = message {
-            viewModel.lastChatTime = getDisplay(for: date, from: thisMessage)
+        viewModel.userName = conversation.toUser
+        if let date = message?.date {
+            viewModel.lastChatTime = date.getDateDisplay()
         }
         return viewModel
     }
@@ -71,19 +73,6 @@ class UserListingPresentor : UserListingPresentorProtocol {
         viewModel.userName = user.login
         viewModel.userProfilePicLink = user.avatarUrl?.absoluteString
         return viewModel
-    }
-    
-    private func getDisplay(for date: Date, from message: MessageEntity) -> String {
-        if let date = message.date {
-            if Calendar.current.isDateInToday(date as Date) {
-                return (date as NSDate).getTimeString()
-            }
-            if Calendar.current.isDateInWeekend(date as Date) {
-                return (date as NSDate).dayOfTheWeek()
-            }
-            return (date as NSDate).getDateString()
-        }
-        return ""
     }
     
    func userSelected(from controller: UINavigationController, for selected: UserInfoCellViewModel) {
