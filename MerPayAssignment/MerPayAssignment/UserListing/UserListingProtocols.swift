@@ -12,7 +12,7 @@ protocol UserListingViewProtocol {
     var presentor : UserListingPresentor? {get set}
     
     func append(models: [UserInfoCellViewModel])
-    func show(models: [UserInfoCellViewModel])
+    func show(models: [UserInfoCellViewModel], for section: UserListingSection) 
 }
 
 protocol UserListingRouterProtocol {

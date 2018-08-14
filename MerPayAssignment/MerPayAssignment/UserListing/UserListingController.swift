@@ -14,6 +14,11 @@ enum UserTableViewStatus {
     case searching
 }
 
+enum UserListingSection : String {
+    case recent = "Recent Conversations"
+    case other = "Other Conversations"
+}
+
 class UserListingController: UIViewController {
     
     @IBOutlet weak var actionButton: UIButton?
@@ -26,16 +31,14 @@ class UserListingController: UIViewController {
     private let USER_INFO_CELL_IDENTIFIER = "UserDetailInfoCell"
     private let LOADING_CELL_INDETIFIER = "LoadingCell"
     private let NO_DATA_CELL_IDENTIFIER = "NoResultCell"
+    private let HEADER_SECTION_IDENTIFIER = "HeaderFooterCell"
     private let LOADING_CELL_MESSAGE = "Loading users"
     
-    private var status : UserTableViewStatus = .listing {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView?.reloadData()
-            }
-        }
-    }
-    private var models = [UserInfoCellViewModel]()
+    private let sectionOrder : [UserListingSection] = [ .recent, .other]
+    private var recentConversations : [UserInfoCellViewModel] = []
+    private var otherConversations : [UserInfoCellViewModel] = []
+    
+    private var status : UserTableViewStatus = .listing
     var presentor: UserListingPresentor?
     
     //MARK:- Init
@@ -70,6 +73,7 @@ class UserListingController: UIViewController {
         tableView?.register(UINib(nibName: "UserDetailInfoCell", bundle: nil), forCellReuseIdentifier: USER_INFO_CELL_IDENTIFIER)
         tableView?.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: LOADING_CELL_INDETIFIER)
         tableView?.register(UINib(nibName: "NoResultCell", bundle: nil), forCellReuseIdentifier: NO_DATA_CELL_IDENTIFIER)
+        tableView?.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HEADER_SECTION_IDENTIFIER)
     }
     
     @IBAction func actionButtonTapped(_ sender: Any) {
@@ -85,11 +89,19 @@ class UserListingController: UIViewController {
 //MARK:- UITableViewDataSource
 extension UserListingController : UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionOrder.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let listingSection = sectionOrder[section]
+        if listingSection == .recent {
+            return recentConversations.count
+        }
         switch status {
         case .loading: return 1
-        case .listing: return models.isEmpty ? 1 : models.count
-        case .searching: return models.count + 1
+        case .listing: return otherConversations.isEmpty ? 1 : otherConversations.count
+        case .searching: return otherConversations.count + 1
         }
     }
     
@@ -101,6 +113,12 @@ extension UserListingController : UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionView = tableView.dequeueReusableHeaderFooterView(withIdentifier: HEADER_SECTION_IDENTIFIER)
+        sectionView?.textLabel?.text = sectionOrder[section].rawValue
+        return sectionView
+    }
+    
     private func getLoadingCell(for tableView: UITableView, and indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LOADING_CELL_INDETIFIER, for: indexPath) as! LoadingCell
         cell.setMessage(text: LOADING_CELL_MESSAGE)
@@ -108,13 +126,14 @@ extension UserListingController : UITableViewDataSource {
     }
     
     private func getUserCell(for tableView: UITableView, and indexPath: IndexPath) -> UITableViewCell {
-        
-        if models.isEmpty {
+        let section = sectionOrder[indexPath.section]
+        let array = section == .recent ? recentConversations : otherConversations
+        if array.isEmpty {
             return getNoDataCell(for: tableView, and: indexPath)
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: USER_INFO_CELL_IDENTIFIER, for: indexPath) as! UserDetailInfoCell
-        let model = models[indexPath.row]
+        let model = array[indexPath.row]
         cell.model = model
         cell.accessoryType = .disclosureIndicator
         return cell
@@ -138,7 +157,9 @@ extension UserListingController : UITableViewDataSource {
 //MARK:- UITableViewDelegate
 extension UserListingController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = models[indexPath.row]
+        let section = sectionOrder[indexPath.section]
+        let array = section == .recent ? recentConversations : otherConversations
+        let model = array[indexPath.row]
         presentor?.userSelected(from: self.navigationController!, for: model)
     }
 }
@@ -146,12 +167,29 @@ extension UserListingController : UITableViewDelegate {
 //MARK:- UserListingViewProtocol
 extension UserListingController : UserListingViewProtocol {
     func append(models: [UserInfoCellViewModel]) {
-//        models.append(contentsOf: users)
-//        status = .listing
+
+    }
+ 
+    func show(models: [UserInfoCellViewModel], for section: UserListingSection) {
+        switch section {
+        case .recent:
+            recentConversations = models
+            otherConversations = removeDuplicateUser(from: otherConversations)
+        case .other:
+            otherConversations = removeDuplicateUser(from: models)
+            status = .listing
+        }
+        DispatchQueue.main.async {
+            self.tableView?.reloadData()
+        }
     }
     
-    func show(models: [UserInfoCellViewModel]) {
-        self.models = models
-        status = .listing
+    private func removeDuplicateUser(from users: [UserInfoCellViewModel]) -> [UserInfoCellViewModel] {
+        if users.isEmpty || recentConversations.isEmpty { return users }
+        let recentUserNames = recentConversations.compactMap { $0.userName }
+        return users.filter { (model) -> Bool in
+            guard let userName = model.userName else { return false }
+            return !recentUserNames.contains(userName)
+        }
     }
 }

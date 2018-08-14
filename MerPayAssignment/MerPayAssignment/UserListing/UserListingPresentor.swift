@@ -15,16 +15,13 @@ class UserListingPresentor : UserListingPresentorProtocol {
     var view : UserListingController?
     var interactor: UserListingInteractor?
     var router: UserListingRouter?
-    
-    private var userNameArray : [String] = []
-    
+   
     //MARK:- Public functions
-    
     func show(users: [User]) {
         let models = users.map { (user) -> UserInfoCellViewModel in
             return getUserCellViewModel(from: user)
         }
-        view?.show(models: models)
+        view?.show(models: models, for: .other)
     }
     
     func append(users: [User]) {
@@ -34,20 +31,14 @@ class UserListingPresentor : UserListingPresentorProtocol {
         view?.append(models: models)
     }
     
-    
     func viewLoaded() {
         loadConversations()
-//        interactor?.getUserList()
+        interactor?.getUserList()
     }
     
     private func loadConversations() {
         let models = getConversations()
-        updateUserNameArray(models: models)
-        view?.show(models: models)
-    }
-    
-    private func updateUserNameArray(models : [UserInfoCellViewModel]) {
-        userNameArray = models.compactMap { $0.userName }
+        view?.show(models: models, for: .recent)
     }
     
     private func getConversations() -> [UserInfoCellViewModel] {
