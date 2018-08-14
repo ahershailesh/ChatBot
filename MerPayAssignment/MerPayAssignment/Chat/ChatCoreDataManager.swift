@@ -16,10 +16,18 @@ class ChatCoreDataManager {
         currentDate = date
     }
     
+    func getConversations(from userName: String) -> [ConversationEntity] {
+        let context = CoreDataStack.shared.context
+        let conversationRequest = NSFetchRequest<ConversationEntity>(entityName: "ConversationEntity")
+        conversationRequest.predicate = NSPredicate(format: "fromUser = %@", argumentArray: [userName])
+        let objects = try? context.fetch(conversationRequest)
+        return objects ?? []
+    }
+    
     func getConversation(fromUserName: String, toUserName : String) -> ConversationEntity {
         let context = CoreDataStack.shared.context
         let conversationRequest = NSFetchRequest<ConversationEntity>(entityName: "ConversationEntity")
-        conversationRequest.predicate = NSPredicate(format: "toUser = %@", argumentArray: [toUserName])
+        conversationRequest.predicate = NSPredicate(format: "fromUser = %@ AND toUser = %@", argumentArray: [fromUserName, toUserName])
         if let objects = try? context.fetch(conversationRequest), !objects.isEmpty {
             if objects.count != 1 {
                 print("More than one conversations found to username = " + toUserName)

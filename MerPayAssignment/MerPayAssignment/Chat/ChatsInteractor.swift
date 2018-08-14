@@ -12,7 +12,7 @@ class ChatsInteractor : ChatsInteractorProtocol {
     
     //MARK:- Vars
     //MARK: Public
-    var user: User?
+    var userName: String?
     var networkManager : NetworkProtocol?
     var presentor : ChatsPresentor?
     
@@ -21,9 +21,9 @@ class ChatsInteractor : ChatsInteractorProtocol {
     private var chatManager = ChatCoreDataManager()
     
     //MARK:- Init
-    init(networkHandler: NetworkProtocol, user: User) {
+    init(networkHandler: NetworkProtocol, userName: String) {
         self.networkManager = networkHandler
-        self.user = user
+        self.userName = userName
     }
     
     //MARK:- Private functions
@@ -65,7 +65,7 @@ class ChatsInteractor : ChatsInteractorProtocol {
     }
     
     func loadMessages() {
-        if let userName = user?.login {
+        if let userName = userName {
             conversation = chatManager.getConversation(fromUserName: LOGGED_IN_USER, toUserName: userName)
             presentor?.show(conversation: conversation!)
         }

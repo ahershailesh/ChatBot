@@ -23,7 +23,7 @@ class ChatsViewController: UIViewController {
     private var lastMessageDateAndTime = "Last message on "
     
     //MARK: Public vars
-    var user : User?
+    var headerViewModel : HeaderViewModel?
     var archieves = [MessageArchieveViewModel]()
     var presentor: ChatsPresentor?
     
@@ -128,7 +128,7 @@ class ChatsViewController: UIViewController {
     //MARK: Navigation bar handling
     private func setupNavigationView() {
         headerView = NavigationView(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 100)))
-        headerView?.user = user
+        headerView?.model = headerViewModel
         headerView?.frame = CGRect(origin: .zero, size: CGSize(width: 200, height: 100))
         navigationItem.titleView = headerView
     }

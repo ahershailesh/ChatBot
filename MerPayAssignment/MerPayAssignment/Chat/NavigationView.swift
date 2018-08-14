@@ -9,12 +9,26 @@
 import UIKit
 
 class NavigationView: UIView {
-    var profilePicView: UIView?
-    var titleLabel: UILabel?
-    var subTitleLabel: UILabel?
     
-    let widthHeight = 34
+    //MARK:- Vars
+    //MARK: Private
+    private var profilePicView: UIView?
+    private var titleLabel: UILabel?
+    private var subTitleLabel: UILabel?
+    private let widthHeight = 34
     
+    //MARK: Public
+    var model : HeaderViewModel? {
+        didSet {
+            titleLabel?.text = "@" + (model?.titleText ?? "")
+            if let string = model?.profilePicLink, let url = URL(string: string), let initials = model?.titleText?.prefix(2) {
+                profilePicView?.setImage(with: url, or: String(initials))
+            }
+            subTitleLabel?.text = model?.subTitleText
+        }
+    }
+    
+    //MARK: Init Methods
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -25,6 +39,12 @@ class NavigationView: UIView {
         setupView()
     }
     
+    //MARK:- Public
+    func setSubtitle(text: String) {
+        subTitleLabel?.text = text
+    }
+    
+    //MARK: Private methods
     private func setupView() {
         profilePicView = UIView(frame: .zero)
         titleLabel = UILabel(frame: .zero)
@@ -46,21 +66,6 @@ class NavigationView: UIView {
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         subTitleLabel?.font = UIFont.systemFont(ofSize: 12)
         subTitleLabel?.textColor = UIColor.gray
-        subTitleLabel?.text = "Loading..."
-    }
-    
-    var user: User? {
-        didSet {
-            titleLabel?.text = "@" + (user?.login ?? "")
-            if let url = user?.avatarUrl, let initials = user?.login?.prefix(2) {
-                profilePicView?.setImage(with: url, or: String(initials))
-            }
-            subTitleLabel?.text = user?.name
-        }
-    }
-    
-    func setSubtitle(text: String) {
-        subTitleLabel?.text = text
     }
     
     private func addContraints() {

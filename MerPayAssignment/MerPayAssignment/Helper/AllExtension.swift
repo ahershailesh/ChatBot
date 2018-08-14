@@ -96,5 +96,20 @@ extension NSDate {
         formatter.dateFormat = TIME_DISPLAY_FORMAT
         return formatter.string(from: self as Date)
     }
+    
+    func dayOfTheWeek() -> String {
+        let weekdays = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Satudrday,"
+        ]
+        
+        let components = Calendar.current.dateComponents([.weekday], from: self as Date)
+        return weekdays[components.weekday! - 1]
+    }
 }
 

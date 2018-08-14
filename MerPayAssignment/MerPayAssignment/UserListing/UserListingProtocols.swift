@@ -11,12 +11,12 @@ import UIKit
 protocol UserListingViewProtocol {
     var presentor : UserListingPresentor? {get set}
     
-    func append(users: [User])
-    func show(users: [User])
+    func append(models: [UserInfoCellViewModel])
+    func show(models: [UserInfoCellViewModel])
 }
 
 protocol UserListingRouterProtocol {
-    func pushChatController(over controller: UINavigationController, for user: User)
+    func pushChatController(over controller: UINavigationController, for user: HeaderViewModel)
 }
 
 protocol UserListingPresentorProtocol {
@@ -32,7 +32,7 @@ protocol UserListingPresentorProtocol {
     var router : UserListingRouter? { get set }
     
     func viewLoaded()
-    func userSelected(from controller: UINavigationController, selected selectedUser: User)
+    func userSelected(from controller: UINavigationController, for selected: UserInfoCellViewModel)
     func getUserList()
     func getNextUserList()
     func getSearchedUserList(for searchText: String)

@@ -14,6 +14,7 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
     //MARK: Public
     var networkManager : NetworkManager?
     var presentor : UserListingPresentor?
+    var chatManager = ChatCoreDataManager(date: Date())
     
     //MARK:- Init
     init() {
@@ -40,6 +41,10 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
         
     }
     
+    func getConversations() -> [ConversationEntity] {
+        return chatManager.getConversations(from: LOGGED_IN_USER)
+    }
+    
     //MARK:- Private functions
     private func getUsers(from responseData: Data) -> [User] {
         let decoder = JSONDecoder()
@@ -49,16 +54,6 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
             users = parsedUsers
         }
         return users
-    }
-    
-    private func getUser(from responseData: Data) -> User {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        var user = User()
-        if let parsedUser = try? decoder.decode(User.self, from: responseData) {
-            user = parsedUser
-        }
-        return user
     }
 }
 

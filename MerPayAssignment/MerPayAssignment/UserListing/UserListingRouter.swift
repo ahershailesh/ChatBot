@@ -23,11 +23,11 @@ class UserListingRouter : UserListingRouterProtocol {
         return controller
     }
     
-    func pushChatController(over controller: UINavigationController, for user: User) {
+    func pushChatController(over controller: UINavigationController, for model: HeaderViewModel) {
         let chatController = ChatsViewController(nibName: nil, bundle: nil)
-        chatController.user = user
-        let chatBot = ChatBot(user: user)
-        let interactor = ChatsInteractor(networkHandler: chatBot, user: user)
+        chatController.headerViewModel = model
+        let chatBot = ChatBot()
+        let interactor = ChatsInteractor(networkHandler: chatBot, userName: model.titleText!)
         let presentor = ChatsPresentor()
         let router = ChatsRouter()
         

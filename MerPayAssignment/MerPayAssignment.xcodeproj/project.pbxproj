@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A073D3F2123574900BD4E0B /* UserInfoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A073D3E2123574900BD4E0B /* UserInfoCellViewModel.swift */; };
+		8A073D412123657A00BD4E0B /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A073D402123657A00BD4E0B /* HeaderViewModel.swift */; };
 		8A40B033211E6BB2005EC648 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A40B032211E6BB2005EC648 /* ImageCacher.swift */; };
 		8A40B035211E7599005EC648 /* AllExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A40B034211E7598005EC648 /* AllExtension.swift */; };
 		8A40B037211E79F4005EC648 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A40B036211E79F4005EC648 /* ColorConstants.swift */; };
@@ -66,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A073D3E2123574900BD4E0B /* UserInfoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCellViewModel.swift; sourceTree = "<group>"; };
+		8A073D402123657A00BD4E0B /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
 		8A40B032211E6BB2005EC648 /* ImageCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		8A40B034211E7598005EC648 /* AllExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExtension.swift; sourceTree = "<group>"; };
 		8A40B036211E79F4005EC648 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 				8AC31D96211F998A00D76B17 /* MessagesModel.swift */,
 				8AC31D98211F999800D76B17 /* Message.swift */,
 				8AC31DA421202A3100D76B17 /* ChatBot.swift */,
+				8A073D402123657A00BD4E0B /* HeaderViewModel.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 				8AF21019211CC2E400CF1458 /* UserDetailInfoCell.xib */,
 				8AF2102A211CE4BE00CF1458 /* UserListingProtocols.swift */,
 				8AF2102B211CE4BE00CF1458 /* User.swift */,
+				8A073D3E2123574900BD4E0B /* UserInfoCellViewModel.swift */,
 			);
 			path = UserListing;
 			sourceTree = "<group>";
@@ -400,10 +406,12 @@
 				8AC31DA521202A3100D76B17 /* ChatBot.swift in Sources */,
 				8ACAD92D21207DAC00713AA9 /* MessageArchieveEntity+CoreDataClass.swift in Sources */,
 				8AF2102D211CE4BE00CF1458 /* UserListingRouter.swift in Sources */,
+				8A073D412123657A00BD4E0B /* HeaderViewModel.swift in Sources */,
 				8AF21034211CE7A100CF1458 /* NetworkManager.swift in Sources */,
 				8AC31D87211F5F4A00D76B17 /* ProfileData+CoreDataClass.swift in Sources */,
 				8AF2102C211CE4BE00CF1458 /* UserListingInteractor.swift in Sources */,
 				8AF2102E211CE4BE00CF1458 /* UserListingController.swift in Sources */,
+				8A073D3F2123574900BD4E0B /* UserInfoCellViewModel.swift in Sources */,
 				8AC31DA321201D9000D76B17 /* ChatsRouter.swift in Sources */,
 				8AF21022211CDCC500CF1458 /* NoResultCell.swift in Sources */,
 				8AF21031211CE4BE00CF1458 /* UserListingProtocols.swift in Sources */,

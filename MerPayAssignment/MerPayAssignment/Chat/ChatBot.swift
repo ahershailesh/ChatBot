@@ -14,12 +14,7 @@ protocol ChatBotHandlerProtocol {
 }
 
 class ChatBot: NetworkProtocol {
-    private var user: User?
     var interactor : ChatsInteractorProtocol?
-    
-    init(user: User) {
-        self.user = user
-    }
     
     func get(url: String?, pathParam: [String]?, queryParam: [String : String]?, headers: [String : String]?, callBack: NetworkCallBack?) {
         callBack?(true,  nil, nil)

@@ -35,7 +35,7 @@ class UserListingController: UIViewController {
             }
         }
     }
-    private var userList = [User]()
+    private var models = [UserInfoCellViewModel]()
     var presentor: UserListingPresentor?
     
     //MARK:- Init
@@ -86,8 +86,8 @@ extension UserListingController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch status {
         case .loading: return 1
-        case .listing: return userList.isEmpty ? 1 : userList.count
-        case .searching: return userList.count + 1
+        case .listing: return models.isEmpty ? 1 : models.count
+        case .searching: return models.count + 1
         }
     }
     
@@ -107,13 +107,13 @@ extension UserListingController : UITableViewDataSource {
     
     private func getUserCell(for tableView: UITableView, and indexPath: IndexPath) -> UITableViewCell {
         
-        if userList.isEmpty {
+        if models.isEmpty {
             return getNoDataCell(for: tableView, and: indexPath)
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: USER_INFO_CELL_IDENTIFIER, for: indexPath) as! UserDetailInfoCell
-        let user = userList[indexPath.row]
-        cell.user = user
+        let model = models[indexPath.row]
+        cell.model = model
         cell.accessoryType = .disclosureIndicator
         return cell
     }
@@ -136,20 +136,20 @@ extension UserListingController : UITableViewDataSource {
 //MARK:- UITableViewDelegate
 extension UserListingController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = userList[indexPath.row]
-        presentor?.userSelected(from: self.navigationController!, selected: user)
+        let model = models[indexPath.row]
+        presentor?.userSelected(from: self.navigationController!, for: model)
     }
 }
 
 //MARK:- UserListingViewProtocol
 extension UserListingController : UserListingViewProtocol {
-    func append(users: [User]) {
-        userList.append(contentsOf: users)
-        status = .listing
+    func append(models: [UserInfoCellViewModel]) {
+//        models.append(contentsOf: users)
+//        status = .listing
     }
     
-    func show(users: [User]) {
-        userList = users
+    func show(models: [UserInfoCellViewModel]) {
+        self.models = models
         status = .listing
     }
 }

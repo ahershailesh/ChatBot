@@ -11,16 +11,18 @@ import UIKit
 class UserDetailInfoCell: UITableViewCell {
 
     @IBOutlet weak var profilePicView: UIView?
-    @IBOutlet weak var userName: UILabel?
+    @IBOutlet weak var userNameLabel: UILabel?
     @IBOutlet weak var detailLabel: UILabel?
     @IBOutlet weak var centerUserNameContraint: NSLayoutConstraint?
     @IBOutlet weak var topUserNameContraint: NSLayoutConstraint!
-    var user: User? = nil {
+    
+    var model : UserInfoCellViewModel? = nil {
         didSet {
-            userName?.text = "@" + (user?.login ?? "")
-            if let url = user?.avatarUrl, let initials = user?.login?.prefix(2) {
+            userNameLabel?.text = "@" + (model?.userName ?? "")
+            if let link = model?.userProfilePicLink, let url = URL(string: link), let initials = model?.userName?.prefix(2) {
                 profilePicView?.setImage(with: url, or: String(initials))
             }
+            setDetails(text: model?.lastChat ?? "")
         }
     }
     
@@ -46,7 +48,7 @@ class UserDetailInfoCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         detailLabel?.text = nil
-        userName?.text = nil
+        userNameLabel?.text = nil
         profilePicView?.removeAllSubviews()
         initialiseCell()
     }

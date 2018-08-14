@@ -58,7 +58,7 @@
                 <outlet property="detailLabel" destination="q9V-zk-qEC" id="c1G-XE-8dr"/>
                 <outlet property="profilePicView" destination="Oah-nb-lI1" id="iZ0-o1-0fH"/>
                 <outlet property="topUserNameContraint" destination="LJe-Qz-MrO" id="VRd-by-qZI"/>
-                <outlet property="userName" destination="HNh-gM-eDf" id="TLP-C7-c15"/>
+                <outlet property="userNameLabel" destination="HNh-gM-eDf" id="TLP-C7-c15"/>
             </connections>
             <point key="canvasLocation" x="34" y="76"/>
         </tableViewCell>

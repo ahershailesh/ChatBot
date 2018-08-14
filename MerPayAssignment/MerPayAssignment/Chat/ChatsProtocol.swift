@@ -39,7 +39,7 @@ protocol ChatsPresentorProtocol {
 
 protocol ChatsInteractorProtocol {
     var networkManager : NetworkProtocol? { get set }
-    var user: User? { get set }
+    var userName: String? { get set }
     
     func loadMessages()
     func send(message: Message)
