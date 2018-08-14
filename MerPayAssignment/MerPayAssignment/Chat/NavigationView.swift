@@ -43,7 +43,7 @@ class NavigationView: UIView {
     }
     
     private func setupLabels() {
-        titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         subTitleLabel?.font = UIFont.systemFont(ofSize: 12)
         subTitleLabel?.textColor = UIColor.gray
         subTitleLabel?.text = "Loading..."
@@ -59,8 +59,8 @@ class NavigationView: UIView {
         }
     }
     
-    func setName(name: String) {
-        subTitleLabel?.text = name
+    func setSubtitle(text: String) {
+        subTitleLabel?.text = text
     }
     
     private func addContraints() {

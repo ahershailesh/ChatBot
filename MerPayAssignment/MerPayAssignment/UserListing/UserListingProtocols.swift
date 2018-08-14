@@ -13,7 +13,6 @@ protocol UserListingViewProtocol {
     
     func append(users: [User])
     func show(users: [User])
-    func set(user: User)
 }
 
 protocol UserListingRouterProtocol {
@@ -38,7 +37,6 @@ protocol UserListingPresentorProtocol {
     func getNextUserList()
     func getSearchedUserList(for searchText: String)
     func getNextSearchedUserList(for searchText: String)
-    func setUserDetails(user: User)
 }
 
 protocol UserListingInteractorProtocol {

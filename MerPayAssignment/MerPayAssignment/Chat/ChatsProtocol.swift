@@ -13,7 +13,7 @@ protocol ChatsViewProtocol {
     
     //presentor will talk to the view with below methods
     func show(message: MessageViewModel)
-    func showArchieves(with archieves: [MessageArchieveViewModel])
+    func show(archieves: [MessageArchieveViewModel])
 }
 
 protocol ChatsRouterProtocol {

@@ -18,12 +18,16 @@ class ChatsViewController: UIViewController {
     @IBOutlet weak var textViewBackgroundView: UIView?
     @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint?
     
-    //Public vars
+    //MARK: Private vars
+    private var headerView: NavigationView?
+    private var lastMessageDateAndTime = "Last message on "
+    
+    //MARK: Public vars
     var user : User?
     var archieves = [MessageArchieveViewModel]()
     var presentor: ChatsPresentor?
     
-    //Public COnstants
+    //MARK: Public Constants
     private let MESSGAE_CELL_ID = "MessageTableViewCell"
     private let DEFAULT_TEXTVIEW_HEIGHT : CGFloat = 56.0
     private let MAX_TEXTVIEW_HEIGHT : CGFloat = 100.0
@@ -123,15 +127,10 @@ class ChatsViewController: UIViewController {
     
     //MARK: Navigation bar handling
     private func setupNavigationView() {
-        if let navigationView = getNavigationView() {
-            navigationView.user = user
-            navigationView.frame = CGRect(origin: .zero, size: CGSize(width: 200, height: 100))
-            navigationItem.titleView = navigationView
-        }
-    }
-    
-    private func getNavigationView() -> NavigationView? {
-        return NavigationView(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 100)))
+        headerView = NavigationView(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 100)))
+        headerView?.user = user
+        headerView?.frame = CGRect(origin: .zero, size: CGSize(width: 200, height: 100))
+        navigationItem.titleView = headerView
     }
 }
 
@@ -188,10 +187,14 @@ extension ChatsViewController : ChatsViewProtocol {
                 tableView?.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
             }
         }
+        setLastDateOnHeader(from: message)
     }
     
-    func showArchieves(with archieves: [MessageArchieveViewModel]) {
+    func show(archieves: [MessageArchieveViewModel]) {
         self.archieves = archieves
+        if let last = archieves.last {
+            setLastDateOnHeader(from: last)
+        }
         DispatchQueue.main.async {
             self.tableView?.reloadData()
             self.tableView?.selectRow(at: self.getLastIndexPath(), animated: false, scrollPosition: .bottom)
@@ -209,5 +212,17 @@ extension ChatsViewController : ChatsViewProtocol {
             lastRow = archieves[lastSection].messages.count - 1
         }
         return IndexPath(row: lastRow, section: lastSection)
+    }
+    
+    private func setLastDateOnHeader(from archieve: MessageArchieveViewModel) {
+        lastMessageDateAndTime += archieve.dateString ?? ""
+        if let message = archieve.messages.last {
+            setLastDateOnHeader(from: message)
+        }
+    }
+    
+    private func setLastDateOnHeader(from message: MessageViewModel) {
+        let lastMessageDateTime = lastMessageDateAndTime + " " + (message.time ?? "--")
+        headerView?.setSubtitle(text: lastMessageDateTime)
     }
 }

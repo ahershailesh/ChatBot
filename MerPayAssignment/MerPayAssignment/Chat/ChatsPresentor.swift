@@ -33,7 +33,7 @@ class ChatsPresentor : ChatsPresentorProtocol {
             model.messages = []
            archieves = [model]
         }
-        view?.showArchieves(with: archieves)
+        view?.show(archieves: archieves)
     }
     
     func showRecieved(message: MessageEntity) {

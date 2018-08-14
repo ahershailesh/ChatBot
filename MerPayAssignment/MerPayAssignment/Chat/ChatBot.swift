@@ -22,8 +22,7 @@ class ChatBot: NetworkProtocol {
     }
     
     func get(url: String?, pathParam: [String]?, queryParam: [String : String]?, headers: [String : String]?, callBack: NetworkCallBack?) {
-        let messages = getMessages(from: "saher")
-        callBack?(true,  messages, nil)
+        callBack?(true,  nil, nil)
     }
     
     func getData(from url: URL, callBack: @escaping ((Data?, URLResponse?, Error?) -> Void)) {

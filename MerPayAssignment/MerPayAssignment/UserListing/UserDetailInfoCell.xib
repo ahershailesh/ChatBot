@@ -27,8 +27,8 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text=" @octocat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNh-gM-eDf">
-                        <rect key="frame" x="72" y="16" width="69" height="48"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <rect key="frame" x="72" y="16" width="82" height="48"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
