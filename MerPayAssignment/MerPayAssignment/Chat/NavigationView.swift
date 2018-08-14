@@ -55,6 +55,7 @@ class NavigationView: UIView {
             if let url = user?.avatarUrl, let initials = user?.login?.prefix(2) {
                 profilePicView?.setImage(with: url, or: String(initials))
             }
+            subTitleLabel?.text = user?.name
         }
     }
     

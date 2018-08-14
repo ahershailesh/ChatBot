@@ -49,4 +49,13 @@ class UserListingPresentor : UserListingPresentorProtocol {
     func getNextSearchedUserList(for searchText: String) {
         
     }
+    
+    
+    func getUserDetails(with userName: String) {
+        interactor?.getUserDetails(of: userName)
+    }
+    
+    func setUserDetails(user: User) {
+        view?.set(user: user)
+    }
 }

@@ -45,10 +45,6 @@ class ChatsInteractor : ChatsInteractorProtocol {
         })
     }
     
-    func getUserDetails(of userName: String) {
-        
-    }
-    
     /// Save chat to local core data
     ///
     /// - Parameter message: Message model data

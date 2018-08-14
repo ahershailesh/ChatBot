@@ -51,15 +51,3 @@ class ChatBot: NetworkProtocol {
         interactor?.saveMessageToLocal(message)
     }
 }
-
-extension ChatBot : ChatBotHandlerProtocol {
-    
-    func saveMessage(for userName: String) {
-        print("Message saved")
-    }
-    
-    func getMessages(from userName: String) -> [MessagesModel] {
-        print("get message called")
-        return []
-    }
-}

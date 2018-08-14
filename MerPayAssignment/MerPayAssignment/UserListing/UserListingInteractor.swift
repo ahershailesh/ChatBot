@@ -40,6 +40,14 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
         
     }
     
+    func getUserDetails(of userName: String) {
+        networkManager?.get(pathParam: [userName]) { [weak self]  success, response, error in
+            if let data = response as? Data, let parsedUsers = self?.getUser(from: data) {
+                self?.presentor?.setUserDetails(user: parsedUsers)
+            }
+        }
+    }
+    
     //MARK:- Private functions
     private func getUsers(from responseData: Data) -> [User] {
         let decoder = JSONDecoder()
@@ -49,6 +57,16 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
             users = parsedUsers
         }
         return users
+    }
+    
+    private func getUser(from responseData: Data) -> User {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        var user = User()
+        if let parsedUser = try? decoder.decode(User.self, from: responseData) {
+            user = parsedUser
+        }
+        return user
     }
 }
 

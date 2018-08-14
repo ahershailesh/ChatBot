@@ -138,7 +138,7 @@ extension UserListingController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !userList.isEmpty {
             let user = userList[indexPath.row]
-            presentor?.userSelected(from: navigationController!, selected: user)
+            presentor?.getUserDetails(with: user.login ?? "")
         }
     }
 }
@@ -153,5 +153,11 @@ extension UserListingController : UserListingViewProtocol {
     func show(users: [User]) {
         userList = users
         status = .listing
+    }
+    
+    func set(user: User) {
+        DispatchQueue.main.async {
+            self.presentor?.userSelected(from: self.navigationController!, selected: user)
+        }
     }
 }
