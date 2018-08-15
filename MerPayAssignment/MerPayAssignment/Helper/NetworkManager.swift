@@ -78,7 +78,6 @@ class NetworkManager : NetworkProtocol {
                 if let data = data { print(url + (String(data: data, encoding: .utf8) ?? "")) }
                 let success =  error == nil
                 if !success {
-                    self?.showError(error: error)
                     print(error as Any)
                 }
                 callBack?(success, data, error)
@@ -157,7 +156,6 @@ class NetworkManager : NetworkProtocol {
                         print("got error while parsing json from url = " + url)
                     }
                 } else {
-                    self?.showError(error: error)
                     print(error as Any)
                 }
                 if let json = json {
@@ -175,9 +173,4 @@ class NetworkManager : NetworkProtocol {
             task.resume()
         }
     }
-    
-    private func showError(error : Error?) {
-        //appDelegate.window?.rootViewController?.show(error: error)
-    }
-    
 }

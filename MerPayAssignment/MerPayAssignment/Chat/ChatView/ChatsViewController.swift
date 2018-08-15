@@ -59,6 +59,11 @@ class ChatsViewController: UIViewController {
         navigationController?.navigationBar.topItem?.title = ""
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        presenter?.saveConversation()
+    }
+    
     //MARK:- IBAction
     @IBAction func sendButtonTapped(_ sender: Any) {
         if let text = messageTextView?.text, !text.isEmpty {

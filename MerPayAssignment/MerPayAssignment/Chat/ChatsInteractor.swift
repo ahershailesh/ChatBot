@@ -70,4 +70,10 @@ class ChatsInteractor : ChatsInteractorProtocol {
             presenter?.show(conversation: conversation!)
         }
     }
+    
+    func saveConversation() {
+        if conversation?.messageArchieves?.count == 0, let thisConversation = conversation {
+            CoreDataStack.shared.context.delete(thisConversation)
+        }
+    }
 }

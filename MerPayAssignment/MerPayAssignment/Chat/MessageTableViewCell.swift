@@ -143,8 +143,8 @@ class MessageTableViewCell: UITableViewCell {
     private func cumstomizeViewForLeftAlignment() {
         rightContraint?.isActive = false
         leftContraint?.isActive = true
-        messageLabel?.textColor = ColorHex.black.getColor()
-        timeLabel?.textColor = ColorHex.black.getColor()
+        messageLabel?.textColor = ColorHex.white.getColor()
+        timeLabel?.textColor = ColorHex.white.getColor()
         changeImage("left_bubble")
     }
     

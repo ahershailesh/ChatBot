@@ -51,6 +51,10 @@ class ChatsPresenter : ChatsPresenterProtocol {
         message.date = Date()
         interactor?.send(message: message)
     }
+    
+    func saveConversation() {
+        interactor?.saveConversation()
+    }
 }
 
 //MARK:- Model to ViewModel convertor
