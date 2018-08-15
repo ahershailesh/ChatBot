@@ -16,6 +16,8 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
     var presentor : UserListingPresentor?
     var chatManager = ChatCoreDataManager(date: Date())
     
+    private var lastUserId = 0
+    
     //MARK:- Init
     init() {
         networkManager = NetworkManager()
@@ -23,18 +25,28 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
     }
     
     //MARK:- Public functions
-    func getUserList() {
+    func getUserList(shouldRefresh: Bool = false) {
+        lastUserId = shouldRefresh ? 0 : lastUserId
         networkManager?.get(callBack: { [weak self] success, response, error in
             var users = [User]()
             if let data = response as? Data, let parsedUsers = self?.getUsers(from: data) {
-                users = parsedUsers
+                users = self?.sort(users: parsedUsers) ?? []
+                self?.saveLastId(from: users)
             }
-            self?.presentor?.show(users: users)
+            shouldRefresh ? self?.presentor?.show(users: users) : self?.presentor?.append(users: users)
         })
     }
     
-    func getNextUserList() {
-        
+    private func sort(users: [User]) -> [User] {
+        return users.sorted { (user1, user2) -> Bool in
+            return (user1.id ?? 0) < (user2.id ?? 0)
+        }
+    }
+
+    private func saveLastId(from users: [User]) {
+        if let user = users.last {
+            lastUserId = user.id ?? 0
+        }
     }
     
     func getSearchedUserList(for searchText: String) {
@@ -68,7 +80,7 @@ extension UserListingInteractor : NetworkInputProtocol {
     }
     
     @objc func compulsoryQueryParam() -> [String : String] {
-        return [:]
+        return ["since": String(describing: lastUserId) ]
     }
     
     @objc func compulsoryHeaders() -> [String : String] {

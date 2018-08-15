@@ -33,16 +33,14 @@ protocol UserListingPresentorProtocol {
     
     func viewLoaded()
     func userSelected(from controller: UINavigationController, for selected: UserInfoCellViewModel)
-    func getUserList()
-    func getNextUserList()
+    func getUserList(shouldRefresh: Bool)
     func getSearchedUserList(for searchText: String)
     func getNextSearchedUserList(for searchText: String)
 }
 
 protocol UserListingInteractorProtocol {
     var networkManager : NetworkManager? { get set }
-    func getUserList()
-    func getNextUserList()
+    func getUserList(shouldRefresh: Bool)
     func getSearchedUserList(for searchText: String)
 }
 

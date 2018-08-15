@@ -62,11 +62,17 @@ class UserListingController: UIViewController {
         
         headerView?.layer.borderWidth = 1
         headerView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
+        
+        presentor?.getUserList(shouldRefresh: true)
     }
     
-    func loadUsers() {
+    private func loadUsers() {
         status = .loading
         presentor?.viewLoaded()
+    }
+    
+    private func loadNextUsers() {
+        presentor?.getUserList(shouldRefresh: false)
     }
     
     func registerCells() {
@@ -162,12 +168,31 @@ extension UserListingController : UITableViewDelegate {
         let model = array[indexPath.row]
         presentor?.userSelected(from: self.navigationController!, for: model)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if otherConversations.count - 5 == indexPath.row {
+//            status = .loading
+            loadNextUsers()
+        }
+    }
 }
 
 //MARK:- UserListingViewProtocol
 extension UserListingController : UserListingViewProtocol {
     func append(models: [UserInfoCellViewModel]) {
-
+        let conversations = removeDuplicateUser(from: models)
+        let startIndex = otherConversations.count
+        let endIndex = otherConversations.count + conversations.count
+        otherConversations.append(contentsOf: conversations)
+        if let section = sectionOrder.index(of: .other) {
+            var indexPaths : [IndexPath] = []
+            for index in startIndex..<endIndex {
+                indexPaths.append(IndexPath(row: index, section: section))
+            }
+            DispatchQueue.main.async {
+                self.tableView?.insertRows(at: indexPaths, with: .fade)
+            }
+        }
     }
  
     func show(models: [UserInfoCellViewModel], for section: UserListingSection) {

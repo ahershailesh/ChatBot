@@ -33,7 +33,6 @@ class UserListingPresentor : UserListingPresentorProtocol {
     
     func viewLoaded() {
         loadConversations()
-        interactor?.getUserList()
     }
     
     private func loadConversations() {
@@ -74,14 +73,10 @@ class UserListingPresentor : UserListingPresentorProtocol {
         router?.pushChatController(over: controller, for: headerViewModel)
     }
     
-    func getUserList() {
-        
+    func getUserList(shouldRefresh: Bool) {
+        interactor?.getUserList(shouldRefresh: shouldRefresh)
     }
-    
-    func getNextUserList() {
-        
-    }
-    
+   
     func getSearchedUserList(for searchText: String) {
         
     }
