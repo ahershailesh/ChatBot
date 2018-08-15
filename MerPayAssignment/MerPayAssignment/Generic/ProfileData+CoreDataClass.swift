@@ -11,6 +11,7 @@ import Foundation
 import CoreData
 
 @objc(ProfileData)
+/// This clas will store profiles in the app.
 public class ProfileData: NSManagedObject {
 
 }

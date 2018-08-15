@@ -10,7 +10,7 @@ import UIKit
 
 /// This is the view model class to define header view elements
 class HeaderViewModel: NSObject {
-    var titleText        : String?
+    var titleText       : String?
     var subTitleText    : String?
     var profilePicLink  : String?
 }

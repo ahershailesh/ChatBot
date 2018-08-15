@@ -11,6 +11,7 @@ import Foundation
 import CoreData
 
 @objc(MessageEntity)
+/// This will a store a single message
 public class MessageEntity: NSManagedObject {
 
 }

@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+/// Entity model to be passed among the functions.
+/// Core data entity for the model is MessageArchieveEntity
 class MessagesModel: NSObject {
     var date : Date?
     var messages : [Message] = []

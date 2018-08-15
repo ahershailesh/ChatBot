@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 
 /// This class will save images in the core data to retrieve it afterwords
-// 
 class ImageCacher : NetworkManager {
     
     let queue = DispatchQueue.global(qos: .background)
@@ -21,6 +20,14 @@ class ImageCacher : NetworkManager {
     }
     
     
+    /// Fetch either from url or from username
+    /// If url given and data not found in cache. it will retrieve data from url and store it in cache for later use.
+    /// For user it will only try to find data in the cache, if not found it will return nil.
+    ///
+    /// - Parameters:
+    ///   - url: link from where profile pic is to be fetched.
+    ///   - userName: user name of the person.
+    ///   - callBack: call back on retrieval.
     func get(from url: URL?, userName: String, callBack: ResponseCallBack?) {
         guard let url = url else {
             getImage(for: userName, callBack: callBack)
@@ -50,6 +57,7 @@ class ImageCacher : NetworkManager {
         }
     }
     
+    //MARK:- Private
     private func getImage(for userName: String, callBack: ResponseCallBack?) {
         let context = CoreDataStack.shared.context
         let request = NSFetchRequest<ProfileData>(entityName: "ProfileData")
@@ -119,13 +127,5 @@ class ImageCacher : NetworkManager {
             profile.url = response?.url?.absoluteString
             profile.userName = userName
         }
-    }
-    
-    func clear() {
-        
-    }
-    
-    func clearAllCache() {
-        
     }
 }

@@ -16,6 +16,9 @@ import CoreData
 // A conversationEntity is all the conversation happened between a logged in user and the selected user.
 
 public class ConversationEntity: NSManagedObject {
+    
+    
+    /// this array stores sorted message archieves.
     private var _messageArchieveArray : [MessageArchieveEntity]? = nil
     private var _currentArchieve : MessageArchieveEntity?
     var currentArchieve : MessageArchieveEntity {

@@ -11,12 +11,19 @@ import CoreData
 /// This class will save and manage chats to the coredata.
 class ChatCoreDataManager {
     
+    //MARK:- Vars
+    /// To apply a check on saving data
+    /// This will avoid setting previous chat data in the app, To avoid any kind of intrusion.
+    /// For mocking you can set any date in the Init.
+    /// This will create issue if change of date happenes while application is alive. will need a fix.
     let currentDate : Date
     
+    //MARK:- Initializations
     init(date : Date = Date() ) {
         currentDate = date
     }
     
+    //MARK:- Public methods
     func getConversations(from userName: String) -> [ConversationEntity] {
         let context = CoreDataStack.shared.context
         let conversationRequest = NSFetchRequest<ConversationEntity>(entityName: "ConversationEntity")
@@ -44,7 +51,7 @@ class ChatCoreDataManager {
     }
     
     @discardableResult func save(message: Message, to conversation: ConversationEntity) -> MessageEntity? {
-        guard let date = message.date, Calendar.current.isDate(currentDate, inSameDayAs: date as Date) else { return nil }
+        if let date = message.date, Calendar.current.isDate(currentDate, inSameDayAs: date as Date) { print("Date is been changed, please check if intrusion happened.") }
         let messageEntity = MessageEntity(context: CoreDataStack.shared.context)
         messageEntity.text = message.text
         messageEntity.date = message.date! as NSDate

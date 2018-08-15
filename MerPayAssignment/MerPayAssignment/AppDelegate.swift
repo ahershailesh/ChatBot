@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    //Save data at the end of the application life cycle.
     func applicationDidEnterBackground(_ application: UIApplication) {
         CoreDataStack.shared.save()
     }

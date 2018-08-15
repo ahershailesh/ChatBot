@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Shows the navigation icon and the details.
 class NavigationView: UIView {
     
     //MARK:- Vars

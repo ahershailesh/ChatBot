@@ -11,6 +11,7 @@ import Foundation
 import CoreData
 
 
+// MARK: - ConversationEntity
 extension ConversationEntity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<ConversationEntity> {

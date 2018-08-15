@@ -8,6 +8,7 @@
 
 import UIKit
 
+// We are not moving from chat module to any where so this protocol is blank
 class ChatsRouter : ChatsRouterProtocol {
 
 }

@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// Entity model to be passed among the functions.
+/// This will be a mediator between MessageViewModel(View Model) and the MessageEntity(Core Data Model)
 class Message: NSObject {
     var text    :   String?
     var date    :   Date?

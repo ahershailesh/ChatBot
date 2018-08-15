@@ -55,15 +55,17 @@ class ChatsInteractor : ChatsInteractorProtocol {
             if let entity = chatManager.save(message: message, to: thisConversation) {
                 showReceived(message: entity)
             }
-        } else {
-            presenter?.showError()
         }
     }
     
+    /// Invokes when someone sends a message
+    ///
+    /// - Parameter message: a single message entity/
     func showReceived(message: MessageEntity) {
         presenter?.showRecieved(message: message)
     }
     
+    /// Load a single conversation from the username that is set the interactor.
     func loadMessages() {
         if let userName = userName {
             conversation = chatManager.getConversation(fromUserName: LOGGED_IN_USER, toUserName: userName)
@@ -71,6 +73,7 @@ class ChatsInteractor : ChatsInteractorProtocol {
         }
     }
     
+    /// Conversation will be store is any chat is been done.
     func saveConversation() {
         if conversation?.messageArchieves?.count == 0, let thisConversation = conversation {
             CoreDataStack.shared.context.delete(thisConversation)

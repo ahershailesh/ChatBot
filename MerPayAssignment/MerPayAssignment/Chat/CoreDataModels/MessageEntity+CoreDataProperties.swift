@@ -11,6 +11,7 @@ import Foundation
 import CoreData
 
 
+// MARK: - MessageEntity
 extension MessageEntity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<MessageEntity> {

@@ -13,6 +13,8 @@ enum MessageAlignment {
     case right
 }
 
+/// Single message cell
+/// This will handle both sent and recieve message display, you just need to configure type in MessageViewModel.
 class MessageTableViewCell: UITableViewCell {
 
     //MARK:- Private Variables
@@ -48,6 +50,7 @@ class MessageTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
+    //MARK:- Life cycle
     override func prepareForReuse() {
         super.prepareForReuse()
         messageLabel?.text = nil

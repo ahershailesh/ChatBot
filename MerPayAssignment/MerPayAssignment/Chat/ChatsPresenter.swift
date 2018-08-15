@@ -8,11 +8,12 @@
 
 import UIKit
 
+/// Intermediator between ChatViewController and ChatInteractor
+/// Primary responsibility of the class is to convert modal objects to view modal objects.
 class ChatsPresenter : ChatsPresenterProtocol {
+    
     var view: ChatsViewController?
-    
     var interactor: ChatsInteractor?
-    
     var router: ChatsRouter?
     
     //from View
@@ -39,10 +40,6 @@ class ChatsPresenter : ChatsPresenterProtocol {
     func showRecieved(message: MessageEntity) {
         let model = getConvetedMessage(from: message)
         view?.show(message: model)
-    }
-    
-    func showError() {
-        
     }
     
     func sendMessage(_ messageModel: MessageViewModel) {

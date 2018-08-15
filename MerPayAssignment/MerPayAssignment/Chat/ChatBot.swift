@@ -8,8 +8,8 @@
 
 import UIKit
 
-/// This class will act as proxy over network
-/// The API calls for the chats will be redirected to the chat bot and chat bot will reply to the sender.
+/// This class will act as proxy over network.
+/// The API calls for the chats will be redirected to the chatbot and chatbot will reply to the sender.
 class ChatBot: NetworkProtocol {
     var interactor : ChatsInteractorProtocol?
     
