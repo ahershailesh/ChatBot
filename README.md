@@ -64,4 +64,4 @@ I find myself capable enough to manage a product starting from scratch and marin
 
 ## Known Issues
 * User profile pictures flicker when scrolled very fast.
-* Pagination is smooth.
+* Pagination is not smooth.
