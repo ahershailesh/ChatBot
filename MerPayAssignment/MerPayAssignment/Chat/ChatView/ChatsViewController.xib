@@ -33,16 +33,16 @@
                     <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="y1Q-H3-8Bs">
-                    <rect key="frame" x="8" y="615" width="359" height="36"/>
+                    <rect key="frame" x="16" y="615" width="343" height="36"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QQV-Dn-FBu">
-                            <rect key="frame" x="0.0" y="0.0" width="319" height="36"/>
+                            <rect key="frame" x="0.0" y="0.0" width="303" height="36"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wc2-GX-3bg">
-                            <rect key="frame" x="335" y="7" width="24" height="22"/>
+                            <rect key="frame" x="319" y="7" width="24" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="24" id="1Ab-uh-HcW"/>
                                 <constraint firstAttribute="height" constant="22" id="b4c-OC-d9F"/>
@@ -62,9 +62,9 @@
             </subviews>
             <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="y1Q-H3-8Bs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="13c-sY-HTX"/>
+                <constraint firstItem="y1Q-H3-8Bs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="13c-sY-HTX"/>
                 <constraint firstItem="toC-Lu-9cw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="389-0r-iMj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="y1Q-H3-8Bs" secondAttribute="trailing" constant="8" id="7RX-Jr-XRe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="y1Q-H3-8Bs" secondAttribute="trailing" constant="16" id="7RX-Jr-XRe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="toC-Lu-9cw" secondAttribute="trailing" id="HL6-YK-Aoc"/>
                 <constraint firstItem="MWA-i5-hLp" firstAttribute="top" secondItem="toC-Lu-9cw" secondAttribute="bottom" id="IBR-PE-esi"/>
                 <constraint firstItem="y1Q-H3-8Bs" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-16" id="Ur1-30-4mV"/>

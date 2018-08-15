@@ -39,7 +39,6 @@ class ChatCoreDataManager {
         let conversation = ConversationEntity(context: CoreDataStack.shared.context)
         conversation.fromUser = fromUserName
         conversation.toUser = toUserName
-        CoreDataStack.shared.save()
         return conversation
     }
     

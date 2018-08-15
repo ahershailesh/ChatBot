@@ -55,6 +55,8 @@ class ChatsViewController: UIViewController {
         setupView()
         registerForKeyboardNotification()
         presenter?.viewLoaded()
+        
+        navigationController?.navigationBar.topItem?.title = ""
     }
     
     //MARK:- IBAction
