@@ -13,9 +13,10 @@
             <connections>
                 <outlet property="bottomConstraint" destination="xsY-zT-a7c" id="3RC-pm-Rwv"/>
                 <outlet property="messageTextView" destination="SwD-LN-0bk" id="iaO-J1-VwZ"/>
+                <outlet property="stackViewHeightConstraint" destination="WGv-8R-TJk" id="XyU-Pr-pdI"/>
                 <outlet property="tableView" destination="kFT-m7-REj" id="hK3-Sf-w1K"/>
+                <outlet property="textBackgroundViewHeightConstraint" destination="OOc-ho-aUL" id="hMH-3z-Elz"/>
                 <outlet property="textViewBackgroundView" destination="63L-Ab-osB" id="JmS-aY-GGd"/>
-                <outlet property="textViewHeightConstraint" destination="OOc-ho-aUL" id="hMH-3z-Elz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="aE0-sp-vHc"/>
             </connections>
         </placeholder>
@@ -32,17 +33,17 @@
                     <rect key="frame" x="0.0" y="611" width="375" height="56"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jWN-Uk-oFO">
-                            <rect key="frame" x="16" y="4" width="343" height="48"/>
+                            <rect key="frame" x="16" y="4" width="343" height="56"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SwD-LN-0bk">
-                                    <rect key="frame" x="0.0" y="8" width="295" height="32"/>
+                                    <rect key="frame" x="0.0" y="8" width="295" height="40"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70c-Kq-AGE">
-                                    <rect key="frame" x="311" y="9" width="32" height="30"/>
+                                    <rect key="frame" x="311" y="13" width="32" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="32" id="BR6-YI-D6R"/>
                                         <constraint firstAttribute="height" constant="30" id="EM3-nc-gUh"/>
@@ -54,6 +55,7 @@
                                 </button>
                             </subviews>
                             <constraints>
+                                <constraint firstAttribute="height" constant="56" id="WGv-8R-TJk"/>
                                 <constraint firstAttribute="bottom" secondItem="SwD-LN-0bk" secondAttribute="bottom" constant="8" id="bbh-3K-3SD"/>
                                 <constraint firstItem="SwD-LN-0bk" firstAttribute="top" secondItem="jWN-Uk-oFO" secondAttribute="top" constant="8" id="eZM-iZ-x5Z"/>
                                 <constraint firstItem="70c-Kq-AGE" firstAttribute="leading" secondItem="SwD-LN-0bk" secondAttribute="trailing" constant="16" id="u8I-ij-2H2"/>
@@ -65,7 +67,6 @@
                         <constraint firstAttribute="height" constant="56" id="OOc-ho-aUL"/>
                         <constraint firstItem="jWN-Uk-oFO" firstAttribute="leading" secondItem="63L-Ab-osB" secondAttribute="leading" constant="16" id="v9M-VB-RBF"/>
                         <constraint firstItem="jWN-Uk-oFO" firstAttribute="top" secondItem="63L-Ab-osB" secondAttribute="top" constant="4" id="wrB-4p-EVX"/>
-                        <constraint firstAttribute="bottom" secondItem="jWN-Uk-oFO" secondAttribute="bottom" constant="4" id="yAf-aD-icn"/>
                         <constraint firstAttribute="trailing" secondItem="jWN-Uk-oFO" secondAttribute="trailing" constant="16" id="zOp-vu-CES"/>
                     </constraints>
                 </view>

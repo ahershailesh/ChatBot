@@ -34,7 +34,7 @@ class UserListingController: UIViewController {
     private let HEADER_SECTION_IDENTIFIER = "HeaderFooterCell"
     private let LOADING_CELL_MESSAGE = "Loading users"
     
-    private let sectionOrder : [UserListingSection] = [ .recent, .other]
+    private var sectionOrder : [UserListingSection] = [.other]
     private var recentConversations : [UserInfoCellViewModel] = []
     private var otherConversations : [UserInfoCellViewModel] = []
     
@@ -66,16 +66,19 @@ class UserListingController: UIViewController {
         presentor?.getUserList(shouldRefresh: true)
     }
     
-    private func loadUsers() {
-        status = .loading
-        presentor?.viewLoaded()
-    }
-    
     private func loadNextUsers() {
         presentor?.getUserList(shouldRefresh: false)
     }
     
-    func registerCells() {
+    private func refreshData() {
+        recentConversations = []
+        otherConversations = []
+        status = .loading
+        presentor?.viewLoaded()
+        presentor?.getUserList(shouldRefresh: true)
+    }
+    
+    private func registerCells() {
         tableView?.register(UINib(nibName: "UserDetailInfoCell", bundle: nil), forCellReuseIdentifier: USER_INFO_CELL_IDENTIFIER)
         tableView?.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: LOADING_CELL_INDETIFIER)
         tableView?.register(UINib(nibName: "NoResultCell", bundle: nil), forCellReuseIdentifier: NO_DATA_CELL_IDENTIFIER)
@@ -83,12 +86,12 @@ class UserListingController: UIViewController {
     }
     
     @IBAction func actionButtonTapped(_ sender: Any) {
-        loadUsers()
+        refreshData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadUsers()
+        presentor?.viewLoaded()
     }
 }
 
@@ -199,11 +202,14 @@ extension UserListingController : UserListingViewProtocol {
         switch section {
         case .recent:
             recentConversations = models
+            if !recentConversations.isEmpty {
+                sectionOrder = [.recent, .other]
+            }
             otherConversations = removeDuplicateUser(from: otherConversations)
         case .other:
             otherConversations = removeDuplicateUser(from: models)
-            status = .listing
         }
+        status = .listing
         DispatchQueue.main.async {
             self.tableView?.reloadData()
         }

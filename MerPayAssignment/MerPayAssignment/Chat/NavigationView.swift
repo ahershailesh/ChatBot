@@ -94,6 +94,8 @@ class NavigationView: UIView {
         vfl = "V:|-0-[title]-4-[subTitle]-0-|"
         constraints = NSLayoutConstraint.constraints(withVisualFormat: vfl, options: .alignAllLeading, metrics:  nil, views: viewDict)
         self.addConstraints(constraints)
+        
+        layoutIfNeeded()
     }
     
 }

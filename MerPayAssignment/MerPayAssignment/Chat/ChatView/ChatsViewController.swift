@@ -16,7 +16,9 @@ class ChatsViewController: UIViewController {
     @IBOutlet weak var messageTextView: UITextView?
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint?
     @IBOutlet weak var textViewBackgroundView: UIView?
-    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint?
+    @IBOutlet weak var textBackgroundViewHeightConstraint: NSLayoutConstraint?
+    @IBOutlet weak var stackViewHeightConstraint: NSLayoutConstraint?
+    
     
     //MARK: Private vars
     private var headerView: NavigationView?
@@ -29,7 +31,8 @@ class ChatsViewController: UIViewController {
     
     //MARK: Public Constants
     private let MESSGAE_CELL_ID = "MessageTableViewCell"
-    private let DEFAULT_TEXTVIEW_HEIGHT : CGFloat = 56.0
+    private let DEFAULT_VIEW_HEIGHT : CGFloat = IS_IPHONE_X ? 30.0 : 4
+    private let DEFAULT_STACKVIEW_HEIGHT : CGFloat = 56.0
     private let MAX_TEXTVIEW_HEIGHT : CGFloat = 100.0
     
     //MARK:- Init
@@ -73,7 +76,8 @@ class ChatsViewController: UIViewController {
             message.date = Date()
             presentor?.sendMessage(message)
         }
-        self.textViewHeightConstraint?.constant = DEFAULT_TEXTVIEW_HEIGHT
+        self.textBackgroundViewHeightConstraint?.constant = DEFAULT_VIEW_HEIGHT + DEFAULT_STACKVIEW_HEIGHT
+        self.stackViewHeightConstraint?.constant = DEFAULT_STACKVIEW_HEIGHT
         messageTextView?.text = nil
     }
     
@@ -92,6 +96,8 @@ class ChatsViewController: UIViewController {
         
         textViewBackgroundView?.layer.borderWidth = 1
         textViewBackgroundView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
+        
+        textBackgroundViewHeightConstraint?.constant = DEFAULT_VIEW_HEIGHT + DEFAULT_STACKVIEW_HEIGHT
     }
     
     private func registerForKeyboardNotification() {
@@ -128,9 +134,9 @@ class ChatsViewController: UIViewController {
     //MARK: Navigation bar handling
     private func setupNavigationView() {
         headerView = NavigationView(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 100)))
-        headerView?.model = headerViewModel
         headerView?.frame = CGRect(origin: .zero, size: CGSize(width: 200, height: 100))
         navigationItem.titleView = headerView
+        headerView?.model = headerViewModel
     }
 }
 
@@ -170,7 +176,9 @@ extension ChatsViewController : UITextViewDelegate {
         
         UIView.animate(withDuration: 0.1) {
             if textView.textInputView.frame.height < self.MAX_TEXTVIEW_HEIGHT {
-                self.textViewHeightConstraint?.constant = textView.textInputView.frame.height + 25
+                let height = textView.textInputView.frame.height + 25
+                self.textBackgroundViewHeightConstraint?.constant = self.DEFAULT_VIEW_HEIGHT + height
+                self.stackViewHeightConstraint?.constant = height
             }
             self.view.layoutIfNeeded()
         }
