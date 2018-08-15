@@ -16,7 +16,6 @@ class ChatsViewController: UIViewController {
     @IBOutlet weak var messageTextView: UITextView?
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint?
     @IBOutlet weak var textViewBackgroundView: UIView?
-    @IBOutlet weak var textBackgroundViewHeightConstraint: NSLayoutConstraint?
     @IBOutlet weak var stackViewHeightConstraint: NSLayoutConstraint?
     
     
@@ -31,9 +30,9 @@ class ChatsViewController: UIViewController {
     
     //MARK: Public Constants
     private let MESSGAE_CELL_ID = "MessageTableViewCell"
-    private let DEFAULT_VIEW_HEIGHT : CGFloat = IS_IPHONE_X ? 30.0 : 4
-    private let DEFAULT_STACKVIEW_HEIGHT : CGFloat = 56.0
+    private let DEFAULT_STACKVIEW_HEIGHT : CGFloat = 36
     private let MAX_TEXTVIEW_HEIGHT : CGFloat = 100.0
+    private let DEFAULT_BOTTOM_CONSTANT : CGFloat = -16
     
     //MARK:- Init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -76,7 +75,6 @@ class ChatsViewController: UIViewController {
             message.date = Date()
             presentor?.sendMessage(message)
         }
-        self.textBackgroundViewHeightConstraint?.constant = DEFAULT_VIEW_HEIGHT + DEFAULT_STACKVIEW_HEIGHT
         self.stackViewHeightConstraint?.constant = DEFAULT_STACKVIEW_HEIGHT
         messageTextView?.text = nil
     }
@@ -96,8 +94,6 @@ class ChatsViewController: UIViewController {
         
         textViewBackgroundView?.layer.borderWidth = 1
         textViewBackgroundView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
-        
-        textBackgroundViewHeightConstraint?.constant = DEFAULT_VIEW_HEIGHT + DEFAULT_STACKVIEW_HEIGHT
     }
     
     private func registerForKeyboardNotification() {
@@ -115,7 +111,11 @@ class ChatsViewController: UIViewController {
         
         let time = info[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
         UIView.animate(withDuration: time) {
-            self.bottomConstraint?.constant = keyboardFrame.height
+            var bottomConstants = (-1) * keyboardFrame.height
+            if !IS_IPHONE_X {
+                bottomConstants = bottomConstants + self.DEFAULT_BOTTOM_CONSTANT
+            }
+            self.bottomConstraint?.constant = bottomConstants
             self.view.layoutIfNeeded()
         }
         tableView?.scrollToNearestSelectedRow(at: .bottom, animated: false)
@@ -126,7 +126,7 @@ class ChatsViewController: UIViewController {
         let info  = notification.userInfo!
         let time = info[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
         UIView.animate(withDuration: time) {
-            self.bottomConstraint?.constant = 0
+            self.bottomConstraint?.constant = self.DEFAULT_BOTTOM_CONSTANT
             self.view.layoutIfNeeded()
         }
     }
@@ -177,7 +177,6 @@ extension ChatsViewController : UITextViewDelegate {
         UIView.animate(withDuration: 0.1) {
             if textView.textInputView.frame.height < self.MAX_TEXTVIEW_HEIGHT {
                 let height = textView.textInputView.frame.height + 25
-                self.textBackgroundViewHeightConstraint?.constant = self.DEFAULT_VIEW_HEIGHT + height
                 self.stackViewHeightConstraint?.constant = height
             }
             self.view.layoutIfNeeded()
