@@ -13,7 +13,7 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
     //MARK:- Vars
     //MARK: Public
     var networkManager : NetworkManager?
-    var presentor : UserListingPresentor?
+    var presenter : UserListingPresenter?
     var chatManager = ChatCoreDataManager(date: Date())
     
     private var lastUserId = 0
@@ -33,7 +33,7 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
                 users = self?.sort(users: parsedUsers) ?? []
                 self?.saveLastId(from: users)
             }
-            shouldRefresh ? self?.presentor?.show(users: users) : self?.presentor?.append(users: users)
+            shouldRefresh ? self?.presenter?.show(users: users) : self?.presenter?.append(users: users)
         })
     }
     

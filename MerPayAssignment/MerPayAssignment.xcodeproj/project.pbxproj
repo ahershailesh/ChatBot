@@ -28,7 +28,7 @@
 		8AC31D94211F82F100D76B17 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D92211F82F100D76B17 /* MessageTableViewCell.swift */; };
 		8AC31D97211F998A00D76B17 /* MessagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D96211F998A00D76B17 /* MessagesModel.swift */; };
 		8AC31D99211F999800D76B17 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D98211F999800D76B17 /* Message.swift */; };
-		8AC31D9F21201D9000D76B17 /* ChatsPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D9A21201D8F00D76B17 /* ChatsPresentor.swift */; };
+		8AC31D9F21201D9000D76B17 /* ChatsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D9A21201D8F00D76B17 /* ChatsPresenter.swift */; };
 		8AC31DA021201D9000D76B17 /* ChatsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D9B21201D8F00D76B17 /* ChatsInteractor.swift */; };
 		8AC31DA221201D9000D76B17 /* ChatsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D9D21201D9000D76B17 /* ChatsProtocol.swift */; };
 		8AC31DA321201D9000D76B17 /* ChatsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC31D9E21201D9000D76B17 /* ChatsRouter.swift */; };
@@ -49,7 +49,7 @@
 		8AF2102D211CE4BE00CF1458 /* UserListingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21026211CE4BE00CF1458 /* UserListingRouter.swift */; };
 		8AF2102E211CE4BE00CF1458 /* UserListingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21027211CE4BE00CF1458 /* UserListingController.swift */; };
 		8AF2102F211CE4BE00CF1458 /* UserListingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF21028211CE4BE00CF1458 /* UserListingController.xib */; };
-		8AF21030211CE4BE00CF1458 /* UserListingPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21029211CE4BE00CF1458 /* UserListingPresentor.swift */; };
+		8AF21030211CE4BE00CF1458 /* UserListingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21029211CE4BE00CF1458 /* UserListingPresenter.swift */; };
 		8AF21031211CE4BE00CF1458 /* UserListingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2102A211CE4BE00CF1458 /* UserListingProtocols.swift */; };
 		8AF21032211CE4BE00CF1458 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2102B211CE4BE00CF1458 /* User.swift */; };
 		8AF21034211CE7A100CF1458 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF21033211CE7A100CF1458 /* NetworkManager.swift */; };
@@ -93,7 +93,7 @@
 		8AC31D92211F82F100D76B17 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		8AC31D96211F998A00D76B17 /* MessagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModel.swift; sourceTree = "<group>"; };
 		8AC31D98211F999800D76B17 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		8AC31D9A21201D8F00D76B17 /* ChatsPresentor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsPresentor.swift; sourceTree = "<group>"; };
+		8AC31D9A21201D8F00D76B17 /* ChatsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsPresenter.swift; sourceTree = "<group>"; };
 		8AC31D9B21201D8F00D76B17 /* ChatsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsInteractor.swift; sourceTree = "<group>"; };
 		8AC31D9D21201D9000D76B17 /* ChatsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsProtocol.swift; sourceTree = "<group>"; };
 		8AC31D9E21201D9000D76B17 /* ChatsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsRouter.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		8AF21026211CE4BE00CF1458 /* UserListingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListingRouter.swift; sourceTree = "<group>"; };
 		8AF21027211CE4BE00CF1458 /* UserListingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListingController.swift; sourceTree = "<group>"; };
 		8AF21028211CE4BE00CF1458 /* UserListingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListingController.xib; sourceTree = "<group>"; };
-		8AF21029211CE4BE00CF1458 /* UserListingPresentor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListingPresentor.swift; sourceTree = "<group>"; };
+		8AF21029211CE4BE00CF1458 /* UserListingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListingPresenter.swift; sourceTree = "<group>"; };
 		8AF2102A211CE4BE00CF1458 /* UserListingProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListingProtocols.swift; sourceTree = "<group>"; };
 		8AF2102B211CE4BE00CF1458 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8AF21033211CE7A100CF1458 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -225,7 +225,7 @@
 				8AC31DCE21204D9900D76B17 /* ChatCoreDataManager.swift */,
 				8AC31DBE2120430100D76B17 /* CoreDataModels */,
 				8AC31D9B21201D8F00D76B17 /* ChatsInteractor.swift */,
-				8AC31D9A21201D8F00D76B17 /* ChatsPresentor.swift */,
+				8AC31D9A21201D8F00D76B17 /* ChatsPresenter.swift */,
 				8AC31D9D21201D9000D76B17 /* ChatsProtocol.swift */,
 				8AC31D9E21201D9000D76B17 /* ChatsRouter.swift */,
 				8AC31D90211F659100D76B17 /* NavigationView.swift */,
@@ -268,7 +268,7 @@
 				8AF21026211CE4BE00CF1458 /* UserListingRouter.swift */,
 				8AF21027211CE4BE00CF1458 /* UserListingController.swift */,
 				8AF21028211CE4BE00CF1458 /* UserListingController.xib */,
-				8AF21029211CE4BE00CF1458 /* UserListingPresentor.swift */,
+				8AF21029211CE4BE00CF1458 /* UserListingPresenter.swift */,
 				8AF21018211CC2E400CF1458 /* UserDetailInfoCell.swift */,
 				8AF21019211CC2E400CF1458 /* UserDetailInfoCell.xib */,
 				8AF2102A211CE4BE00CF1458 /* UserListingProtocols.swift */,
@@ -383,11 +383,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AF21030211CE4BE00CF1458 /* UserListingPresentor.swift in Sources */,
+				8AF21030211CE4BE00CF1458 /* UserListingPresenter.swift in Sources */,
 				8A774051211F2E95008D48EC /* LocalStorage.xcdatamodeld in Sources */,
 				8A40B035211E7599005EC648 /* AllExtension.swift in Sources */,
 				8A650E5121238A3A00FCD8E9 /* ConversationEntity+CoreDataClass.swift in Sources */,
-				8AC31D9F21201D9000D76B17 /* ChatsPresentor.swift in Sources */,
+				8AC31D9F21201D9000D76B17 /* ChatsPresenter.swift in Sources */,
 				8A650E5221238A3A00FCD8E9 /* ConversationEntity+CoreDataProperties.swift in Sources */,
 				8AC31D94211F82F100D76B17 /* MessageTableViewCell.swift in Sources */,
 				8AF21039211E1C6800CF1458 /* Constants.swift in Sources */,

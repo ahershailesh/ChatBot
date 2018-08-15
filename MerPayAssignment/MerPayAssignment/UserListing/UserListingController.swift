@@ -37,7 +37,7 @@ class UserListingController: UIViewController {
     private var otherConversations : [UserInfoCellViewModel] = []
     
     private var status : UserTableViewStatus = .listing
-    var presentor: UserListingPresentor?
+    var presenter: UserListingPresenter?
     
     //MARK:- Init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -63,7 +63,7 @@ class UserListingController: UIViewController {
 //        headerView?.layer.borderWidth = 1
 //        headerView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
         
-        presentor?.getUserList(shouldRefresh: true)
+        presenter?.getUserList(shouldRefresh: true)
         
         navigationController?.navigationBar.barTintColor = ColorHex.navigationBarColor.getColor()
         navigationController?.navigationBar.isTranslucent = false
@@ -72,15 +72,15 @@ class UserListingController: UIViewController {
     }
     
     private func loadNextUsers() {
-        presentor?.getUserList(shouldRefresh: false)
+        presenter?.getUserList(shouldRefresh: false)
     }
     
     @objc private func refreshData() {
         recentConversations = []
         otherConversations = []
         status = .loading
-        presentor?.viewLoaded()
-        presentor?.getUserList(shouldRefresh: true)
+        presenter?.viewLoaded()
+        presenter?.getUserList(shouldRefresh: true)
     }
     
     private func registerCells() {
@@ -92,7 +92,7 @@ class UserListingController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presentor?.viewLoaded()
+        presenter?.viewLoaded()
     }
 }
 
@@ -175,7 +175,7 @@ extension UserListingController : UITableViewDelegate {
         let section = sectionOrder[indexPath.section]
         let array = section == .recent ? recentConversations : otherConversations
         let model = array[indexPath.row]
-        presentor?.userSelected(from: self.navigationController!, for: model)
+        presenter?.userSelected(from: self.navigationController!, for: model)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

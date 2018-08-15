@@ -14,7 +14,7 @@ class ChatsInteractor : ChatsInteractorProtocol {
     //MARK: Public
     var userName: String?
     var networkManager : NetworkProtocol?
-    var presentor : ChatsPresentor?
+    var presenter : ChatsPresenter?
     
     //MARK: Private
     private var conversation : ConversationEntity?
@@ -56,18 +56,18 @@ class ChatsInteractor : ChatsInteractorProtocol {
                 showReceived(message: entity)
             }
         } else {
-            presentor?.showError()
+            presenter?.showError()
         }
     }
     
     func showReceived(message: MessageEntity) {
-        presentor?.showRecieved(message: message)
+        presenter?.showRecieved(message: message)
     }
     
     func loadMessages() {
         if let userName = userName {
             conversation = chatManager.getConversation(fromUserName: LOGGED_IN_USER, toUserName: userName)
-            presentor?.show(conversation: conversation!)
+            presenter?.show(conversation: conversation!)
         }
     }
 }

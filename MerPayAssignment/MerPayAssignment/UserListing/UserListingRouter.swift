@@ -13,13 +13,13 @@ class UserListingRouter : UserListingRouterProtocol {
     class func getUserListingController() -> UserListingController {
         let controller = UserListingController(nibName: nil, bundle: nil)
         let interactor = UserListingInteractor()
-        let presentor = UserListingPresentor()
+        let presenter = UserListingPresenter()
         let router = UserListingRouter()
-        controller.presentor = presentor
-        presentor.interactor = interactor
-        presentor.view = controller
-        presentor.router = router
-        interactor.presentor = presentor
+        controller.presenter = presenter
+        presenter.interactor = interactor
+        presenter.view = controller
+        presenter.router = router
+        interactor.presenter = presenter
         return controller
     }
     
@@ -28,17 +28,17 @@ class UserListingRouter : UserListingRouterProtocol {
         chatController.headerViewModel = model
         let chatBot = ChatBot()
         let interactor = ChatsInteractor(networkHandler: chatBot, userName: model.titleText!)
-        let presentor = ChatsPresentor()
+        let presenter = ChatsPresenter()
         let router = ChatsRouter()
         
-        chatController.presentor = presentor
-        presentor.interactor = interactor
-        presentor.view = chatController
-        presentor.router = router
-        interactor.presentor = presentor
+        chatController.presenter = presenter
+        presenter.interactor = interactor
+        presenter.view = chatController
+        presenter.router = router
+        interactor.presenter = presenter
         chatBot.interactor = interactor
         
-        chatController.presentor = presentor
+        chatController.presenter = presenter
         controller.pushViewController(chatController, animated: true)
     }
 }

@@ -26,7 +26,7 @@ class ChatsViewController: UIViewController {
     //MARK: Public vars
     var headerViewModel : HeaderViewModel?
     var archieves = [MessageArchieveViewModel]()
-    var presentor: ChatsPresentor?
+    var presenter: ChatsPresenter?
     
     //MARK: Public Constants
     private let MESSGAE_CELL_ID = "MessageTableViewCell"
@@ -54,7 +54,7 @@ class ChatsViewController: UIViewController {
         messageTextView?.delegate = self
         setupView()
         registerForKeyboardNotification()
-        presentor?.viewLoaded()
+        presenter?.viewLoaded()
     }
     
     //MARK:- IBAction
@@ -63,7 +63,7 @@ class ChatsViewController: UIViewController {
             let message = Message()
             message.text = text
             message.date = Date()
-            presentor?.sendMessage(message)
+            presenter?.sendMessage(message)
         }
         self.stackViewHeightConstraint?.constant = DEFAULT_STACKVIEW_HEIGHT
         messageTextView?.text = nil

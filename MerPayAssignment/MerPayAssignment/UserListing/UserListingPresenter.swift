@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserListingPresentor : UserListingPresentorProtocol {
+class UserListingPresenter : UserListingPresenterProtocol {
     
     //MARK:- Vars
     //MARK: Public

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol UserListingViewProtocol {
-    var presentor : UserListingPresentor? {get set}
+    var presenter : UserListingPresenter? {get set}
     
     func append(models: [UserInfoCellViewModel])
     func show(models: [UserInfoCellViewModel], for section: UserListingSection) 
@@ -19,7 +19,7 @@ protocol UserListingRouterProtocol {
     func pushChatController(over controller: UINavigationController, for user: HeaderViewModel)
 }
 
-protocol UserListingPresentorProtocol {
+protocol UserListingPresenterProtocol {
     //View Related functions
     var view : UserListingController? { get set }
     
@@ -45,5 +45,5 @@ protocol UserListingInteractorProtocol {
 }
 
 protocol UserListingInteractorOutputProtocol {
-    var presentor : UserListingPresentor? { get set }
+    var presenter : UserListingPresenter? { get set }
 }

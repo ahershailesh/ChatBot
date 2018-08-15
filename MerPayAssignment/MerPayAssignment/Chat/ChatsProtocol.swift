@@ -9,9 +9,9 @@
 import UIKit
 
 protocol ChatsViewProtocol {
-    var presentor : ChatsPresentor? {get set}
+    var presenter : ChatsPresenter? {get set}
     
-    //presentor will talk to the view with below methods
+    //presenter will talk to the view with below methods
     func show(message: MessageViewModel)
     func show(archieves: [MessageArchieveViewModel])
 }
@@ -20,14 +20,14 @@ protocol ChatsRouterProtocol {
     
 }
 
-protocol ChatsPresentorProtocol {
-    //View will talk to presentor with following commands
+protocol ChatsPresenterProtocol {
+    //View will talk to presenter with following commands
     var view : ChatsViewController? { get set }
 
     func viewLoaded()
     func sendMessage(_ message: MessageViewModel)
     
-    //interactor will talk to presentor with following commands
+    //interactor will talk to presenter with following commands
     var interactor: ChatsInteractor? { get set }
     
     func show(conversation: ConversationEntity)
@@ -47,7 +47,7 @@ protocol ChatsInteractorProtocol {
 }
 
 protocol ChatsInteractorOutputProtocol {
-    var presentor : ChatsPresentor? { get set }
+    var presenter : ChatsPresenter? { get set }
     
     func show(message: MessageViewModel)
     func loadConversation(with archieves: [MessageArchieveViewModel])

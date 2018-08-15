@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatsPresentor : ChatsPresentorProtocol {
+class ChatsPresenter : ChatsPresenterProtocol {
     var view: ChatsViewController?
     
     var interactor: ChatsInteractor?
@@ -54,7 +54,7 @@ class ChatsPresentor : ChatsPresentorProtocol {
 }
 
 //MARK:- Model to ViewModel convertor
-extension ChatsPresentor {
+extension ChatsPresenter {
     private func getConvertedArchieves(from conversation: ConversationEntity) -> [MessageArchieveViewModel]{
         return conversation.messageArchieveArray.map { (messageArchieve) -> MessageArchieveViewModel in
             return getConvertedArchieve(from: messageArchieve)
