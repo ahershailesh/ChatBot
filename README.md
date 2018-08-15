@@ -28,6 +28,12 @@ You are tech-lead of an iOS team with 5 members, who is planning on developing a
 #### Why I chose it
 I find myself capable enough to manage a product starting from scratch and marinating it for long time. I can design and develop an application foundation fairly by considering long term on going process of application development.
 
+## App Architecture
+I used VIPER architecture to support main functionalities.
+
+### VIPER
+I used VIPER for User Listing and Chat screens. Controllers render ViewModels on the screen. Interactor handles API requests for user listing, while  Presenters manages communication between Controller and Interactor. Router is responsible for the navigation between screens.
+
 ### Directory Structure
 
 ```
