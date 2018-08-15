@@ -17,7 +17,7 @@ class MessageTableViewCell: UITableViewCell {
 
     //MARK:- Private Variables
     private var messageLabel    : UILabel?
-    private var messageView     : UIView?
+    private var messageView     : UIImageView?
     private var timeLabel       : UILabel?
     
     private var leftContraint : NSLayoutConstraint?
@@ -51,13 +51,14 @@ class MessageTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         messageLabel?.text = nil
+        messageView?.image = nil
     }
     
     
     //MARK:- Private methods - setup
     private func setupView() {
         messageLabel = UILabel(frame: .zero)
-        messageView = UIView(frame: .zero)
+        messageView = UIImageView(frame: .zero)
         timeLabel = UILabel(frame: .zero)
         
         messageView?.addSubview(messageLabel!)
@@ -73,7 +74,6 @@ class MessageTableViewCell: UITableViewCell {
         
         timeLabel?.font = UIFont.italicSystemFont(ofSize: 12)
         selectionStyle = .none
-        
         addConstraints()
     }
     
@@ -104,11 +104,11 @@ class MessageTableViewCell: UITableViewCell {
         
         //Text label contraints
             //Top
-        contraint = NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: messageView, attribute: .top, multiplier: 1, constant: 8)
+        contraint = NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: messageView, attribute: .top, multiplier: 1, constant: 16)
         messageView.addConstraint(contraint)
         
             //leading
-        contraint = NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: messageView, attribute: .leading, multiplier: 1, constant: 8)
+        contraint = NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: messageView, attribute: .leading, multiplier: 1, constant: 16)
         messageView.addConstraint(contraint)
         
             //trailing
@@ -125,11 +125,11 @@ class MessageTableViewCell: UITableViewCell {
         messageView.addConstraint(contraint)
         
             //trailing
-        contraint = NSLayoutConstraint(item: timeLabel, attribute: .trailing, relatedBy: .equal, toItem: messageView, attribute: .trailing, multiplier: 1, constant: -8)
+        contraint = NSLayoutConstraint(item: timeLabel, attribute: .trailing, relatedBy: .equal, toItem: messageView, attribute: .trailing, multiplier: 1, constant: -16)
         messageView.addConstraint(contraint)
         
             //bottom
-        contraint = NSLayoutConstraint(item: messageView, attribute: .bottom, relatedBy: .equal, toItem: timeLabel, attribute: .bottom, multiplier: 1, constant: 8)
+        contraint = NSLayoutConstraint(item: messageView, attribute: .bottom, relatedBy: .equal, toItem: timeLabel, attribute: .bottom, multiplier: 1, constant: 16)
         messageView.addConstraint(contraint)
     }
     
@@ -143,16 +143,25 @@ class MessageTableViewCell: UITableViewCell {
     private func cumstomizeViewForLeftAlignment() {
         rightContraint?.isActive = false
         leftContraint?.isActive = true
-        messageView?.backgroundColor = ColorHex.aliceBlue.getColor()
         messageLabel?.textColor = ColorHex.black.getColor()
         timeLabel?.textColor = ColorHex.black.getColor()
+        changeImage("left_bubble")
     }
     
     private func cumstomizeViewForRightAlignment() {
         leftContraint?.isActive = false
         rightContraint?.isActive = true
-        messageView?.backgroundColor = ColorHex.ebonyBlue.getColor()
         messageLabel?.textColor = ColorHex.white.getColor()
         timeLabel?.textColor = ColorHex.white.getColor()
+        changeImage("right_bubble")
+    }
+    
+    private func changeImage(_ name: String) {
+        guard let image = UIImage(named: name) else { return }
+        messageView?.image = image
+            .resizableImage(withCapInsets:
+                UIEdgeInsetsMake(17, 21, 17, 21),
+                            resizingMode: .stretch)
+            .withRenderingMode(.alwaysOriginal)
     }
 }
