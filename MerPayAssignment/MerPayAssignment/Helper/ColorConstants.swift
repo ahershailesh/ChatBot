@@ -66,7 +66,8 @@ enum ColorHex : String {
     case silverSand     = "BDC3C7"
     case silver         = "BFBFBF"
     case lightGray      = "E8E8E8"
-    case whiteSmoke     = "#F5F5F5"
+    case whiteSmoke     = "F5F5F5"
+    case navigationBarColor = "F9F9F9"
     
     func getColorType() -> ColorType {
         switch self {
@@ -116,6 +117,7 @@ enum ColorHex : String {
         case .black          : return .dark
         case .jaksonsPurple  : return .dark
         case .lightGray      : return .light
+        case .navigationBarColor : return .light
         }
     }
     

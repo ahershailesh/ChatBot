@@ -60,10 +60,15 @@ class UserListingController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshData))
         
-        headerView?.layer.borderWidth = 1
-        headerView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
+//        headerView?.layer.borderWidth = 1
+//        headerView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
         
         presentor?.getUserList(shouldRefresh: true)
+        
+        navigationController?.navigationBar.barTintColor = ColorHex.navigationBarColor.getColor()
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     private func loadNextUsers() {
@@ -121,7 +126,12 @@ extension UserListingController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionView = tableView.dequeueReusableHeaderFooterView(withIdentifier: HEADER_SECTION_IDENTIFIER)
         sectionView?.textLabel?.text = sectionOrder[section].rawValue
+        sectionView?.backgroundColor = ColorHex.navigationBarColor.getColor()
         return sectionView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
     }
     
     private func getLoadingCell(for tableView: UITableView, and indexPath: IndexPath) -> UITableViewCell {

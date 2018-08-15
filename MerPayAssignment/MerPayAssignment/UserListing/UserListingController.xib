@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dst-bj-cJO">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github Chats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbo-7I-nMy">
                             <rect key="frame" x="16" y="24" width="148.5" height="29"/>
@@ -34,13 +34,13 @@
                     </subviews>
                     <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="FXf-62-Q2i"/>
+                        <constraint firstAttribute="height" constant="74" id="FXf-62-Q2i"/>
                         <constraint firstItem="wbo-7I-nMy" firstAttribute="leading" secondItem="9So-YW-FlM" secondAttribute="leading" constant="16" id="La2-PG-51o"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="9So-YW-FlM"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="En3-dg-xHC">
-                    <rect key="frame" x="0.0" y="56" width="375" height="611"/>
+                    <rect key="frame" x="0.0" y="74" width="375" height="593"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
