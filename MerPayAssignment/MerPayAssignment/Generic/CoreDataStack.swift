@@ -10,7 +10,10 @@ import CoreData
 
 class CoreDataStack {
     
+    private static var isCoreDataInitializationDone = false
+    
     static let shared = CoreDataStack {
+        isCoreDataInitializationDone = true
         print("CoreData Initialization done.")
     }
     
@@ -28,8 +31,8 @@ class CoreDataStack {
     }
     
     func save() {
-        queue.sync {
-            if context.hasChanges {
+        mainThread {
+            if context.hasChanges, CoreDataStack.isCoreDataInitializationDone {
                 do {
                     try context.save()
                 } catch {

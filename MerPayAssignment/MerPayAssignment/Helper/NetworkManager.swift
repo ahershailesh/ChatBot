@@ -79,6 +79,7 @@ class NetworkManager : NetworkProtocol {
                 let success =  error == nil
                 if !success {
                     print(error as Any)
+                    self?.showError(error: error)
                 }
                 callBack?(success, data, error)
             })
@@ -172,5 +173,9 @@ class NetworkManager : NetworkProtocol {
             print("\(request.httpMethod!) - \(request.url!)")
             task.resume()
         }
+    }
+    
+    private func showError(error : Error?) {
+        (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController?.show(error: error)
     }
 }

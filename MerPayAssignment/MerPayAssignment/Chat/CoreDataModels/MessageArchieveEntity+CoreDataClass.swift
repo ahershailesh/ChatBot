@@ -11,6 +11,7 @@ import Foundation
 import CoreData
 
 @objc(MessageArchieveEntity)
+/// Message archieve is the conversation happened between a logged in user and the selected user in a day.
 public class MessageArchieveEntity: NSManagedObject {
     
     private var _messagesArray : [MessageEntity]? = nil

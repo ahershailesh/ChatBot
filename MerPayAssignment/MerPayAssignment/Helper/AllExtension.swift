@@ -124,3 +124,39 @@ extension NSDate {
     }
 }
 
+extension UIViewController {
+    
+    func showAlert(message: String, title : String = "Important" ) {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel) { (_) in
+            controller.dismiss(animated: true, completion: nil)
+        }
+        controller.addAction(okAction)
+        present(controller, animated: true, completion: nil)
+    }
+    
+    func show(error : Error?, title : String = "Error"){
+        guard let error = error else {
+            showAlert(message: "Something went wrong, please refresh page", title: "Error")
+            return
+        }
+        showAlert(message: get(error).rawValue, title: "Error")
+    }
+    
+    private func get(_ error : Error) -> ErrorCode{
+        
+        if let err = error as? URLError {
+            switch err.code {
+            case URLError.Code.notConnectedToInternet, URLError.Code.cannotConnectToHost:
+                return ErrorCode.Network
+                
+            case URLError.Code.cannotFindHost:
+                return ErrorCode.ServerNotFound
+                
+            default:
+                return ErrorCode.None
+            }
+        }
+        return ErrorCode.None
+    }
+}

@@ -11,6 +11,10 @@ import Foundation
 import CoreData
 
 @objc(ConversationEntity)
+/// A conversation between in LoggedInUser and selected use.
+/// This class will consist of the messages archieves
+// A conversationEntity is all the conversation happened between a logged in user and the selected user.
+
 public class ConversationEntity: NSManagedObject {
     private var _messageArchieveArray : [MessageArchieveEntity]? = nil
     private var _currentArchieve : MessageArchieveEntity?
@@ -58,6 +62,5 @@ public class ConversationEntity: NSManagedObject {
     func send(message: MessageEntity) {
         currentArchieve.addToMessages(message)
         self.lastUpdate = NSDate()
-        CoreDataStack.shared.save()
     }
 }

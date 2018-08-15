@@ -29,7 +29,7 @@ class UserListingInteractor : UserListingInteractorProtocol, UserListingInteract
         lastUserId = shouldRefresh ? 0 : lastUserId
         networkManager?.get(callBack: { [weak self] success, response, error in
             var users = [User]()
-            if let data = response as? Data, let parsedUsers = self?.getUsers(from: data) {
+            if success, let data = response as? Data, let parsedUsers = self?.getUsers(from: data) {
                 users = self?.sort(users: parsedUsers) ?? []
                 self?.saveLastId(from: users)
             }

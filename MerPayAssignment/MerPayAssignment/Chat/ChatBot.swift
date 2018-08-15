@@ -8,11 +8,8 @@
 
 import UIKit
 
-protocol ChatBotHandlerProtocol {
-    func saveMessage(for userName: String)
-    func getMessages(from userName: String) -> [MessagesModel]
-}
-
+/// This class will act as proxy over network
+/// The API calls for the chats will be redirected to the chat bot and chat bot will reply to the sender.
 class ChatBot: NetworkProtocol {
     var interactor : ChatsInteractorProtocol?
     

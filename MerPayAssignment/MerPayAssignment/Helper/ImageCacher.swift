@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+/// This class will save images in the core data to retrieve it afterwords
+// 
 class ImageCacher : NetworkManager {
     
     let queue = DispatchQueue.global(qos: .background)
@@ -20,32 +22,30 @@ class ImageCacher : NetworkManager {
     
     
     func get(from url: URL?, userName: String, callBack: ResponseCallBack?) {
-        queue.sync {
-            guard let url = url else {
-                getImage(for: userName, callBack: callBack)
-                return
-            }
-            
-            //First fetch cache
-            self.getImageFromCache(for: url) { [weak self] success, response in
-                if !success {
-                    //If not found in cache, fetch from server
-                    self?.getImageFromAPI(for: url, userName: userName, callBack: callBack)
-                } else if let profileData = response as? ProfileData {
-                    //If found in cache, check for validity.
-                    self?.checkValidity(of: profileData) { success, response in
-                        if !success {
-                            //if not valid, fetch image from server.
-                            self?.getImageFromAPI(for: url, userName: userName, callBack: callBack)
-                        } else {
-                            //if valid return fetched image.
-                            callBack?(success, response)
-                        }
+        guard let url = url else {
+            getImage(for: userName, callBack: callBack)
+            return
+        }
+        
+        //First fetch cache
+        self.getImageFromCache(for: url) { [weak self] success, response in
+            if !success {
+                //If not found in cache, fetch from server
+                self?.getImageFromAPI(for: url, userName: userName, callBack: callBack)
+            } else if let profileData = response as? ProfileData {
+                //If found in cache, check for validity.
+                self?.checkValidity(of: profileData) { success, response in
+                    if !success {
+                        //if not valid, fetch image from server.
+                        self?.getImageFromAPI(for: url, userName: userName, callBack: callBack)
+                    } else {
+                        //if valid return fetched image.
+                        callBack?(success, response)
                     }
-                } else {
-                    //Immposible condition.
-                    callBack?(success, response)
                 }
+            } else {
+                //Immposible condition.
+                callBack?(success, response)
             }
         }
     }
@@ -111,13 +111,14 @@ class ImageCacher : NetworkManager {
     }
     
     private func saveProfile(data: Data?, userName: String, response: HTTPURLResponse?) {
-        let context = CoreDataStack.shared.context
-        let profile = ProfileData(context: context)
-        profile.data = data as NSData?
-        profile.lastModified = response?.allHeaderFields["Last-Modified"] as? String
-        profile.url = response?.url?.absoluteString
-        profile.userName = userName
-        CoreDataStack.shared.save()
+        queue.sync {
+            let context = CoreDataStack.shared.context
+            let profile = ProfileData(context: context)
+            profile.data = data as NSData?
+            profile.lastModified = response?.allHeaderFields["Last-Modified"] as? String
+            profile.url = response?.url?.absoluteString
+            profile.userName = userName
+        }
     }
     
     func clear() {

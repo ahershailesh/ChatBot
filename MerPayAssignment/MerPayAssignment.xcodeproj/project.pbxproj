@@ -162,8 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				8A62D0D4211BEEC1001FAF99 /* AppDelegate.swift */,
-				8A073D442123769200BD4E0B /* ProfileData+CoreDataClass.swift */,
-				8A073D452123769200BD4E0B /* ProfileData+CoreDataProperties.swift */,
 				8AC31D89211F633A00D76B17 /* Chat */,
 				8A774054211F2EDC008D48EC /* Generic */,
 				8A774053211F2EC2008D48EC /* Resources */,
@@ -171,7 +169,6 @@
 				8AF21024211CE4BE00CF1458 /* UserListing */,
 				8A77404F211F2E95008D48EC /* LocalStorage.xcdatamodeld */,
 				8A62D0E0211BEEC5001FAF99 /* Info.plist */,
-				8A774059211F31D3008D48EC /* CoreDataStack.swift */,
 			);
 			path = MerPayAssignment;
 			sourceTree = "<group>";
@@ -210,7 +207,10 @@
 		8A774054211F2EDC008D48EC /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				8A073D442123769200BD4E0B /* ProfileData+CoreDataClass.swift */,
+				8A073D452123769200BD4E0B /* ProfileData+CoreDataProperties.swift */,
 				8AF2101C211CD6A600CF1458 /* LoadingCell.swift */,
+				8A774059211F31D3008D48EC /* CoreDataStack.swift */,
 				8AF2101D211CD6A600CF1458 /* LoadingCell.xib */,
 				8AF21020211CDCC500CF1458 /* NoResultCell.swift */,
 				8AF21021211CDCC500CF1458 /* NoResultCell.xib */,

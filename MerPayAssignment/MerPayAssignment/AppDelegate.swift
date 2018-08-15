@@ -20,5 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         return true
     }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        CoreDataStack.shared.save()
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        CoreDataStack.shared.save()
+    }
 }
 

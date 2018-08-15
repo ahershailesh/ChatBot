@@ -8,6 +8,7 @@
 
 import CoreData
 
+/// This class will save and manage chats to the coredata.
 class ChatCoreDataManager {
     
     let currentDate : Date

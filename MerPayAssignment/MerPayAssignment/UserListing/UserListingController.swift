@@ -12,6 +12,7 @@ enum UserTableViewStatus {
     case loading
     case listing
     case searching
+    case noData
 }
 
 enum UserListingSection : String {
@@ -36,7 +37,7 @@ class UserListingController: UIViewController {
     private var recentConversations : [UserInfoCellViewModel] = []
     private var otherConversations : [UserInfoCellViewModel] = []
     
-    private var status : UserTableViewStatus = .listing
+    private var status : UserTableViewStatus = .loading
     var presenter: UserListingPresenter?
     
     //MARK:- Init
@@ -60,10 +61,8 @@ class UserListingController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshData))
         
-//        headerView?.layer.borderWidth = 1
-//        headerView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
-        
         presenter?.getUserList(shouldRefresh: true)
+        status = .loading
         
         navigationController?.navigationBar.barTintColor = ColorHex.navigationBarColor.getColor()
         navigationController?.navigationBar.isTranslucent = false
@@ -109,29 +108,23 @@ extension UserListingController : UITableViewDataSource {
             return recentConversations.count
         }
         switch status {
-        case .loading: return 1
+        case .loading, .noData: return 1
         case .listing: return otherConversations.isEmpty ? 1 : otherConversations.count
         case .searching: return otherConversations.count + 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let listingSection = sectionOrder[indexPath.section]
+        if listingSection == .recent {
+            return  getUserCell(for: tableView, and: indexPath)
+        }
         switch status {
         case .loading: return getLoadingCell(for: tableView, and: indexPath)
         case .listing: return getUserCell(for: tableView, and: indexPath)
         case .searching: return getSearchingCell(for: tableView, and: indexPath)
+        case .noData: return getNoDataCell(for: tableView, and: indexPath)
         }
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionView = tableView.dequeueReusableHeaderFooterView(withIdentifier: HEADER_SECTION_IDENTIFIER)
-        sectionView?.textLabel?.text = sectionOrder[section].rawValue
-        sectionView?.backgroundColor = ColorHex.navigationBarColor.getColor()
-        return sectionView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
     }
     
     private func getLoadingCell(for tableView: UITableView, and indexPath: IndexPath) -> UITableViewCell {
@@ -180,7 +173,6 @@ extension UserListingController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if otherConversations.count - 5 == indexPath.row {
-//            status = .loading
             loadNextUsers()
         }
     }
@@ -214,8 +206,12 @@ extension UserListingController : UserListingViewProtocol {
             otherConversations = removeDuplicateUser(from: otherConversations)
         case .other:
             otherConversations = removeDuplicateUser(from: models)
+            if otherConversations.isEmpty {
+                status = .noData
+            } else {
+                status = .listing
+            }
         }
-        status = .listing
         DispatchQueue.main.async {
             self.tableView?.reloadData()
         }
