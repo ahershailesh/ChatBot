@@ -21,9 +21,7 @@ enum UserListingSection : String {
 
 class UserListingController: UIViewController {
     
-    @IBOutlet weak var actionButton: UIButton?
     @IBOutlet weak var titleLabel: UILabel?
-    @IBOutlet weak var searchBar: UITextField?
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var headerView: UIView?
     
@@ -53,12 +51,14 @@ class UserListingController: UIViewController {
     //MARK:- View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
         
         registerCells()
         tableView?.dataSource = self
         tableView?.delegate = self
         tableView?.separatorStyle = .singleLine
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshData))
         
         headerView?.layer.borderWidth = 1
         headerView?.layer.borderColor = ColorHex.lightGray.getColor().cgColor
@@ -70,7 +70,7 @@ class UserListingController: UIViewController {
         presentor?.getUserList(shouldRefresh: false)
     }
     
-    private func refreshData() {
+    @objc private func refreshData() {
         recentConversations = []
         otherConversations = []
         status = .loading
@@ -83,10 +83,6 @@ class UserListingController: UIViewController {
         tableView?.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: LOADING_CELL_INDETIFIER)
         tableView?.register(UINib(nibName: "NoResultCell", bundle: nil), forCellReuseIdentifier: NO_DATA_CELL_IDENTIFIER)
         tableView?.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HEADER_SECTION_IDENTIFIER)
-    }
-    
-    @IBAction func actionButtonTapped(_ sender: Any) {
-        refreshData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
