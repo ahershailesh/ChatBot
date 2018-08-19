@@ -10,12 +10,14 @@ import UIKit
 
 class UserDetailInfoCell: UITableViewCell {
 
+    //MARK:- IBOutlet
     @IBOutlet weak var profilePicView: UIView?
     @IBOutlet weak var userNameLabel: UILabel?
     @IBOutlet weak var detailLabel: UILabel?
     @IBOutlet weak var centerUserNameContraint: NSLayoutConstraint?
     @IBOutlet weak var topUserNameContraint: NSLayoutConstraint!
     
+    //MARK:- Public
     var model : UserInfoCellViewModel? = nil {
         didSet {
             userNameLabel?.text = "@" + (model?.userName ?? "")
@@ -28,23 +30,12 @@ class UserDetailInfoCell: UITableViewCell {
         }
     }
     
+    //MARK:- Lifecycle methods
     override func awakeFromNib() {
         super.awakeFromNib()
         profilePicView?.layer.masksToBounds = true
         profilePicView?.layer.cornerRadius = (profilePicView?.bounds.width ?? 0) / 2
         initialiseCell()
-    }
-    
-    func initialiseCell() {
-        detailLabel?.isHidden = true
-        setLabelToTop(false)
-        profilePicView?.removeAllSubviews()
-    }
-    
-    func setDetails(text: String) {
-        detailLabel?.text = text.isEmpty ? nil : text
-        detailLabel?.isHidden = text.isEmpty
-        setLabelToTop(!text.isEmpty)
     }
     
     override func prepareForReuse() {
@@ -53,6 +44,19 @@ class UserDetailInfoCell: UITableViewCell {
         userNameLabel?.text = nil
         profilePicView?.removeAllSubviews()
         initialiseCell()
+    }
+    
+    //MARK:- Private methods
+    private func initialiseCell() {
+        detailLabel?.isHidden = true
+        setLabelToTop(false)
+        profilePicView?.removeAllSubviews()
+    }
+    
+    private func setDetails(text: String) {
+        detailLabel?.text = text.isEmpty ? nil : text
+        detailLabel?.isHidden = text.isEmpty
+        setLabelToTop(!text.isEmpty)
     }
     
     private func setLabelToTop(_ bool: Bool) {

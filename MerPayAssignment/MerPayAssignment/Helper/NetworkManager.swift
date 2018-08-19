@@ -175,7 +175,7 @@ class NetworkManager : NetworkProtocol {
         }
     }
     
-    private func showError(error : Error?) {
+    func showError(error : Error?) {
         (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController?.show(error: error)
     }
 }

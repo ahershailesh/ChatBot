@@ -6,7 +6,7 @@
 //  Copyright © 2018 Shailesh Aher. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// Intermediator between ChatViewController and ChatInteractor
 /// Primary responsibility of the class is to convert modal objects to view modal objects.

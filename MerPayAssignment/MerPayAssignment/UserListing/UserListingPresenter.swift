@@ -17,6 +17,7 @@ class UserListingPresenter : UserListingPresenterProtocol {
     var router: UserListingRouter?
    
     //MARK:- Public functions
+    //MARK: User Listing functionality.
     func show(users: [User]) {
         let models = users.map { (user) -> UserInfoCellViewModel in
             return getUserCellViewModel(from: user)
@@ -35,6 +36,20 @@ class UserListingPresenter : UserListingPresenterProtocol {
         loadConversations()
     }
     
+    func getUserList(shouldRefresh: Bool) {
+        interactor?.getUserList(shouldRefresh: shouldRefresh)
+    }
+    
+    //MARK: Search functionality.
+    func getSearchedUserList(for searchText: String) {
+        
+    }
+    
+    func getNextSearchedUserList(for searchText: String) {
+        
+    }
+    
+    //MARK:- Private mathods
     private func loadConversations() {
         let models = getConversations()
         view?.show(models: models, for: .recent)
@@ -71,17 +86,5 @@ class UserListingPresenter : UserListingPresenterProtocol {
         headerViewModel.subTitleText = selected.lastChatTime
         headerViewModel.titleText = selected.userName
         router?.pushChatController(over: controller, for: headerViewModel)
-    }
-    
-    func getUserList(shouldRefresh: Bool) {
-        interactor?.getUserList(shouldRefresh: shouldRefresh)
-    }
-   
-    func getSearchedUserList(for searchText: String) {
-        
-    }
-    
-    func getNextSearchedUserList(for searchText: String) {
-        
     }
 }

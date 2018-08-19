@@ -6,7 +6,7 @@
 //  Copyright © 2018 Shailesh Aher. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class UserInfoCellViewModel: NSObject {
     var userName            :   String?

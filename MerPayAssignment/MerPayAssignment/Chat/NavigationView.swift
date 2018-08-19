@@ -12,13 +12,13 @@ import UIKit
 class NavigationView: UIView {
     
     //MARK:- Vars
-    //MARK: Private
+    //MARK:- Private
     private var profilePicView: UIView?
     private var titleLabel: UILabel?
     private var subTitleLabel: UILabel?
     private let widthHeight = 34
     
-    //MARK: Public
+    //MARK:- Public
     var model : HeaderViewModel? {
         didSet {
             titleLabel?.text = "@" + (model?.titleText ?? "")
@@ -31,7 +31,8 @@ class NavigationView: UIView {
         }
     }
     
-    //MARK: Init Methods
+    //MARK:- Methods
+    //MARK:- Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -42,12 +43,7 @@ class NavigationView: UIView {
         setupView()
     }
     
-    //MARK:- Public
-    func setSubtitle(text: String) {
-        subTitleLabel?.text = text
-    }
-    
-    //MARK: Private methods
+    //MARK:- Private
     private func setupView() {
         profilePicView = UIView(frame: .zero)
         titleLabel = UILabel(frame: .zero)
@@ -97,6 +93,11 @@ class NavigationView: UIView {
         self.addConstraints(constraints)
         
         layoutIfNeeded()
+    }
+    
+    //MARK:- Public
+    func setSubtitle(text: String) {
+        subTitleLabel?.text = text
     }
     
 }

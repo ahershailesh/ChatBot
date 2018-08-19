@@ -22,11 +22,13 @@ enum UserListingSection : String {
 
 class UserListingController: UIViewController {
     
+    //MARK:- Vars
+    //MARK:- IBOutlet
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var headerView: UIView?
     
-    //Constants
+    //MARK:- Constants
     private let USER_INFO_CELL_IDENTIFIER = "UserDetailInfoCell"
     private let LOADING_CELL_INDETIFIER = "LoadingCell"
     private let NO_DATA_CELL_IDENTIFIER = "NoResultCell"
@@ -40,6 +42,7 @@ class UserListingController: UIViewController {
     private var status : UserTableViewStatus = .loading
     var presenter: UserListingPresenter?
     
+    //MARK:- Methods
     //MARK:- Init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
@@ -70,6 +73,7 @@ class UserListingController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
+    //MARK:- Private
     private func loadNextUsers() {
         presenter?.getUserList(shouldRefresh: false)
     }
@@ -191,7 +195,8 @@ extension UserListingController : UserListingViewProtocol {
                 indexPaths.append(IndexPath(row: index, section: section))
             }
             DispatchQueue.main.async {
-                self.tableView?.insertRows(at: indexPaths, with: .fade)
+                self.tableView?.insertRows(at: indexPaths, with: .none)
+                self.tableView?.setContentOffset(self.tableView!.contentOffset, animated: false)
             }
         }
     }

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Shailesh Aher. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// View Model for the chat view controller.
 /// This will combine messages of the day

@@ -6,13 +6,14 @@
 //  Copyright © 2018 Shailesh Aher. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// This class will act as proxy over network.
 /// The API calls for the chats will be redirected to the chatbot and chatbot will reply to the sender.
 class ChatBot: NetworkProtocol {
     var interactor : ChatsInteractorProtocol?
     
+    //MARK:- Mocking functions
     func get(url: String?, pathParam: [String]?, queryParam: [String : String]?, headers: [String : String]?, callBack: NetworkCallBack?) {
         callBack?(true,  nil, nil)
     }

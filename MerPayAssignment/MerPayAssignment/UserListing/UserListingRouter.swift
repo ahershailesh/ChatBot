@@ -10,6 +10,7 @@ import UIKit
 
 class UserListingRouter : UserListingRouterProtocol {
 
+    //MARK:- User listing.
     class func getUserListingController() -> UserListingController {
         let controller = UserListingController(nibName: nil, bundle: nil)
         let interactor = UserListingInteractor()
@@ -23,6 +24,7 @@ class UserListingRouter : UserListingRouterProtocol {
         return controller
     }
     
+    //MARK:- Chat controller
     func pushChatController(over controller: UINavigationController, for model: HeaderViewModel) {
         let chatController = ChatsViewController(nibName: nil, bundle: nil)
         chatController.headerViewModel = model

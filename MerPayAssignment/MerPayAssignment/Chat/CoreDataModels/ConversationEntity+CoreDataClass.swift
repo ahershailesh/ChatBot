@@ -7,7 +7,6 @@
 //
 //
 
-import Foundation
 import CoreData
 
 @objc(ConversationEntity)
@@ -17,10 +16,13 @@ import CoreData
 
 public class ConversationEntity: NSManagedObject {
     
-    
+    //MARK:- Vars
+    //MARK:- Private
     /// this array stores sorted message archieves.
     private var _messageArchieveArray : [MessageArchieveEntity]? = nil
     private var _currentArchieve : MessageArchieveEntity?
+    
+    //MARK:- Public
     var currentArchieve : MessageArchieveEntity {
         if _currentArchieve == nil {
             if let archieve = getCurrentArchive() {
@@ -43,11 +45,14 @@ public class ConversationEntity: NSManagedObject {
         return _messageArchieveArray!
     }
     
+    //MARK:- Methods
+    //MARK:- Private
     private func sort(entites : NSSet) -> [MessageArchieveEntity] {
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
         return (entites.sortedArray(using: [sortDescriptor]) as? [MessageArchieveEntity]) ?? []
     }
     
+    //MARK:- Public
     func getMessageEntity(at index: Int) -> MessageArchieveEntity {
         return messageArchieveArray[index]
     }

@@ -162,11 +162,11 @@
 			isa = PBXGroup;
 			children = (
 				8A62D0D4211BEEC1001FAF99 /* AppDelegate.swift */,
+				8AF21024211CE4BE00CF1458 /* UserListing */,
 				8AC31D89211F633A00D76B17 /* Chat */,
 				8A774054211F2EDC008D48EC /* Generic */,
 				8A774053211F2EC2008D48EC /* Resources */,
 				8A774052211F2EA1008D48EC /* Helper */,
-				8AF21024211CE4BE00CF1458 /* UserListing */,
 				8A77404F211F2E95008D48EC /* LocalStorage.xcdatamodeld */,
 				8A62D0E0211BEEC5001FAF99 /* Info.plist */,
 			);

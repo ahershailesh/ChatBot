@@ -17,11 +17,13 @@ enum MessageAlignment {
 /// This will handle both sent and recieve message display, you just need to configure type in MessageViewModel.
 class MessageTableViewCell: UITableViewCell {
 
-    //MARK:- Private Variables
+    //MARK:- Variables
+    //MARK:- Private
     private var messageLabel    : UILabel?
     private var messageView     : UIImageView?
     private var timeLabel       : UILabel?
     
+    //MARK: Constraint
     private var leftContraint : NSLayoutConstraint?
     private var rightContraint : NSLayoutConstraint?
     private var messageType : MessageType = .sent {
@@ -30,7 +32,7 @@ class MessageTableViewCell: UITableViewCell {
         }
     }
     
-    //MARK:- Public Variables
+    //MARK:- Public
     var messageViewModel : MessageViewModel? {
         didSet {
             guard let model = messageViewModel else {  return  }
@@ -40,6 +42,7 @@ class MessageTableViewCell: UITableViewCell {
         }
     }
     
+    //MARK:- Methods
     //MARK:- Initialization
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -58,7 +61,8 @@ class MessageTableViewCell: UITableViewCell {
     }
     
     
-    //MARK:- Private methods - setup
+    //MARK:- Private
+    //MARK: setup
     private func setupView() {
         messageLabel = UILabel(frame: .zero)
         messageView = UIImageView(frame: .zero)

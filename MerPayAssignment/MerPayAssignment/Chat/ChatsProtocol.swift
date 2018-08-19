@@ -6,7 +6,7 @@
 //  Copyright © 2018 Shailesh Aher. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 // This class contains all protocols needed to be implemented by Chat module.
 // According to VIPER the responsibility is been devided among the classes.

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Shailesh Aher. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// This is the view model class to define header view elements
 class HeaderViewModel: NSObject {
