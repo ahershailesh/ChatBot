@@ -1,15 +1,15 @@
 //
-//  MerPayAssignmentTests.swift
-//  MerPayAssignmentTests
+//  ChatBotTests.swift
+//  ChatBotTests
 //
 //  Created by Shailesh Aher on 8/9/18.
 //  Copyright © 2018 Shailesh Aher. All rights reserved.
 //
 
 import XCTest
-@testable import MerPayAssignment
+@testable import ChatBot
 
-class MerPayAssignmentTests: XCTestCase {
+class ChatBotTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

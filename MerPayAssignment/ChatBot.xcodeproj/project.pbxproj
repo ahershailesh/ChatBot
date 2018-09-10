@@ -17,7 +17,7 @@
 		8A62D0D5211BEEC1001FAF99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D0D4211BEEC1001FAF99 /* AppDelegate.swift */; };
 		8A62D0DC211BEEC5001FAF99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A62D0DB211BEEC5001FAF99 /* Assets.xcassets */; };
 		8A62D0DF211BEEC5001FAF99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A62D0DD211BEEC5001FAF99 /* LaunchScreen.storyboard */; };
-		8A62D0EA211BEEC5001FAF99 /* MerPayAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D0E9211BEEC5001FAF99 /* MerPayAssignmentTests.swift */; };
+		8A62D0EA211BEEC5001FAF99 /* ChatBotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D0E9211BEEC5001FAF99 /* ChatBotTests.swift */; };
 		8A650E5121238A3A00FCD8E9 /* ConversationEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A650E4F21238A3A00FCD8E9 /* ConversationEntity+CoreDataClass.swift */; };
 		8A650E5221238A3A00FCD8E9 /* ConversationEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A650E5021238A3A00FCD8E9 /* ConversationEntity+CoreDataProperties.swift */; };
 		8A774051211F2E95008D48EC /* LocalStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A77404F211F2E95008D48EC /* LocalStorage.xcdatamodeld */; };
@@ -75,13 +75,13 @@
 		8A40B032211E6BB2005EC648 /* ImageCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		8A40B034211E7598005EC648 /* AllExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExtension.swift; sourceTree = "<group>"; };
 		8A40B036211E79F4005EC648 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
-		8A62D0D1211BEEC1001FAF99 /* MerPayAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MerPayAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A62D0D1211BEEC1001FAF99 /* ChatBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A62D0D4211BEEC1001FAF99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A62D0DB211BEEC5001FAF99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A62D0DE211BEEC5001FAF99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A62D0E0211BEEC5001FAF99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A62D0E5211BEEC5001FAF99 /* MerPayAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MerPayAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A62D0E9211BEEC5001FAF99 /* MerPayAssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerPayAssignmentTests.swift; sourceTree = "<group>"; };
+		8A62D0E5211BEEC5001FAF99 /* ChatBotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatBotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A62D0E9211BEEC5001FAF99 /* ChatBotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotTests.swift; sourceTree = "<group>"; };
 		8A62D0EB211BEEC5001FAF99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A650E4F21238A3A00FCD8E9 /* ConversationEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConversationEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8A650E5021238A3A00FCD8E9 /* ConversationEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConversationEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -143,8 +143,8 @@
 		8A62D0C8211BEEC1001FAF99 = {
 			isa = PBXGroup;
 			children = (
-				8A62D0D3211BEEC1001FAF99 /* MerPayAssignment */,
-				8A62D0E8211BEEC5001FAF99 /* MerPayAssignmentTests */,
+				8A62D0D3211BEEC1001FAF99 /* ChatBot */,
+				8A62D0E8211BEEC5001FAF99 /* ChatBotTests */,
 				8A62D0D2211BEEC1001FAF99 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -152,13 +152,13 @@
 		8A62D0D2211BEEC1001FAF99 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A62D0D1211BEEC1001FAF99 /* MerPayAssignment.app */,
-				8A62D0E5211BEEC5001FAF99 /* MerPayAssignmentTests.xctest */,
+				8A62D0D1211BEEC1001FAF99 /* ChatBot.app */,
+				8A62D0E5211BEEC5001FAF99 /* ChatBotTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8A62D0D3211BEEC1001FAF99 /* MerPayAssignment */ = {
+		8A62D0D3211BEEC1001FAF99 /* ChatBot */ = {
 			isa = PBXGroup;
 			children = (
 				8A62D0D4211BEEC1001FAF99 /* AppDelegate.swift */,
@@ -170,17 +170,18 @@
 				8A77404F211F2E95008D48EC /* LocalStorage.xcdatamodeld */,
 				8A62D0E0211BEEC5001FAF99 /* Info.plist */,
 			);
+			name = ChatBot;
 			path = MerPayAssignment;
 			sourceTree = "<group>";
 		};
-		8A62D0E8211BEEC5001FAF99 /* MerPayAssignmentTests */ = {
+		8A62D0E8211BEEC5001FAF99 /* ChatBotTests */ = {
 			isa = PBXGroup;
 			children = (
-				8A62D0E9211BEEC5001FAF99 /* MerPayAssignmentTests.swift */,
+				8A62D0E9211BEEC5001FAF99 /* ChatBotTests.swift */,
 				8AF21035211E082900CF1458 /* NetworkTest.swift */,
 				8A62D0EB211BEEC5001FAF99 /* Info.plist */,
 			);
-			path = MerPayAssignmentTests;
+			path = ChatBotTests;
 			sourceTree = "<group>";
 		};
 		8A774052211F2EA1008D48EC /* Helper */ = {
@@ -281,9 +282,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8A62D0D0211BEEC1001FAF99 /* MerPayAssignment */ = {
+		8A62D0D0211BEEC1001FAF99 /* ChatBot */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A62D0EE211BEEC5001FAF99 /* Build configuration list for PBXNativeTarget "MerPayAssignment" */;
+			buildConfigurationList = 8A62D0EE211BEEC5001FAF99 /* Build configuration list for PBXNativeTarget "ChatBot" */;
 			buildPhases = (
 				8A62D0CD211BEEC1001FAF99 /* Sources */,
 				8A62D0CE211BEEC1001FAF99 /* Frameworks */,
@@ -293,14 +294,14 @@
 			);
 			dependencies = (
 			);
-			name = MerPayAssignment;
+			name = ChatBot;
 			productName = MerPayAssignment;
-			productReference = 8A62D0D1211BEEC1001FAF99 /* MerPayAssignment.app */;
+			productReference = 8A62D0D1211BEEC1001FAF99 /* ChatBot.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8A62D0E4211BEEC5001FAF99 /* MerPayAssignmentTests */ = {
+		8A62D0E4211BEEC5001FAF99 /* ChatBotTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A62D0F1211BEEC5001FAF99 /* Build configuration list for PBXNativeTarget "MerPayAssignmentTests" */;
+			buildConfigurationList = 8A62D0F1211BEEC5001FAF99 /* Build configuration list for PBXNativeTarget "ChatBotTests" */;
 			buildPhases = (
 				8A62D0E1211BEEC5001FAF99 /* Sources */,
 				8A62D0E2211BEEC5001FAF99 /* Frameworks */,
@@ -311,9 +312,9 @@
 			dependencies = (
 				8A62D0E7211BEEC5001FAF99 /* PBXTargetDependency */,
 			);
-			name = MerPayAssignmentTests;
+			name = ChatBotTests;
 			productName = MerPayAssignmentTests;
-			productReference = 8A62D0E5211BEEC5001FAF99 /* MerPayAssignmentTests.xctest */;
+			productReference = 8A62D0E5211BEEC5001FAF99 /* ChatBotTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -335,7 +336,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8A62D0CC211BEEC1001FAF99 /* Build configuration list for PBXProject "MerPayAssignment" */;
+			buildConfigurationList = 8A62D0CC211BEEC1001FAF99 /* Build configuration list for PBXProject "ChatBot" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -348,8 +349,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8A62D0D0211BEEC1001FAF99 /* MerPayAssignment */,
-				8A62D0E4211BEEC5001FAF99 /* MerPayAssignmentTests */,
+				8A62D0D0211BEEC1001FAF99 /* ChatBot */,
+				8A62D0E4211BEEC5001FAF99 /* ChatBotTests */,
 			);
 		};
 /* End PBXProject section */
@@ -430,7 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AF21036211E082900CF1458 /* NetworkTest.swift in Sources */,
-				8A62D0EA211BEEC5001FAF99 /* MerPayAssignmentTests.swift in Sources */,
+				8A62D0EA211BEEC5001FAF99 /* ChatBotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +440,7 @@
 /* Begin PBXTargetDependency section */
 		8A62D0E7211BEEC5001FAF99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8A62D0D0211BEEC1001FAF99 /* MerPayAssignment */;
+			target = 8A62D0D0211BEEC1001FAF99 /* ChatBot */;
 			targetProxy = 8A62D0E6211BEEC5001FAF99 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -624,7 +625,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MerPayAssignment.app/MerPayAssignment";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatBot.app/ChatBot";
 			};
 			name = Debug;
 		};
@@ -644,14 +645,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MerPayAssignment.app/MerPayAssignment";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatBot.app/ChatBot";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A62D0CC211BEEC1001FAF99 /* Build configuration list for PBXProject "MerPayAssignment" */ = {
+		8A62D0CC211BEEC1001FAF99 /* Build configuration list for PBXProject "ChatBot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A62D0EC211BEEC5001FAF99 /* Debug */,
@@ -660,7 +661,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A62D0EE211BEEC5001FAF99 /* Build configuration list for PBXNativeTarget "MerPayAssignment" */ = {
+		8A62D0EE211BEEC5001FAF99 /* Build configuration list for PBXNativeTarget "ChatBot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A62D0EF211BEEC5001FAF99 /* Debug */,
@@ -669,7 +670,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A62D0F1211BEEC5001FAF99 /* Build configuration list for PBXNativeTarget "MerPayAssignmentTests" */ = {
+		8A62D0F1211BEEC5001FAF99 /* Build configuration list for PBXNativeTarget "ChatBotTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A62D0F2211BEEC5001FAF99 /* Debug */,

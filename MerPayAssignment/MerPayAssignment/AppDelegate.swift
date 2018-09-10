@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MerPayAssignment
+//  ChatBot
 //
 //  Created by Shailesh Aher on 8/9/18.
 //  Copyright © 2018 Shailesh Aher. All rights reserved.

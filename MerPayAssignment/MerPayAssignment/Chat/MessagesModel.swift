@@ -1,6 +1,6 @@
 //
 //  MessagesModel.swift
-//  MerPayAssignment
+//  ChatBot
 //
 //  Created by Shailesh Aher on 8/12/18.
 //  Copyright © 2018 Shailesh Aher. All rights reserved.

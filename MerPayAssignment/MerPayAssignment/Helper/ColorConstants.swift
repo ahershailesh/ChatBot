@@ -1,6 +1,6 @@
 //
 //  ColorConstants.swift
-//  MerPayAssignment
+//  ChatBot
 //
 //  Created by Shailesh Aher on 8/11/18.
 //  Copyright © 2018 Shailesh Aher. All rights reserved.

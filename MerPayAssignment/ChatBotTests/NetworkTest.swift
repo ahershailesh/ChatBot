@@ -1,13 +1,13 @@
 //
 //  NetworkTest.swift
-//  MerPayAssignmentTests
+//  ChatBotTests
 //
 //  Created by Shailesh Aher on 8/10/18.
 //  Copyright © 2018 Shailesh Aher. All rights reserved.
 //
 
 import XCTest
-@testable import MerPayAssignment
+@testable import ChatBot
 
 class MockNetworkService : NetworkSessionProtocol {
     func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Swift.Void) -> URLSessionDataTask {
