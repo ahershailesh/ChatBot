@@ -1,4 +1,4 @@
-# MerPay Assignment
+# ChatBot
 
 ## Problem Statement
 
@@ -19,14 +19,6 @@ Using one of the two hypothetical scenarios below, please write a simple GitHub 
 4. Users are sorted by recent chats.
 5. Chatting data is saved across application launches.
 6. Image caching is implemented for the user profile picture.
-
-#### Chosen Scenario
-
-B. Design and implement an app as a long term project
-You are tech-lead of an iOS team with 5 members, who is planning on developing a new iOS app. It will be a long term project, with both development and maintenance being handled within the team. Before starting development with your team members, you are going to design the app and as the tech lead, implement the main fundamental functionalities.
-
-#### Why I chose it
-I find myself capable enough to manage a product starting from scratch and marinating it for long time. I can design and develop an application foundation fairly by considering long term on going process of application development.
 
 ## App Architecture
 I used VIPER architecture to support main functionalities.
